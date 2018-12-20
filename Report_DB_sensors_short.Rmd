@@ -1,0 +1,2146 @@
+---
+title: "Review of Sensors for Air Quality"
+author:
+- Federico Karagulian, Michel Gerboles, Annette Borowiak
+date: "last update `r format(Sys.time(), '%d %B %Y, %H:%M')`"
+output:
+  word_document: 
+    reference_docx: word_style_FK.docx
+  pdf_document: default
+  html_document: default
+  number_sections: true
+  bookdown::word_document: default
+
+bibliography: [Field_Validation_FK.bib, MyPubblications.bib, Diffusion.bib, MACPoll.bib]
+csl: nature.csl
+link-citations: yes
+header-includes:
+  - \usepackage{xcolor}
+  - \usepackage{framed}
+
+## install.packages("citr") ## to insert citations from the Addins
+---
+
+
+---
+nocite: | 
+ @european_commission_guide_2010, @ec_directive_2008, @spinelle_report_2013, @spinelle_report_2013-1, @aq-spec_air_2015,
+ @williams_evaluation_2014, @feinberg_long-term_2018, @mukherjee_assessing_2017, @sousan_evaluation_2016, @crilley_evaluation_2018,      @borrego_assessment_2016, @united_states_environmental_protection_agency_evaluation_2015, @jiao_community_2016, @manikonda_laboratory_2016,  @sousan_inter-comparison_2016, @northcross_low-cost_2013, @holstius_field_2014, @steinle_personal_2015, @han_feasibility_2017, @jovasevic-stojanovic_use_2015-1, @dacunto_determining_2015, @borghi_precision_2018, @sun_development_2016, @cavaliere_development_2018, @castell_can_2017, @spinelle_performance_2015, @spinelle_field_2015, @spinelle_field_nodate, @williams_sensor_2014, @zimmerman_machine_2018, @watercare_aeroqual_2014, @vaughn_characterization_2010, @sun_development_2017, @lin_evaluation_2015, @karagulian_evaluation_2012, @zheng_field_2018, @duvall_performance_2016, @mijling_practical_2017, @mead_use_2013, @wang_laboratory_2015, @cross_use_2017, @cordero_using_2018, @mueller_design_2017, @alvarado_towards_2015, @olivares_outdoor_2015, @austin_laboratory_2015, @gao_distributed_2015, @kelly_ambient_2017, @zikova_estimating_2017,  @viana_field_2015, @piedrahita_next_2014, @wei_impact_2018, @gerboles_airsenseur_2015, @chakrabarti_performance_2004, @laquai_particle_2017, @budde_suitability_2018, @badura_optical_2018, @pillarisetti_small_2017, @gillooly_development_2019, @gerboles_calibration_2018, @spinelle_evaluation_2016, @kunak_wireless_2017, @bettair_bettair_2017, @popoola_development_2016
+...
+
+\newline
+
+## 1. Introduction
+The introduction and diffusion of sensors technology to monitor concentration of pollutants in ambient air is contributing to a rapid development of sensors for air quality. Modern sensors only consist of a small number of sensor model types that are manufactured by a few companies, usually known as Original Equipment Manufacturers (OEM). OEMs use chemical and physical techniques to determine pollutant levels in ambient air. However, in order to simplify measurement, calibration and data transfer into a convenient sensor object, OEMs need be integrated into a sensor system (SS), consisting of electronic boards, software and protective box gathering the hardware and OEM sensors. 
+
+All [@european_commission_guide_2010; @ec_directive_2008; @spinelle_report_2013; @spinelle_report_2013-1; @aq-spec_air_2015;
+ @williams_evaluation_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018;      @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @jiao_community_2016; @manikonda_laboratory_2016;  @sousan_inter-comparison_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015-1; @dacunto_determining_2015; @borghi_precision_2018; @sun_development_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_performance_2015; @spinelle_field_2015; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @watercare_aeroqual_2014; @vaughn_characterization_2010; @sun_development_2017; @lin_evaluation_2015; @karagulian_evaluation_2012; @zheng_field_2018; @duvall_performance_2016; @mijling_practical_2017; @mead_use_2013; @wang_laboratory_2015; @cross_use_2017; @cordero_using_2018; @mueller_design_2017; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017;  @viana_field_2015; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @gerboles_calibration_2018; @spinelle_evaluation_2016; @kunak_wireless_2017; @bettair_bettair_2017; @popoola_development_2016]
+
+
+The use of low-cost sensors is widely interesting citizen-science initiative. Therefore, Small Medium Enterprises were able to sell sensor-systems which could be deployed by common citizen who wanted to monitor air quality in a chosen environment. At the date, there are several sensor systems using sensors from the same OEM. However, outputs from these sensors system often differ from each other. The reliability of OEMs and sensor systems is evaluated upon comparison with a reference system measuring concentration of pollutants according to the requirements of European Guide to the demonstration of equivalence of ambient air monitoring methods[@european_commission_guide_2010].  
+
+The purpose of this review is to identify which is the sensor system whose comparison with the reference measurements shows the best correlation and accuracy. For this purpose, we performed a comprehensive  review about the performance of commercial OEMs and sensor systems. We have evaluated summary statistics about the agreement between sensors and reference instruments. Parameters such as, the coefficient of determination $R^{2}$, slope and intercept were scrutinized  and analyzed to identify sensors that could potentially be complementary to the traditional  air quality monitoring performed with according to the Air Quality Directive [@ec_directive_2008]. 
+
+
+According to the Directive, a sensor system can be considered "Equivalent" when it meets the Data Quality Objectives (DQOs) set for data capture and uncertainty [@spinelle_report_2013; @spinelle_report_2013-1].In order for sensor system measurement to be incorporated into the legal framework set by the Air Quality Directive in Europe, they shall satisfy one of the data quality objectives (DQOs) of the Directive. DQOs, defined as the maximum allowed relative uncertainty, are defined either for reference and indicative measurements or for objective estimations. For inorganic gaseous pollutants, they correspond to 15, 25 to 30 and 75 %, respectively. Although, the objective of sensor systems is to provide the most accurate air pollution measurements, it is most likely that the DQO for reference measurements is out reach while it is believed that by improving the sensor calibration procedures the DQO of "Indicative Measurements" could be met at fixed monitoring sites.
+
+Unfortunately, it was found little to no publication that reports sensor measurement uncertainty. Conversely, we have to rely on most common metrics, i. e. the coefficient of determination, $R^{2}$, the slope and intercept of linear regression line between sensor and reference measurement and in few cases the Root Mean Square of Error $(RMSE)$.
+
+The goal of this work is to identify a sensor system showing good comparison with a reference system that could be calibrated using an open source software and, that could measure multiple air pollutants. The price of a low cost-sensor was also taken into account being justified by the necessity of having several OEM sensor components connected to an unique sensor system for the measurements of multiple air pollutants.
+
+
+\newline
+
+
+```{r , echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+library(readxl)
+library(dplyr)
+library(lubridate)
+library(tidyr)
+library(readr)
+library(stringr)
+library(tools)
+library(ggplot2)
+library(xtable)
+library(pander)
+library(formattable)
+library(rmarkdown)
+library(knitr)
+library(kableExtra)
+library(forcats)
+library(bookdown)
+
+# Set global options
+# options(stringsAsFactors = TRUE)
+# no scientific format
+# options(scipen=999)
+
+setwd("L:/ERLAP/Diffusion/AQSens/Deliverables/2.1 review")
+# setwd("C:/JRC_CA/AA AQSens")
+
+# import DB data
+
+DB <- readxl::read_excel("DB_sensor_types.xlsx",
+                                sheet = 1)
+
+# read bibliography sheet from the DB
+DB_bib <- readxl::read_excel("DB_sensor_types.xlsx",
+                                sheet = 4)
+
+# assign an ID to references (mantain the same order as in the DB)
+# DB$ID_reference <- as.numeric(as.factor(DB$reference))
+DB_bib$ID_reference <- as.numeric(factor(DB_bib$reference, levels = unique(DB_bib$reference)))
+
+# UNIQUE LIST of REFERENCES TO BE INSERTED IN THE SAME ORDER!!!!!
+list_DB_bib <-  DB_bib[!duplicated(DB_bib[c("ID_reference")]),] 
+
+# merge DB with DB_bib
+DB$ID_ref <- data.frame(DB_bib[match(DB$reference, table = DB_bib$reference), "ID_reference"])
+
+DB <- DB %>%
+  mutate(time_AVG = paste(`Averaging time`, `units (avg_time)`))
+
+DB <- as.matrix(DB)
+DB <- as.data.frame(DB)
+
+# data cleaning
+headers <- names(DB)
+headers <- str_replace_all(headers, "\\.|\\(|\\)", "")
+headers <- make.names(headers, unique = TRUE)
+headers <- str_replace_all(headers, "\\.", "_")
+headers <- str_to_lower(headers)
+
+# Give table headers
+names(DB) <- headers
+
+write.csv(DB, "DB.csv")
+DB <- read.csv("DB.csv", header = TRUE)
+
+# remove rows with NA
+DB <- DB[!(is.na(DB$model)), ]
+
+# remove columns with NA from the first column
+# DB <- DB[colSums(!is.na(DB)) > 0]
+
+
+names(DB)[names(DB)=="oem___sensor_system1"] <- "OEM_system"
+names(DB)[names(DB)=="typeopc__nephelometer__electrochemical__metal_oxide"] <- "type_sensor"
+names(DB)[names(DB)=="open_source_correction_or_black_box_"] <- "open_close"
+
+# select only few field of interest
+DB <- DB %>%
+  select(manufacturer,
+         project,
+         model,
+         pollutant,
+         sensor_result_unit,
+         OEM_system,
+         open_close,
+         field___lab,
+         time_avg,
+         r2,
+         r2_calib,
+         rmse,
+         intercept,
+         slope,
+         reference,
+         type_sensor,
+         model_type_calibration,
+         x, y,
+         price,
+         living,
+         currency,
+         id_ref)
+
+
+# for now filter out the pollutant "NO"
+# DB <- DB %>%
+#   filter(!pollutant == "NO")
+
+
+# replace "sensor system" with SS
+levels(DB$OEM_system) <- gsub("^sensor system$","SS", levels(DB$OEM_system))
+
+# count Sensor/Sensors system Manufacturer, projects, model, references
+n_DB_length <- nrow(DB) # n.records
+n_manufacturer_count <- count(DB[!duplicated(DB[c("manufacturer")]),]) # n. manufacturers
+n_projects_count <- count(DB[!duplicated(DB[c("project")]),]) # n. projects
+n_model_count <- count(DB[!duplicated(DB[c("model")]),])
+n_references <- count(DB[!duplicated(DB[c("reference")]),]) # n. sources
+n_system <- count(DB[!duplicated(DB[c("OEM_system")]),])
+
+
+# select only sensors that have not been discontinued
+DB <- DB %>%
+  filter(living %in% c("Y", "updated"))
+
+# check how many records for different time averages (CALIBRATION)
+time_AVG_calib <- DB %>%
+  group_by(time_avg,
+           OEM_system) %>%
+  filter(!is.na(r2_calib)) %>%
+   summarise(counts = length(time_avg))
+AVG_1_hour_calib_OEM <- time_AVG_calib$counts[1]
+AVG_1_hour_calib_SS <- time_AVG_calib$counts[2]
+AVG_1_hour_calib <- AVG_1_hour_calib_OEM + AVG_1_hour_calib_SS
+AVG_1_min_calib_OEM <- time_AVG_calib$counts[3]
+AVG_1_min_calib_SS <- time_AVG_calib$counts[4]
+AVG_1_min_calib <- AVG_1_min_calib_OEM + AVG_1_min_calib_SS
+AVG_calib_OEM <- AVG_1_hour_calib_OEM + AVG_1_min_calib_OEM
+AVG_calib_SS <- AVG_1_hour_calib_SS + AVG_1_min_calib_SS
+
+
+# check how many records for different time averages (COMPARISON)
+time_AVG_comp <- DB %>%
+  group_by(time_avg,
+           OEM_system) %>%
+  filter(!is.na(r2)) %>%
+   summarise(counts = length(time_avg))
+AVG_1_hour_comp_OEM <- time_AVG_comp$counts[1]
+AVG_1_hour_comp_SS <- time_AVG_comp$counts[2]
+AVG_1_hour_comp <- AVG_1_hour_comp_OEM + AVG_1_hour_comp_SS
+AVG_1_min_comp_OEM <- time_AVG_comp$counts[3]
+AVG_1_min_comp_SS <- time_AVG_comp$counts[4]
+AVG_1_min_comp <- AVG_1_min_comp_OEM + AVG_1_min_comp_SS
+AVG_comp_OEM <- AVG_1_hour_comp_OEM + AVG_1_min_comp_OEM
+AVG_comp_SS <- AVG_1_hour_comp_SS + AVG_1_min_comp_SS
+
+
+n_DB_length_living <- nrow(DB) # n.records of living sensors
+
+# counts OEM/ sensor systems
+# count_OEM_systems <- DB %>%
+#   group_by(OEM_system) %>%
+#   summarise(counts = length(OEM_system))
+
+
+count_OEM_systems <- DB %>%
+  group_by(OEM_system) %>%
+  summarise(counts = length(OEM_system),
+            references = paste(unique(id_ref), collapse=","))
+
+
+# counts Open Source or black box
+DB_open_model <- DB[!(is.na(DB$model)), ]
+count_open_source_systems <- DB %>%
+  group_by(open_close) %>%
+  summarise(counts = length(open_close))
+
+open_source <- count_open_source_systems$counts[1]
+black_box <- count_open_source_systems$counts[2]
+
+# only select open source sensors
+# DB <- DB %>%
+#   filter(open_close == "open source")
+
+OEM <- count_OEM_systems$counts[1]
+SS <- count_OEM_systems$counts[2]
+
+
+# counts LAB/FIELD tests
+count_tests <- DB %>%
+  group_by(field___lab) %>%
+  summarise(counts = length(field___lab))
+
+field_tests <- count_tests$counts[1]
+lab_tests <- count_tests$counts[2]
+
+###########################
+## Particulate Matter #####
+###########################
+
+# count sensor types
+PM_sensors_counts <- DB %>%
+  filter(pollutant %in% c("PM10", "PM2.5", "PM1", "PM10-2.5", "PM2.5-0.5", "PM3", "PM2", "PM")) %>%
+  group_by(type_sensor) %>%
+  summarise(counts = length(type_sensor),
+             references = paste(unique(id_ref), collapse=","))
+
+####################################################################
+# find pollutants for each type of sensor for Particulate Matter ###
+####################################################################
+
+poll_PM_sensors_counts <- DB %>%
+  group_by(type_sensor,
+           pollutant) %>%
+  summarise(counts = length(type_sensor),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant %in% c("PM10", "PM2.5", "PM1", "PM10-2.5", "PM2.5-0.5", "PM3", "PM2", "PM"))
+
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM2$","PM2.5", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM3$","PM2.5", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM10-2.5$","PM10", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM$","PM2.5", levels(poll_PM_sensors_counts$pollutant))
+
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM2.5$","$PM_{2.5}$", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant) <- gsub("^PM10$","$PM_{10}$", levels(poll_PM_sensors_counts$pollutant))
+levels(poll_PM_sensors_counts$pollutant)<- gsub("^PM1$","$PM_{1}$", levels(poll_PM_sensors_counts$pollutant))
+
+# .....group again...
+poll_PM_sensors_counts <- poll_PM_sensors_counts %>%
+  group_by(type_sensor,
+           pollutant) %>%
+  summarise(counts = length(type_sensor),
+             references = paste(unique(references), collapse=","))
+
+pollutants_PM_sensor_type <- poll_PM_sensors_counts %>%
+  group_by(type_sensor) %>%
+  summarise(pollutant = paste(unique(pollutant), collapse=","))
+
+#####################################################################
+#####################################################################
+
+sum_PM_counts <- sum(PM_sensors_counts$counts)
+OPC <- PM_sensors_counts$counts[3]
+neph <- PM_sensors_counts$counts[2]
+
+Optical_tests <- PM_sensors_counts$counts[2] + PM_sensors_counts$counts[3]
+
+PM_sensors_counts <- cbind(PM_sensors_counts, pollutants_PM_sensor_type[,2])
+names(PM_sensors_counts)[names(PM_sensors_counts)=="counts"] <- "n. records"
+PM_sensors_counts <- PM_sensors_counts %>%
+  select(type_sensor,
+         pollutant,
+         `n. records`,
+         references)
+
+##############
+# Gases ######
+##############
+
+GAS_sensors_counts <- DB %>%
+  filter(pollutant %in% c("CO", "NO", "NO2", "O3", "NO2-O3")) %>%
+  group_by(type_sensor) %>%
+  summarise(counts = length(type_sensor),
+            references = paste(unique(id_ref), collapse=","))
+
+GAS_sensors_counts_electrochemical <- GAS_sensors_counts[1,2] 
+GAS_sensors_counts_MOS <- GAS_sensors_counts[2,2]
+
+####################################################################
+# find pollutants for each type of sensor for Gases ################
+####################################################################
+
+poll_GAS_sensors_counts <- DB %>%
+  group_by(type_sensor,
+           pollutant) %>%
+  summarise(counts = length(type_sensor),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant %in% c("CO", "NO", "NO2", "O3", "NO2-O3"))
+
+levels(poll_GAS_sensors_counts$pollutant) <- gsub("^NO2$","$NO_{2}$", levels(poll_GAS_sensors_counts$pollutant))
+levels(poll_GAS_sensors_counts$pollutant) <- gsub("^O3$","$O_{3}$", levels(poll_GAS_sensors_counts$pollutant))
+levels(poll_GAS_sensors_counts$pollutant) <- gsub("^CO$","$CO$", levels(poll_GAS_sensors_counts$pollutant))
+levels(poll_GAS_sensors_counts$pollutant) <- gsub("^NO$","$NO$", levels(poll_GAS_sensors_counts$pollutant))
+
+# .....group again...
+poll_GAS_sensors_counts <- poll_GAS_sensors_counts %>%
+  group_by(type_sensor,
+           pollutant) %>%
+  summarise(counts = length(type_sensor),
+             references = paste(unique(references), collapse=","))
+
+pollutants_GAS_sensor_type <- poll_GAS_sensors_counts %>%
+  group_by(type_sensor) %>%
+  summarise(pollutant = paste(unique(pollutant), collapse=","))
+
+#####################################################################
+#####################################################################
+
+GAS_sensors_counts <- cbind(GAS_sensors_counts, pollutants_GAS_sensor_type[,2])
+names(GAS_sensors_counts)[names(GAS_sensors_counts)=="counts"] <- "n. records"
+GAS_sensors_counts <- GAS_sensors_counts %>%
+  select(type_sensor,
+         pollutant,
+         `n. records`,
+         references)
+
+# bind Particulate Matter with Gases ###
+
+PM_GAS_sensors_counts <- rbind(PM_sensors_counts,
+                               GAS_sensors_counts)
+names(PM_GAS_sensors_counts)[names(PM_GAS_sensors_counts)=="type_sensor"] <- "type"
+
+# make all references as superscript
+PM_GAS_sensors_counts$references <- paste0("$@^{", format(unlist(PM_GAS_sensors_counts$references)),"}$")
+
+
+```
+
+\newline
+
+## 2. Methods
+
+### 2.1. Data sources
+
+
+About `r n_DB_length` records have been systematically gathered from the Scopus database and the World Wide Web using a Zotero database that JRC established, the AirMontech web site that JRC keeps on maintaining and Google search for peer-reviewed studies of sensors for air quality and air pollution. The research was focused on sensors for Particulate Matter $(PM)$, Ozone $(O_{3})$, Nitric Dioxide $(NO_{2})$ and Carbon Monoxide $(CO)$. A few references are also included for nitrogen monoxide sensors $(NO)$.
+We have started evaluating summary statistics from the correlation of sensors and reference measurements (validation). Parameters such as, the coefficient of determination $R^{2}$, slope and intercept were scrutinized and analyzed in order to identify the sensors and Sensor Systems showing the best agreement with reference measurements. 
+
+The research covered the period between 2010 and 2018 (year of publication). Data gathered from sensor studies were reviewed according to criteria described in the following sections. Reviewed sensor data were used to populate a database that could be used to generate summary statistics about characteristics and performances of sensors. 
+Overall, about a number of `r n_references` were found from different sources from reports, peer-review papers and sensors manufacturers
+
+
+
+### 2.3. Data collection 
+Most of the reviewed studies reported regression parameters obtained from the comparison between sensors and reference instruments. These parameters were: the coefficient of determination $R^2$, the slope and the intercept. Since only a limited  number of studies reported the uncertainty of the regression analysis, we did not take it into consideration in the present work. Records from regression parameters were the result of both calibration and comparison of the sensor with a reference instrument. In the case of calibration, we identified four types of most used regression models: linear, multilinear (MLR), quadratic and logarithmic. Finally, only records from *"living"* and *"updated"* sensors were retained to compare performances from different sensor systems.  
+
+### 2.4. Evaluation criteria
+
+We have carried out an extensive literature review of OEM sensors and sensor systems (SS) that were used to estimate concentration of air pollutants against a reference systems during field and laboratory tests. The purpose was to gather quantitative information about the performance of sensors according to the following criteria: 
+
+1.  capacity to satisfy the requirement of interoperability of data according to the INSPIRE directive
+2.  Agreement between sensor and reference measurements
+3.  Availability of raw data, transparency of data treatment
+4.  Remote control of the sensor showing real-time measurements
+5.	Possibility to perform calibration of the sensor
+6.	Capability to measure multiple pollutants
+7.	Possibility to perform data processing (downloading and visualization)
+8.	Affordability of sensor systems taking into consideration the number of provided sensors
+
+The review was focused on non-discontinued commercial OEMs and sensor systems measuring concentrations of Particulate Matter ($PM_{2.5}$, $PM_{10}$, $PM_{1}$), Nitric Dioxide ($NO_{2}$) Carbon Monoxide ($CO$), $O_{3}$ and $NO$ **Table 1** reports the number of records, by pollutant, gathered in literature about validation and testing of OEMs / sensor systems against a reference system.
+
+
+\newline
+
+## 3. Classification of sensors
+
+For each model of sensor system we could assign a manufacturer who built an acquisition system comprehensive of an OEM sensor, an electronic board and an algorithm for data analysis. Each record about the performance of a sensor from laboratory or field tests was considered valuable only when it reported information about a calibration method and/or comparison with a reference instrument. We want to stress out that several sensors using the same OEM provider could be used from different manufacturer to build different sensor systems. 
+Overall, we found a total number of manufacturers of about *`r n_manufacturer_count`* who used sensors from OEM *(`r OEM`)*, or built sensor systems *(`r SS`)*. In addition, we identified *`r n_projects_count`* projects about the deployment of the same sensors/sensor systems under different operational conditions. 
+Out of *`r n_DB_length`* records collected from literature, we identified *`r n_DB_length_living`* records from "active" sensors and sensor systems. The fast growth of the sensor market and the deployment of low-cost sensor systems has saw an increase of new and cheaper models of OEMs. We also observed an increase in the number of sensor systems manufactured using the same model of OEMs under different operational setup.
+
+\newline
+
+
+```{r Table 1, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+  
+# count sensor records by pollutant
+count_pollutant_sensor <- DB %>%
+  group_by(pollutant) %>%
+  summarise(counts = length(pollutant),
+            references = paste(unique(id_ref), collapse=","))
+
+
+count_pollutant_sensor <- as.data.frame(count_pollutant_sensor)
+count_pollutant_sensor <- count_pollutant_sensor[order(-count_pollutant_sensor$counts),]
+rownames(count_pollutant_sensor) <- NULL
+names(count_pollutant_sensor)[names(count_pollutant_sensor)=="counts"] <- "n. records"
+
+
+# sum all PM2.5, PM2.5-0.5, PM2 and PM3 together
+count_pollutant_PM2.5 <- count_pollutant_sensor %>%
+    filter(pollutant %in% c("PM2.5", "PM2.5-0.5", "PM3", "PM2", "PM")) %>%
+  summarise(counts = sum(`n. records`),
+            references = paste(unique(references), collapse=","))
+
+
+PM25_ref <- strsplit(count_pollutant_PM2.5$references,",")
+PM25_ref <- as.vector(unique(sapply(PM25_ref,function(x) rle(x)$value)))
+PM25_ref <- paste(PM25_ref, collapse =",")
+
+count_pollutant_PM2.5$references <- PM25_ref
+
+# sum all PM10, PM10-2.5, PM2 and PM3 together
+count_pollutant_PM10 <- count_pollutant_sensor %>%
+    filter(pollutant %in% c("PM10", "PM10-2.5")) %>%
+  summarise(counts = sum(`n. records`),
+            references = paste(unique(references), collapse=","))  
+
+PM10_ref <- strsplit(count_pollutant_PM10$references,",")
+PM10_ref <- as.vector(unique(sapply(PM10_ref,function(x) rle(x)$value)))
+PM10_ref <- paste(PM10_ref, collapse =",")
+
+count_pollutant_PM10$references <- PM10_ref
+
+# counts_PM2.5_PM10 <- data.frame(c("PM2.5", "PM10"),
+#                                   c(as.numeric(count_pollutant_PM2.5), as.numeric(count_pollutant_PM10)))
+# names(counts_PM2.5_PM10) <- c("pollutant", "n. records", "references")
+
+
+counts_PM <- rbind(count_pollutant_PM2.5, count_pollutant_PM10)
+counts_PM2.5_PM10 <- data.frame(c("PM2.5", "PM10"),
+                                counts_PM)
+
+# counts_PM2.5_PM10 <- data.frame(c("PM2.5", "PM10"),
+#                                   c(count_pollutant_PM2.5, count_pollutant_PM10))
+names(counts_PM2.5_PM10) <- c("pollutant", "n. records", "references")
+
+count_pollutant_sensor <- count_pollutant_sensor %>%
+  filter(!pollutant %in% c("PM10", "PM10-2.5", "PM2.5", "PM2.5-0.5", "PM3", "PM2", "PM"))
+
+
+count_pollutant_sensor <- rbind(counts_PM2.5_PM10, 
+                                count_pollutant_sensor)
+
+
+# make all references as superscript
+count_pollutant_sensor$references <- paste0("$@^{", format(unlist(count_pollutant_sensor$references)),"}$")
+
+levels(count_pollutant_sensor$pollutant) <- gsub("^PM2.5$","$PM_{2.5}$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^PM10$","$PM_{10}$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^PM1$","$PM_{1}$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^NO2$","$NO_{2}$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^O3$","$O_{3}$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^CO$","$CO$", levels(count_pollutant_sensor$pollutant))
+levels(count_pollutant_sensor$pollutant) <- gsub("^NO$","$NO$", levels(count_pollutant_sensor$pollutant))
+
+# count_pollutant_sensor$pollutant <- paste0("\\small", count_pollutant_sensor$pollutant)
+# count_pollutant_sensor$`n. records` <- paste0("\\small", count_pollutant_sensor$`n. records`)
+
+Caption <- paste0("**Table 1.** Number of analyzed records for OEMs/Sensor Systems by pollutant.")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+pander(count_pollutant_sensor, emphasize.strong.cols = 1, missing = "")
+
+```
+
+
+**Table 2** reports the number of records gathered for OEM sensors and sensor systems by pollutant and operating technology. Records were collected from laboratory tests (*`r lab_tests`*) and from field tests (*`r field_tests`*).  
+
+\newline
+
+### 3.1.	Methodology for data acquisition
+
+We identified two methodologies to test sensors against a reference systems: 
+
+1)  Use of sensor devices connected to a custom-made data acquisition system to acquire raw data from the sensor to estimate pollutant concentrations. A calibration curve could be applied to the raw data to validate the the sensor against a reference system. In most cases, the sensor devices were OEMs integrated in an electronic board. Data acquisition and data processing could be operated by an **"open source"** software tuned according to different calibration parameters and environmental conditions. Overall, we identified `r open_source` records among OEMs and sensor systems using an open source software for data management.
+We could find several manufactures using the same OEM but with different data acquisition systems as well as calibration algorithms. Usually, outputs from these sensor were already in the same measurement units of the reference system.  
+
+
+2)  Use of sensor systems with built-in OEM sensors, electronic board and calibration algorithms but without the possibility to change any parameters of the sensor set by the manufacturer. In most cases, the sensor system was previously calibrated against a reference system or, the calibration parameters were remotely adjusted by the manufacturer. These sensors systems have been identified as **"black box"** because of the impossibility to be tuned by the user. Overall, we identified `r black_box` records among OEMs and sensor systems using an open source software for data management.
+
+
+\newline
+
+```{r, Table 2, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "80%", results = 'asis', message = FALSE, comment=FALSE}
+
+Caption <- paste0("**Table 2.** Number of analyzed records by type of sensor technology.")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+# panderOptions('digits', 5)
+pander(PM_GAS_sensors_counts, emphasize.strong.cols = 1, missing = "")
+
+
+```
+
+\newline
+
+### 3.2.	Sensors for air quality
+
+For the detection of Particulate Matter, the largest number of calibration/validation tests was found for Optical Particle Counters (OPC) with *`r OPC`* records followed by Nephelometers with *`r neph`* records (**Table 2**). Both systems detect particulate matter by measuring the light scattered by particles, with the OPC being able to directly count particles according to their size. On the other hand, nephelometers estimate particle density that is subsequently converted into particle mass. 
+For the detection of gaseous pollutant such as $NO_{2}$, $CO$ and $O_{3}$, the largest number of tests was found for electrochemical sensors with *`r GAS_sensors_counts_electrochemical`* records, followed by metal oxides sensors (MOs) with *`r GAS_sensors_counts_MOS`* records. Electrochemical sensors are based on a chemical reactions between gases in the air and the electrode in a liquid inside the sensor. On the Other hand, in a metal oxide sensor (resistive sensor, semiconductor) gases in the air react on the surface of the sensor modifying its resistance.
+
+\newline
+
+```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+
+n_calibration_model <- DB %>%
+  group_by(model_type_calibration) %>%
+  summarise(counts = length(model_type_calibration),
+            references = paste(unique(id_ref), collapse=","))
+
+
+# make all references as superscript
+n_calibration_model$references <- paste0("$@^{", format(unlist(n_calibration_model$references)),"}$")
+
+n_calibration_model <- na.omit(n_calibration_model)
+names(n_calibration_model)[names(n_calibration_model)=="counts"] <- "n. records"
+names(n_calibration_model)[names(n_calibration_model)=="model_type_calibration"] <- "calibration model"
+total_n_calibration_records <- sum(n_calibration_model$`n. records`)
+
+```
+
+\newline
+
+
+**Table 3** reports the models of OEM sensors currently used to measure concentration of particulate matter according their their technology type and the cut-off of particulate size. For the sake of clarity, we aggregated records from $PM_{2.5}$ together with $PM_{0.5-2.5}$, $PM_{2}$ and $PM_{3}$. The same was done for $PM_{10}$ records that were aggregated with coarse $PM_{2.5-10}$. Models of sensor systems measuring particulate matter concentration were also reported in **Table 4** [@aq-spec_air_2015; @williams_evaluation_2014; @williams_sensor_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @jiao_community_2016; @manikonda_laboratory_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015-1; @dacunto_determining_2015; @borghi_precision_2018; @cavaliere_development_2018; @karagulian_evaluation_2012; @zheng_field_2018; @wang_laboratory_2015; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @gerboles_calibration_2018; @kunak_wireless_2017]. Very often, sensor systems might use the same OEM to integrate it inside an electronic board to control the data acquisition/data treatment through a customized software. In very few cases, the same model of sensor system was tested using different  types of OEM sensors when performing validation tests. 
+
+
+\newline
+\newline
+\newline
+
+\newline
+\newline
+
+```{r Table 3, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
+
+# Model of sensors by for the detection of Particulate Matter. OME/SS indicates Original Equipment Manufacture and Sensor System.
+
+
+PM25_sensor_model <- DB %>%
+  filter(pollutant %in% c("PM2.5", "PM2.5-0.5", "PM2", "PM3")) %>%
+  group_by(model,
+           type_sensor,
+           OEM_system) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=","))
+PM25_sensor_model$pollutant <- "PM2.5" 
+
+
+PM10_sensor_model <- DB %>%
+   filter(pollutant %in% c("PM10", "PM10-2.5")) %>%
+  group_by(model,
+           type_sensor,
+           OEM_system) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=","))
+  PM10_sensor_model$pollutant <- "PM10" 
+
+  
+PM1_sensor_model <- DB %>%
+  group_by(model,
+           type_sensor,
+           OEM_system,
+           pollutant) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant == "PM1")
+
+
+# join PM2.5 and PM10 sensors
+PM_sensor_model <- PM25_sensor_model %>%
+  full_join(PM10_sensor_model, c("model","type_sensor", "OEM_system", "references")) 
+  
+
+ PM_sensor_model <- PM_sensor_model %>%
+   select(-counts.x,
+          -counts.y)
+
+
+ PM_sensor_model <- PM_sensor_model %>%
+  full_join(PM1_sensor_model, c("model","type_sensor", "OEM_system", "references"))
+ 
+  PM_sensor_model <- PM_sensor_model %>%
+   select(-counts)
+  
+PM_sensor_model$pollutant.x <- as.factor(PM_sensor_model$pollutant.x)
+PM_sensor_model$pollutant.y <- as.factor(PM_sensor_model$pollutant.y)
+  
+levels(PM_sensor_model$pollutant.x) <- gsub("^PM2.5$","$PM_{2.5}$", levels(PM_sensor_model$pollutant.x))
+levels(PM_sensor_model$pollutant.y) <- gsub("^PM10$","$PM_{10}$", levels(PM_sensor_model$pollutant.y))
+levels(PM_sensor_model$pollutant) <- gsub("^PM1$","$PM_{1}$", levels(PM_sensor_model$pollutant))
+  
+
+# only OEM
+  PM_sensor_model_OEM <- PM_sensor_model %>%
+  dplyr::filter(OEM_system == "OEM")
+  
+
+PM_sensor_model_OEM <- PM_sensor_model_OEM %>%
+  select(model, type_sensor, pollutant.x, pollutant.y, pollutant, references)
+
+
+# make all references as superscript
+PM_sensor_model_OEM$references <- paste0("$@^{", format(unlist(PM_sensor_model_OEM$references)),"}$")  
+  
+
+PM_sensor_model_OEM <- as.data.frame(PM_sensor_model_OEM)
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="pollutant"] <- ""
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="pollutant.x"] <- "pollutant"
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="pollutant.y"] <- ""
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="OEM_system.y"] <- ""
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="counts"] <- "n. tested sensors"
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="type_sensor"] <- "type"
+names(PM_sensor_model_OEM)[names(PM_sensor_model_OEM)=="OEM_system.x"] <- "SS or OEM"
+  
+  
+# # only SS (Sensor Systems)
+#     PM_sensor_model_SS <- PM_sensor_model %>%
+#   dplyr::filter(OEM_system == "SS")
+#     
+# PM_sensor_model <- PM_sensor_model_SS %>%
+#   left_join(PM_sensor_model_OEM, c("model","type_sensor", "pollutant", "pollutant.x", "pollutant.y"))
+
+
+# OPC and nephelometers
+optical <- DB %>%
+  group_by(type_sensor,
+           model) %>%
+  summarise(count = length(type_sensor))
+
+
+Caption <- paste0("**Table 3.** Model of OEMs for the detection of Particulate Matter.")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+pander(PM_sensor_model_OEM, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
+
+```
+
+\newline
+
+\newline
+
+
+```{r Table 4, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
+
+# Model of sensors by for the detection of Particulate Matter. OME/SS indicates Original Equipment Manufacture and Sensor System.
+
+
+# only SS (Sensor Systems)
+PM_sensor_model_SS <- PM_sensor_model %>%
+  dplyr::filter(OEM_system == "SS")
+  
+
+PM_sensor_model_SS <- PM_sensor_model_SS %>%
+  select(model, type_sensor, pollutant.x, pollutant.y, pollutant, references)
+
+PM_sensor_model_SS$pollutant.x <- as.factor(PM_sensor_model_SS$pollutant.x)
+PM_sensor_model_SS$pollutant.y <- as.factor(PM_sensor_model_SS$pollutant.y)
+
+
+# make all references as superscript
+PM_sensor_model_SS$references <- paste0("$@^{", format(unlist(PM_sensor_model_SS$references)),"}$")  
+  
+
+PM_sensor_model_SS <- as.data.frame(PM_sensor_model_SS)
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="pollutant"] <- ""
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="pollutant.x"] <- "pollutant"
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="pollutant.y"] <- ""
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="OEM_system.y"] <- ""
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="counts"] <- "n. tested sensors"
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="type_sensor"] <- "type"
+names(PM_sensor_model_SS)[names(PM_sensor_model_SS)=="OEM_system.x"] <- "SS or OEM"
+  
+  
+
+Caption <- paste0("**Table 5.** Models of Sensor Systems for the detection of Particulate Matter.")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+pander(PM_sensor_model_SS, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
+
+# 
+
+```
+
+\newline
+
+
+**Table 5** and **Table 6** reports the models of OEM and sensor systems, respectively, currently used to measure concentration of gaseous air pollutants $NO_{2}$, $O_{3}$ and, ${CO}$ according their their type of technology.[@aq-spec_air_2015; @jiao_community_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_field_2015; @spinelle_evaluation_2016; @spinelle_report_2013; @spinelle_report_2013-1; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @mijling_practical_2017; @duvall_performance_2016; @mead_use_2013; @cross_use_2017; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @cordero_using_2018; @mueller_design_2017; @feinberg_long-term_2018; @sun_development_2016; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @gillooly_development_2019; @kunak_wireless_2017; @bettair_bettair_2017]
+
+\newline
+
+
+```{r Table 5, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+
+# Model of sensors by for the detection of CO, NO2 and O3. OME/SS indicates Original Equipment Manufacture and Sensor System.
+
+NO2_sensor_model <- DB %>%
+  group_by(model,
+           type_sensor,
+           OEM_system,
+           pollutant) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant == "NO2")
+
+O3_sensor_model <- DB %>%
+  group_by(model,
+           type_sensor,
+           OEM_system,
+           pollutant) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant == "O3")
+
+CO_sensor_model <- DB %>%
+  group_by(model,
+           type_sensor,
+           OEM_system,
+           pollutant) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant == "CO")
+
+NO_sensor_model <- DB %>%
+  group_by(model,
+           type_sensor,
+           OEM_system,
+           pollutant) %>%
+  summarise(counts = length(model),
+             references = paste(unique(id_ref), collapse=",")) %>%
+  filter(pollutant == "NO")
+
+NO2_sensor_model <- NO2_sensor_model %>%
+  full_join(CO_sensor_model, c("model","type_sensor", "OEM_system", "references"))
+
+GAS_sensor_model <- NO2_sensor_model %>%
+   select(-counts.x,
+          -counts.y)
+
+
+ GAS_sensor_model <- GAS_sensor_model %>%
+  full_join(NO_sensor_model, c("model","type_sensor", "OEM_system", "references"))
+ 
+  GAS_sensor_model <- GAS_sensor_model %>%
+   select(-counts)
+
+ GAS_sensor_model <- GAS_sensor_model %>%
+  full_join(O3_sensor_model, c("model","type_sensor", "OEM_system", "references"))
+ 
+ GAS_sensor_model <- GAS_sensor_model %>%
+   select(-counts)
+ 
+levels(GAS_sensor_model$pollutant.x) <- gsub("^NO2$","$NO_{2}$", levels(GAS_sensor_model$pollutant.x))
+levels(GAS_sensor_model$pollutant.y) <- gsub("^CO$","$CO$", levels(GAS_sensor_model$pollutant.y))
+levels(GAS_sensor_model$pollutant.x.x) <- gsub("^NO$","$NO$", levels(GAS_sensor_model$pollutant.x.x))
+levels(GAS_sensor_model$pollutant.y.y) <- gsub("^O3$","$O_{3}$", levels(GAS_sensor_model$pollutant.y.y))
+ 
+ # only OEM
+  GAS_sensor_model_OEM <- GAS_sensor_model %>%
+  dplyr::filter(OEM_system == "OEM")
+  
+  
+  
+# # only SS (Sensor Systems)
+#   GAS_sensor_model_SS <- GAS_sensor_model %>%
+#   dplyr::filter(OEM_system == "SS")
+#     
+# GAS_sensor_model <- GAS_sensor_model_SS %>%
+#   left_join(GAS_sensor_model_OEM, c("model","type_sensor", "pollutant", "pollutant.x", "pollutant.y"))
+
+GAS_sensor_model_OEM <- GAS_sensor_model_OEM %>%
+  select(model, type_sensor, pollutant.x, pollutant.y, pollutant.x.x, pollutant.y.y, references)
+
+  
+GAS_sensor_model_OEM <- as.data.frame(GAS_sensor_model_OEM)[,-1]
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="pollutant.y"] <- ""
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="pollutant.x"] <- "pollutant"
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="pollutant.y.y"] <- ""
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="pollutant.x.x"] <- ""
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="OEM_system.y"] <- ""
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="counts"] <- "n. tested sensors"
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="type_sensor"] <- "type"
+names(GAS_sensor_model_OEM)[names(GAS_sensor_model_OEM)=="OEM_system.x"] <- "SS or OEM"
+
+GAS_sensor_model_OEM$references <- paste0("$@^{", format(unlist(GAS_sensor_model_OEM$references)),"}$") 
+
+
+Caption <- "**Table 6 **. Model of OEMs for the detection of $NO_{2}$, $CO$, $NO$ and $O_{3}$."
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+pander(GAS_sensor_model_OEM, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
+
+```
+
+
+\newline
+
+\newline
+\newline
+\newline
+
+
+```{r Table 6, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+
+# Model of sensors by for the detection of CO, NO2 and O3. OME/SS indicates Original Equipment Manufacture and Sensor System.
+
+# only SS (Sensor Systems)
+  GAS_sensor_model_SS <- GAS_sensor_model %>%
+  dplyr::filter(OEM_system == "SS")
+
+
+GAS_sensor_model_SS <- GAS_sensor_model_SS %>%
+  select(model, type_sensor, pollutant.x, pollutant.y, pollutant.x.x, pollutant.y.y, references)
+
+  
+GAS_sensor_model_SS <- as.data.frame(GAS_sensor_model_SS)[,-1]
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="pollutant.x.x"] <- ""
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="pollutant.x"] <- "pollutant"
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="pollutant.y.y"] <- ""
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="OEM_system.y"] <- ""
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="counts"] <- "n. tested sensors"
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="type_sensor"] <- "type"
+names(GAS_sensor_model_SS)[names(GAS_sensor_model_SS)=="OEM_system.x"] <- "SS or OEM"
+
+GAS_sensor_model_SS$references <- paste0("$@^{", format(unlist(GAS_sensor_model_SS$references)),"}$") 
+
+
+Caption <- "**Table 7 **. Model of Sensor Systems for the detection of $NO_{2}$, $CO$, $NO$ and $O_{3}$."
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+pander(GAS_sensor_model_SS, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
+
+```
+
+
+
+## 4.	Calibration of Sensors
+
+Calibration of the sensor is considered an information somewhat a sensitive information from most of the sensor manufacturers. Several studies performed calibration of sensors during laboratory or field tests. The calibration consisted in the application of a regression model in order to adjust the response of the sensor to a reference system. 
+We found calibration records for both OEMs and sensor systems. Overall, we gathered over *`r total_n_calibration_records`* records of calibrated sensors using different types of mathematical models **(Table 7)** and at different time resolutions. The linear model and the multi linear regression model (MLR) were most used to calibrate the sensor response against a reference measurement. Other calibration methodologies used exponential, logarithmic, quadratic, and few types of neural networks models. In the case multi linear regression, covariates such as meteorological  parameters  *Temperature* and *Relative Humidity*, and gaseous pollutant such as Nitric Dioxide ($NO_{2}$), Nitric Monoxide ($NO$) and Ozone ($O_{3}$), were used to optimize the calibration. Some types of model also include the $time-drift$ as covariate. The calibration of OEMs was performed using raw data of the sensor. On the other hand, for sensor systems, the calibration was carried out using the units of the reference system.   
+
+\newline
+
+```{r Table 7, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+
+Caption <- paste0("**Table 7.** Types of calibration models used for the calibration of sensors at different time resolutions")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+
+pander(n_calibration_model, emphasize.strong.cols = 1, missing = "")
+
+```
+
+\newline
+
+As explained above, from the analyzed records, we found several type of regression model that were used to calibrate sensors from OEM and sensor systems (**Table 7**) against reference systems. In order the estimate quality of the used calibration model, we reported the coefficient of determination $R^{2}$ as indication of the amount of total variability explained by the model. $R^{2}$ is usually defined as:
+
+
+$$R^2 = 1-\frac{SS_{RES}}{SS_{TOT}}$$
+
+where $SS_{RES}$ is the sum of squares of residuals and $SS_{TOT}$ is the total sum of squares. 
+On a first instance, The coefficient of determination can be used as indication of performance of the calibration model chosen to validate the sensor with a reference system. In addition to simple linear models, raw sensor data were validated using multilinear and quadratic models models (**Table 7**) which included the use of covariates to improve the quality of the calibration.   
+
+\newline
+
+```{r Figure 1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 1.** Distribution of $R^2$ for OEMs and sensor systems against the reference for different pollutants. Records were averaged over a time-scale of 1 hour. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of records."}
+
+# change names FIELD and LAB
+levels(DB$field___lab) <- gsub("^FIELD$","Feld Test", levels(DB$field___lab))
+levels(DB$field___lab) <- gsub("^LAB$","Laboratory Test", levels(DB$field___lab))
+
+# calibration models
+DB_calibration <- DB[!(is.na(DB$r2_calib)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_calibration_OEM_SS_1hour <- DB_calibration %>%
+ # filter(OEM_system == "OEM") %>%
+  filter(time_avg == "1 hour") 
+
+levels(DB_calibration_OEM_SS_1hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_calibration_OEM_SS_1hour$pollutant))
+levels(DB_calibration_OEM_SS_1hour$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_calibration_OEM_SS_1hour$pollutant))
+levels(DB_calibration_OEM_SS_1hour$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_calibration_OEM_SS_1hour$pollutant))
+levels(DB_calibration_OEM_SS_1hour$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_calibration_OEM_SS_1hour$pollutant))
+
+levels(DB_calibration_OEM_SS_1hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_calibration_OEM_SS <- DB_calibration_OEM_SS_1hour %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+#======== Calibration plots for all pollutants (R2)
+
+plot <- ggplot(DB_calibration_OEM_SS_1hour, aes(x = fct_reorder(model, r2_calib, fun = median, .desc =TRUE), y = r2_calib)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2_calib, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1.2) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_calibration_OEM_SS, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 4)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 13, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=13, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=13),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=10, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from the CALIBRATION of OEMs and sensor systems (1 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 12, hjust = 0.5)) 
+
+plot
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+total_n_comparison_records <- nrow(DB_comparison)
+
+```
+
+\newline
+
+Calibration of sensor data against a reference system was found to be carried out using input data at different time resolution. Therefore, in order to make a comparison of $R^2$ obtained at the same time resolution data, we chose records averaged over different time-scale of 1 hour (Figure 1) and 1 minute (Figure 2). Most of these records were from OEMs (`r AVG_calib_OEM`) whereas only a limited number were from sensor systems (`r AVG_calib_OEM`).
+
+**Figure 1** and **Figure 2** report the distribution of $R^{2}$ found from the calibration of OEMs and sensor systems measuring $PM_{2.5}$, $PM_{10}$, $PM_{1}$, $O_{3}$, $NO_{2}$ and $CO$ against reference systems at a time-resolution of 1 hour and 1 minute, respectively. Records from the calibration of sensors measuring $PM_{(0.5-2.5)}$, $PM_{2}$ and $PM_{3}$ were grouped together with records from the calibration of sensors measuring $PM_{2.5}$. We want to point out that calibration of OEMs and sensor systems, were mostly performed using multi-linear regression models and linear models (Table 7).
+
+As shown in Figure 1 and Figure 2, for $PM_{2.5}$ values of $R^{2}$ ~ 1 were found for the sensors **PMS1003** by **Plantower** [@kelly_ambient_2017] at 1-hour resolution and for the the **PMS3003** , **Dylos DC1100 PRO** and **DC1700** by **Dylos** at a resolution of 1 minute. [@zheng_field_2018; @aq-spec_air_2015; @steinle_personal_2015] The Plantower and Dylos sensors showed higher $R^{2}$ when calibrated with 1 minute resolution reference data. Other sensors such as, the  **OPC-N2** by **AlphaSense** [@aq-spec_air_2015] reported values of $R^{2}$ falling within the range of 0.7 - 1.0 at a resolution of 1 hour. The same OEM sensor OPC-N2, reported values of $R^{2}$ just above 0.7 when measuing $PM_{1}$ while it did not show a good performance when measuring $PM_{10}$ [@aq-spec_air_2015]. We need to stress out that optical sensors, such as OPCs and nephelometers, are somewhat limited when detecting coarse particulate patter $PM_{10}$ because of the low-efficiency of the sampling system when sampling large particles in ambient air. 
+
+
+\newline
+
+
+```{r Figure 2, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 2.** Distribution of $R^2$ for OEMs and sensor systems against the reference for different pollutants. Records were averaged over a time-scale of 1 minute. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of records."}
+
+
+# calibration models
+DB_calibration <- DB[!(is.na(DB$r2_calib)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_calibration_OEM_SS_1min <- DB_calibration %>%
+ # filter(OEM_system == "OEM") %>%
+  filter(time_avg == "1 min")
+
+levels(DB_calibration_OEM_SS_1min$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_calibration_OEM_SS_1min$pollutant))
+levels(DB_calibration_OEM_SS_1min$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_calibration_OEM_SS_1min$pollutant))
+levels(DB_calibration_OEM_SS_1min$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_calibration_OEM_SS_1min$pollutant))
+levels(DB_calibration_OEM_SS_1min$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_calibration_OEM_SS_1min$pollutant))
+
+levels(DB_calibration_OEM_SS_1min$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_calibration_OEM_SS <- DB_calibration_OEM_SS_1min %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+#======== Calibration plots for all pollutants (R2)
+
+plot <- ggplot(DB_calibration_OEM_SS_1min, aes(x = fct_reorder(model, r2_calib, fun = median, .desc =TRUE), y = r2_calib)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2_calib, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1.2) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_calibration_OEM_SS, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 4)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 13, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=13, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=13),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=11, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from the CALIBRATION of OEMs and sensor systems (1 minute)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 12, hjust = 0.5)) 
+
+plot
+
+
+```
+
+\newline
+
+Most of regression models used for the calibration of sensors detecting gaseous pollutants used a time-resolution of 1 hour. For the calibration of sensors measuring $O_{3}$, the largest values of $R^{2}$ was reported for the OEM sensors **FIS SP-61** by ** FIS** and **O3-3E1F** by **CityTechnology**, when using a time-resolution of 1 hour (**Figure 1**). On the other hand, when using a time-resolution of 1 minute, values of $R^{2}$ ~ 1 were found for the sensor system **AirSensEUR (v.2)** by **LiberaIntentio** as well as for the OEM **S-500** and **POM** by **Aeroqual** and **2B Technologies**, respectively (**Figure 2**). The AirSensEUR uses a built-in OEM **OX-A431**. We want to point out that, most of the MLR models used for calibration ozone sensors foresees the use of reference $NO_{2}$ because of the strong oxidizing effect of $O_{3}$ on gas sensors with consequent formation of $NO_{2}$.
+
+For the calibration of sensors measuring $NO_{2}$ we found values of $R^{2}$ within the range 0.7 - 1.0 for the sensors **NO2-B42F**  (by Alphasense) and **AirSensEUR (v.2)** (by LiberaIntentio) at a time resolution of 1 hour and 1 minute, respectively. We need to point out that for the measurement of $NO_{2}$, the AirSensEUR (v.2) uses the OEM sensor NO2-B43F by AlphaSense.
+
+\newline
+
+Most of the records about the calibration of sensor measuring $CO$ showed high values of $R^{2}$. As shown in Figure 1, the OEMs **CO 3E300** by **City Technology** and **CO-B4** by **Alphasense** reported $R^{2}$ ~ 1 for time-resolution of 1 hour. High values of $R^{2}$ were also reported for the sensor system **AirSensEUR (v.2)** when calibrating for $CO$ at a time-resolution of 1 minute (Figure 2). Other sensors reporting values of $R^{2}$ within the range 0.7 - 1.0 where the **MICS-4515** by  and **SGX Sensortech** and the **Smart Citizen Kit** by **Acrobotic**. Both these sensors used 1 hour time-resolution data. 
+
+\newline
+
+
+## 5.	Comparison with reference systems
+
+We found about *`r total_n_comparison_records`* records about the comparison of calibrated sensors against a reference instrument. All comparisons were carried out by using a *linear regression* model between calibrated and reference data. The performance of the regression was evaluated with the coefficient of determination $R^{2}$ and the *slope* of the regression. About the uncertainty resulting from the comparison, we must to point out that not all the analyzed records reported the *Root Mean Square Error (RMSE)* of the regression therefore, we decided to omit it in the present review.
+Records gathered from the comparison of sensors with reference systems came from OEMs and sensor systems using a custom calibration or a built-in calibration directly setup by the manufacturer. 
+
+As for the records collected from the calibration of sensor, comparison with reference system was carried out at different time-resolutions. Here we only report comparisons performed at a time-resolution of 1 hour with `r AVG_comp_SS` and `r AVG_comp_OEM` records from sensor systems and OEMs, respectively. 
+
+Figure 4 shows the distribution of $R^{2}$ for sensors systems measuring measuring $PM_{2.5}$, $PM_{10}$, $PM_{1}$, $O_{3}$, $NO_{2}$ and $CO$ against reference at 1-hour time-resolution. For the measurements of particulate matter, most of the comparisons were performed during field tests with the highest $R^{2}$ obtained from the sensor **PA-II** by **PurpleAir** and **PATS+** by **Belkley Air**. This sensors reported values of $R^{2}$ between 0.8 and 1.0. Other sensors with $R^{2}$ values falling in the range 0.7-1.0 were identified in the  **PMS-SYS-1** by **Shinyei**, the **Dylos 1100 PRO** by **Dylos**, the **MicroPEM** by **RTI**, the **AirNUT** by **Moji China ** the **Egg (2018)** by **Air Quality Egg** and the **Air Quality Station** by **AS LUNG**. Records from other sensors showed different values of $R^{2}$ depending of the type of field test and for the averaging time chosen to process the time-series of data. We need to point out that the performance of sensor systems measuring $PM_{10}$, on average, was very poor.    
+
+
+\newline
+
+
+```{r Figure 3, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 8, fig.cap = "**Figure 3.** Distribution of $R^2$ from the comparison of all sensor systems against reference systems. Records were averaged over a time-scale of 1 hour."}
+
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_comparison_SS_1hour <- DB_comparison %>%
+  filter(OEM_system == "SS") %>%
+  filter(time_avg == "1 hour") %>%
+  filter(! pollutant == "PM")
+
+levels(DB_comparison_SS_1hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_SS_1hour$pollutant))
+levels(DB_comparison_SS_1hour$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_comparison_SS_1hour$pollutant))
+levels(DB_comparison_SS_1hour$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_comparison_SS_1hour$pollutant))
+levels(DB_comparison_SS_1hour$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_comparison_SS_1hour$pollutant))
+
+levels(DB_comparison_SS_1hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_comparison_SS <- DB_comparison_SS_1hour %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+#======== Comparison plots for all pollutants (R2)
+
+plot <- ggplot(DB_comparison_SS_1hour, aes(x = fct_reorder(model, r2, fun = median, .desc =TRUE), y = r2)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 0.5) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_comparison_SS, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 3)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 12, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=9, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=13)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=13),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=10, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from COMPARISON with reference systems for sensor systems (1 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 12, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+For gaseous pollutants, high $R^2$ values were found for the sensor systems **2B Tech. (POM)** by **2B Technologies** ($O_{3}$), the **AirSensEUR (v.2)** by **LiberaIntentio**  the **Bettair** by **Bettair Cities**, the **AirBeam**, the **KUNAKAIR A10 V2** by **kunak** ($O_{3}$, $NO_{2}$, $CO$ and $NO$), the **Spec**, the **AQMesh** (**Figure 3**). This sensors reported values of $R^{2}$ between 0.8 and 1.0. As shown in Figure 3, we found a non-negligible number of records for sensor systems whose $R^{2}$ resulting from the comparison with reference systems was within the range 0.7 -1.0. We want to point out that, among all tested sensor systems, only the **AirSensEUR (v.2)** was the only one measuring multiple pollutants.
+
+
+\newline
+
+
+```{r Figure 4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 13, fig.height = 14, fig.cap = "**Figure 4.** Distribution of $R^2$ from the comparison of all OEMs against reference systems.Records were averaged over a time-scale of 1 hour."}
+
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_comparison_OEM_1hour <- DB_comparison %>%
+  filter(OEM_system == "OEM") %>%
+  filter(time_avg == "1 hour") %>%
+  filter(! pollutant == "PM")
+
+levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_OEM_1hour$pollutant))
+levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_comparison_OEM_1hour$pollutant))
+levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_comparison_OEM_1hour$pollutant))
+levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_comparison_OEM_1hour$pollutant))
+
+levels(DB_comparison_OEM_1hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_comparison_OEM <- DB_comparison_OEM_1hour %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+#======== Comparison plots for all pollutants (R2)
+
+plot <- ggplot(DB_comparison_OEM_1hour, aes(x = fct_reorder(model, r2, fun = median, .desc =TRUE), y = r2)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 2) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_comparison_OEM, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 5)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=22),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from COMPARISON with reference systems for OEMs (1 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 25, hjust = 0.5)) 
+
+plot
+
+```
+
+
+\newline
+
+```{r Figure 5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure 5.** Distribution of $R^2$ from the comparison of all OEMs against reference systems.Records were averaged over a time-scale of 24 hour."}
+
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_comparison_OEM_24hour <- DB_comparison %>%
+  filter(OEM_system == "OEM") %>%
+  filter(time_avg == "24 hour") %>%
+  filter(! pollutant == "PM")
+
+levels(DB_comparison_OEM_24hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_OEM_24hour$pollutant))
+levels(DB_comparison_OEM_24hour$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_comparison_OEM_24hour$pollutant))
+levels(DB_comparison_OEM_24hour$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_comparison_OEM_24hour$pollutant))
+levels(DB_comparison_OEM_24hour$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_comparison_OEM_24hour$pollutant))
+
+levels(DB_comparison_OEM_24hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_comparison_OEM <- DB_comparison_OEM_24hour %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+#======== Comparison plots for all pollutants (R2)
+
+plot <- ggplot(DB_comparison_OEM_24hour, aes(x = fct_reorder(model, r2, fun = median, .desc =TRUE), y = r2)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 2) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_comparison_OEM, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 4)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=18),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from COMPARISON with reference systems for OEMs (24 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 12, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+```{r Figure 6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 13, fig.cap = "**Figure 6.** Distribution of $R^2$ from the comparison of all sensor systems against reference systems.Records were averaged over a time-scale of 24 hour."}
+
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+
+# ...only for Sensor systems (both field and lab tests)
+DB_comparison_SS_24hour <- DB_comparison %>%
+  filter(OEM_system == "SS") %>%
+  filter(time_avg == "24 hour") %>%
+  filter(! pollutant == "PM")
+
+levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_SS_24hour$pollutant))
+levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM2$","PM2.5", levels(DB_comparison_SS_24hour$pollutant))
+levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM3$","PM2.5", levels(DB_comparison_SS_24hour$pollutant))
+levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM10-2.5$","PM10", levels(DB_comparison_SS_24hour$pollutant))
+
+levels(DB_comparison_SS_24hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM", "PM[1]", "PM[10]",  "PM[2.5]")
+
+# compute frequency of records for each model of sensor
+counts_r2_comparison_SS <- DB_comparison_SS_24hour %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+#======== Comparison plots for all pollutants (R2)
+
+plot <- ggplot(DB_comparison_SS_24hour, aes(x = fct_reorder(model, r2, fun = median, .desc =TRUE), y = r2)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, r2, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +   
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 1) +
+  geom_hline(yintercept=1, linetype="dashed", color = "red") +
+  geom_hline(yintercept=0.7, linetype="dashed", color = "red") +
+  geom_text(data = counts_r2_comparison_SS, aes(x = model, y = 0.25, label = counts, fontface="bold"), size = 5)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+  ggtitle(expression(paste("Distribution of ", R^2, " from COMPARISON with reference systems for sensor systems (24 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+The comparison of OEMs against reference systems, showed only few sensors for the measurement of $PM$ had $R^2$ within the range 0.7 - 1.0 when average over a time-scale of 1 hour. Among them we could identify the **Dylos DC 1700** and the **OPC-N2** (**Figure 4**) when measuring $PM_{2.5}$. On the other hand, when the comparison was performed over a time-scale of 24 hour we found $R^2$ within the range 0.7 -1.0 for several OEMs which included the **PMS7003** (Plantower), the **SDS011**by **Nova Fitness**, the **OPC-NO2**, and the **Egg v.2 (PM)** from **Air Quality Egg** for $PM_{2.5}$ measurements. The same behaviour was observed from the comparison of sensor systems against a reference system when measuring $PM_{2.5}$. As we can see from **Figure 6**, several sensor systems such as, **Dylos DC 1700**, **PA-II**, **AirQUINO** reported values of $R^2$ ~1.    
+
+For the evaluation of gaseous pollutants, we found very few OEMs with $R^2$ within 0.7 -1.0 when using data at at time-resolution of 1 hour. These sensors included the **CairClip NO2/O3** by **CairPol**, the **Aeroqual Series 500 (and SM50)**, the **O3-3E1F** by **CityTechnology** and the **NO2-B43F** by **Alphasense** (Figure 6). On the other other hand, we found very few records for sensor systems using 24 hour data. As a general remark, we can see that the performance of OEMs sensors is enhanced when they are integrated inside a sensor systems. It is also evident that most of the gathered records from $PM_{2.5}$ and gaseous pollutants $O_{3}$, $NO_{2}$, $CO$ and $NO$, used 24 hours and 1 hour time-resolution data as required by the European Air Quality Directive.
+
+\newline
+
+To check the accuracy of a sensor, when compared to a reference system, we looked at the value of the slope obtained from the linear regression of the sensor measurements against a reference measurement. Most of comparisons were carried out during field tests, while only a limited number laboratory tests were available. Ideally, only an $R^2$ ~ 1.0 and a **slope** ~ 1.0 should be a good indicator of performance for a sensor. Therefore, we only selected records with $R^2$ > 0.7 and  **slope** within the range 0.5-1.5. 
+
+**Figure 7** shows sensor systems such as, the **AQM 60**, the **KUNAKAIR A10 V2**, the **AirSensEUR (v2)** has $slopes$ ~ 1 for most of measured gaseous pollutants when using 1 hour time-resolution data. On the other hand, only few records from $PM_{2.5}$ sensor systems showed $slopes$ ~ 1 for 1-hour (**PATS+** and **AirNut**) and 24-hour (**AIRQuino**)  time-averaged sensor systems.
+Only few $PM_{2.5}$ sensors performed well at ideal conditions. Sensor systems such as, **AIRQino**, **SidePak AM510**, **Air Quality Egg (v.2) (PM)**, **Dylos DC1100 PRO**, **AirNut** and the OEM **OPC-N2** were in good agreement with a reference system (Figure 7, Figure 8). 
+
+Among OMEs showing $slopes$ ~ 1 when using 1-hour time-averaged data, we found the **SM50**, the **CairClip O3/NO2**, the **S-500**, ($NO_{2}$, $O_{3}$) and, the **NO2-B4F** ($NO_{2}$) and the **Egg v.2 (PM)** ($PM_{2.5}$) (**Figure 9**). On the other hand, when using 24-hour time-averaged data, the OEM **OPC-N2** by **Alphasense** and the **Egg v.2 (PM)** by **Air Quality Egg**, shoed slopes ~ 1 when measuring $PM_{10}$ (**Figure 10**).
+
+As general remark, from the above analysis we could observe that for some OEMs and sensor systems, the width of the interquartile  range IQR ( H-spread) was very narrow. This is an indication of the *reproducibility* of the regression parameters used in their calibration. This becomes relevant when it comes to the development of a reliable sensor system that uses the same OEM sensor and the same calibration algorithms. From the present analysis,     
+
+
+\newline
+
+
+```{r Figure 7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure 7.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 1 hour."}
+
+
+#========Validation plot for SS (slope) 
+
+# remove empty lines where slope is null
+DB_comparison_SS_1hour <- DB_comparison_SS_1hour[!(is.na(DB_comparison_SS_1hour$slope)), ]
+
+
+# filter slopes by units
+DB_comparison_SS_1hour <- DB_comparison_SS_1hour %>%
+  filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "hppcf", "#", "counts", "mg/m3"))
+
+# invert the value of the slope only if "sensor" is on the y axis
+
+DB_comparison_SS_1hour$new_slope <- DB_comparison_SS_1hour$slope
+
+for (i in 1:nrow(DB_comparison_SS_1hour)) {
+if  (DB_comparison_SS_1hour$y[i] == "Sensor") {
+  DB_comparison_SS_1hour$new_slope[i] = 1/DB_comparison_SS_1hour$slope[i]
+} else DB_comparison_SS_1hour$new_slope[i] = DB_comparison_SS_1hour$slope[i]
+  }
+
+# filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+
+DB_comparison_SS_1hour_filtered <- DB_comparison_SS_1hour %>%
+  filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+
+
+count_DB_comparison_SS_filtered <- DB_comparison_SS_1hour_filtered %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+DB_comparison_SS_1hour_filtered$new_slope <- round(DB_comparison_SS_1hour_filtered$new_slope, digits=4)
+# order new_slope from small to big
+# DB_comparison_SS_filtered <- DB_comparison_SS_filtered[order(-DB_comparison_SS_filtered$new_slope),]
+
+plot <- ggplot(DB_comparison_SS_1hour_filtered, aes(x = fct_reorder(model, new_slope, fun = median, .desc =TRUE), y = new_slope)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, new_slope, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 2) +
+  geom_hline(yintercept=0.5, linetype="dashed", color = "red") +
+  geom_hline(yintercept=1.0, linetype="dashed", color = "blue") +
+  geom_hline(yintercept=1.5, linetype="dashed", color = "red") +
+  geom_text(data = count_DB_comparison_SS_filtered, aes(x = model, y = 1.2, label = counts, fontface="bold"), size = 4)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  # ylab("slope") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=15, colour = "black", face="bold")) +
+  ylab(expression("slope",size=30)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=22),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=13, colour = "black")) +
+  ggtitle(expression(paste("Distribution of slopes", " for sensors systems: COMPARISON with REFERENCE (1 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+```{r Figure 8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure 8.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 24 hour."}
+
+
+#========Validation plot for SS (slope) 
+
+# remove empty lines where slope is null
+DB_comparison_SS_24hour <- DB_comparison_SS_24hour[!(is.na(DB_comparison_SS_24hour$slope)), ]
+
+# filter slopes by units
+DB_comparison_SS_24hour <- DB_comparison_SS_24hour %>%
+  filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "hppcf", "#", "counts", "mg/m3"))
+
+# invert the value of the slope only if "sensor" is on the y axis
+
+DB_comparison_SS_24hour$new_slope <- DB_comparison_SS_24hour$slope
+
+for (i in 1:nrow(DB_comparison_SS_24hour)) {
+if  (DB_comparison_SS_24hour$y[i] == "Sensor") {
+  DB_comparison_SS_24hour$new_slope[i] = 1/DB_comparison_SS_24hour$slope[i]
+} else DB_comparison_SS_24hour$new_slope[i] = DB_comparison_SS_24hour$slope[i]
+  }
+
+# filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+
+DB_comparison_SS_24hour_filtered <- DB_comparison_SS_24hour %>%
+  filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+
+
+count_DB_comparison_SS_filtered <- DB_comparison_SS_24hour_filtered %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+DB_comparison_SS_24hour_filtered$new_slope <- round(DB_comparison_SS_24hour_filtered$new_slope, digits=4)
+# order new_slope from small to big
+# DB_comparison_SS_filtered <- DB_comparison_SS_filtered[order(-DB_comparison_SS_filtered$new_slope),]
+
+plot <- ggplot(DB_comparison_SS_24hour_filtered, aes(x = fct_reorder(model, new_slope, fun = median, .desc =TRUE), y = new_slope)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, new_slope, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 2) +
+  geom_hline(yintercept=0.5, linetype="dashed", color = "red") +
+  geom_hline(yintercept=1.0, linetype="dashed", color = "blue") +
+  geom_hline(yintercept=1.5, linetype="dashed", color = "red") +
+  geom_text(data = count_DB_comparison_SS_filtered, aes(x = model, y = 1.2, label = counts, fontface="bold"), size = 5)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  ylab(expression("slope",size=30)) + 
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  # ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=13, colour = "black")) +
+  ggtitle(expression(paste("Distribution of slopes", " for sensors systems: COMPARISON with REFERENCE (24 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+
+```{r Figure 9, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 9.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 1 hour."}
+
+
+#========Validation plot for OEMs (slope) 
+
+# remove empty lines where slope is null
+DB_comparison_OEM_1hour <- DB_comparison_OEM_1hour[!(is.na(DB_comparison_OEM_1hour$slope)), ]
+
+# filter slopes by units
+DB_comparison_OEM_1hour <- DB_comparison_OEM_1hour %>%
+  filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "hppcf", "#", "counts", "mg/m3"))
+
+# invert the value of the slope only if "sensor" is on the y axis
+
+DB_comparison_OEM_1hour$new_slope <- DB_comparison_OEM_1hour$slope
+
+for (i in 1:nrow(DB_comparison_OEM_1hour)) {
+if  (DB_comparison_OEM_1hour$y[i] == "Sensor") {
+  DB_comparison_OEM_1hour$new_slope[i] = 1/DB_comparison_OEM_1hour$slope[i]
+} else DB_comparison_OEM_1hour$new_slope[i] = DB_comparison_OEM_1hour$slope[i]
+  }
+
+# filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+
+DB_comparison_OEM_1hour_filtered <- DB_comparison_OEM_1hour %>%
+  filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+
+
+count_DB_comparison_OEM_filtered <- DB_comparison_OEM_1hour_filtered %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+DB_comparison_OEM_1hour_filtered$new_slope <- round(DB_comparison_OEM_1hour_filtered$new_slope, digits=4)
+# order new_slope from small to big
+# DB_comparison_OEM_filtered <- DB_comparison_OEM_filtered[order(-DB_comparison_OEM_filtered$new_slope),]
+
+plot <- ggplot(DB_comparison_OEM_1hour_filtered, aes(x = fct_reorder(model, new_slope, fun = median, .desc =TRUE), y = new_slope)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, new_slope, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 2) +
+  geom_hline(yintercept=0.5, linetype="dashed", color = "red") +
+  geom_hline(yintercept=1.0, linetype="dashed", color = "blue") +
+  geom_hline(yintercept=1.5, linetype="dashed", color = "red") +
+  geom_text(data = count_DB_comparison_OEM_filtered, aes(x = model, y = 1.2, label = counts, fontface="bold"), size = 5)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  ylab("slope") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  # ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=16, colour = "black")) +
+  ggtitle(expression(paste("Distribution of slopes", " for OEMs: COMPARISON with REFERENCE (1 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+\newline
+
+```{r Figure 10, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 8, fig.cap = "**Figure 10.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 24 hour."}
+
+
+#========Validation plot for OEMs (slope) 
+
+# remove empty lines where slope is null
+DB_comparison_OEM_24hour <- DB_comparison_OEM_24hour[!(is.na(DB_comparison_OEM_24hour$slope)), ]
+
+
+# filter slopes by units
+DB_comparison_OEM_24hour <- DB_comparison_OEM_24hour %>%
+  filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "hppcf", "#", "counts", "mg/m3"))
+
+# invert the value of the slope only if "sensor" is on the y axis
+
+DB_comparison_OEM_24hour$new_slope <- DB_comparison_OEM_24hour$slope
+
+for (i in 1:nrow(DB_comparison_OEM_24hour)) {
+if  (DB_comparison_OEM_24hour$y[i] == "Sensor") {
+  DB_comparison_OEM_24hour$new_slope[i] = 1/DB_comparison_OEM_24hour$slope[i]
+} else DB_comparison_OEM_24hour$new_slope[i] = DB_comparison_OEM_24hour$slope[i]
+  }
+
+# filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+
+DB_comparison_OEM_24hour_filtered <- DB_comparison_OEM_24hour %>%
+  filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+
+
+count_DB_comparison_OEM_filtered <- DB_comparison_OEM_24hour_filtered %>%
+  group_by(model,
+           pollutant) %>%
+  summarise(counts = length(model))
+
+
+DB_comparison_OEM_24hour_filtered$new_slope <- round(DB_comparison_OEM_24hour_filtered$new_slope, digits=4)
+# order new_slope from small to big
+# DB_comparison_OEM_filtered <- DB_comparison_OEM_filtered[order(-DB_comparison_OEM_filtered$new_slope),]
+
+plot <- ggplot(DB_comparison_OEM_24hour_filtered, aes(x = fct_reorder(model, new_slope, fun = median, .desc =TRUE), y = new_slope)) +
+  theme_bw() +
+  geom_point(alpha=1, color="black", position = "jitter", size = 1) +
+  geom_boxplot(aes(fill = fct_reorder(model, new_slope, fun = median, .desc =TRUE)), position = position_dodge2(preserve = "single")) +
+  facet_grid(pollutant ~ ., labeller = label_parsed) +
+  guides(fill=FALSE) +   # no legend
+  # ylim(0, 2) +
+  geom_hline(yintercept=0.5, linetype="dashed", color = "red") +
+  geom_hline(yintercept=1.0, linetype="dashed", color = "blue") +
+  geom_hline(yintercept=1.5, linetype="dashed", color = "red") +
+  geom_text(data = count_DB_comparison_OEM_filtered, aes(x = model, y = 1.2, label = counts, fontface="bold"), size = 5)+ #colour="red", fontface=2
+  theme(strip.text = element_text(size = 20, face="bold")) + 
+  theme(strip.text.y = element_text(angle = 0)) +
+  xlab("Sensor Model") +
+  ylab("slope") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=18, colour = "black", face="bold")) +
+  # ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+  ggtitle(expression(paste("Distribution of slopes", " for OEMs: COMPARISON with REFERENCE (24 hour)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+
+\newline
+
+
+## 6. Price of sensors
+
+As preliminary outcome of the present analysis, we have started identifying sensors systems that are in good agreement with reference instruments commonly used to monitor pollutant concentrations. Although the sensor market constantly develops, we decided to identify a sensor system that is commercially available or that can be assembled with commercially available OEM sensors. 
+
+Usually, the price of OEM sensors only represents a small fraction of the selling value of the entire sensor system. In the common understanding, a sensor for air quality is classified as low-cost when its price is less than 2500 EUR. In addition, if a low-cost sensor can measure multiple pollutants, potentially it could be used by local authorities as complementary source of air quality data.
+
+
+\newline
+
+```{r Figure 11, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 11.** Prices of OEMs available on the market (only OEMs with price below 2500 EUR are shown."}
+
+
+#======== prices of OEMs 
+
+
+# slect OEMs
+DB_OEM <- DB %>%
+  filter(OEM_system == "OEM") 
+
+OEM_prices <- DB_OEM[!(is.na(DB_OEM$price)), ]
+
+# make all new prices in EUR
+for (i in 1:nrow(OEM_prices)) {
+  if  (OEM_prices$currency[i] == "USD") {
+    OEM_prices$new_price_EUR[i] = round(0.88*OEM_prices$price[i], digits = 0)
+  } else OEM_prices$new_price_EUR[i] = round(OEM_prices$price[i], digits = 0)
+}
+
+
+OEM_prices <- OEM_prices %>%
+  filter(new_price_EUR < 2500,
+         # !living == "N",
+          !pollutant == "PM10-2.5",
+          !pollutant == "PM2.5-0.5",
+          !pollutant == "PM2",
+          !pollutant == "PM3")
+# order in alphabetic order
+OEM_prices <- OEM_prices[order(OEM_prices$model),]
+
+
+
+# number of pollutants measured by each sensor
+count_OEM_prices <- OEM_prices[!duplicated(OEM_prices[c("model", "pollutant" )]),]
+count_OEM_prices <- count_OEM_prices %>%
+    group_by(model) %>%
+    summarise(counts = length(pollutant))
+
+# select unique PRICE and POLLUTANT per model of sensor
+OEM_prices <- OEM_prices[!duplicated(OEM_prices[c("model", "price")]),]
+
+count_OEM_prices <- cbind(count_OEM_prices, OEM_prices$new_price_EUR)
+names(count_OEM_prices)[3] <- "new_price_EUR"
+
+
+plot <- ggplot(OEM_prices, aes(reorder(model, new_price_EUR), new_price_EUR, fill = new_price_EUR)) +
+  theme_bw() +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  guides(fill=FALSE) +   # no legend
+  # xlab("model") +
+  xlab(expression(paste("model"),size=50)) +
+  geom_text(data = count_OEM_prices, aes(reorder(model, new_price_EUR), y = 700, label = counts, fontface="bold"), size = 5) +
+  theme(axis.title.x=element_text(face="bold", colour="black", size=14),
+        axis.text.x = element_text(angle=0, vjust=1, hjust = 0.5, size=15, colour = "black", face="bold")) +
+  ylab(expression(paste("Price (EUR)"),size=30)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+  ggtitle(expression(paste("Average prices of OEMs"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+
+\newline
+
+For the evaluation of the price of sensors, we considered all sensor systems manufactured by commercial companies as well as sensor systems built for laboratory testing by research groups. The latter ones are custom-built devices assembled around an OEM sensor. We must to stress out that, while for the detection of different size of particulate matter it is possible to use the same optical sensor, for the detection of gaseous pollutant it is necessary to have a dedicated sensor for each pollutant. Therefore, among all the analysed records, we tried identifying sensor systems that can measure concentration of particulate matter together with gaseous pollutants.   
+
+**Figure 11** and **Figure 12** shows the commercial price of OEMs and sensor systems by model and number of pollutant measured by each senso at a price lower than 2500 EUR. As we can see from Figure 12, there is a large number of sensor systems measuring single pollutants. This is an indication about the complexity of having a sensor system measuring both concentration of particulate matter both concentration of gaseous pollutants.
+On average, we can see that OEMs's price is much lower of the one of sensor systems. In addition, the price of sensor systems increased together with their capability to measure multiple pollutants. This is because the sensor system may host several sensors to be managed by an electronic board to perform data acquisition.   
+
+
+
+\newline
+
+
+```{r Figure 12, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 12.** Prices of OEMs by manufacturer (only OEMs with price below 2500 EUR are shown)."}
+
+
+#======== prices of Sensor Systems 
+
+
+# slect OEMs
+DB_SS <- DB %>%
+  filter(OEM_system == "SS") 
+
+SS_prices <- DB_SS[!(is.na(DB_SS$price)), ]
+
+# make all new prices in EUR
+for (i in 1:nrow(SS_prices)) {
+  if  (SS_prices$currency[i] %in% "USD") {
+    SS_prices$new_price_EUR[i] = round(0.88*SS_prices$price[i], digits = 0)
+  } else SS_prices$new_price_EUR[i] = round(SS_prices$price[i], digits = 0)
+}
+
+
+# compute TOTAL (and INDICATIVE) prices for SS based on the price of each "Model"
+# # UNIQUE LIST of REFERENCES TO BE INSERTED IN THE SAME ORDER!!!!!
+# AAA <- SS_prices[!duplicated(SS_prices[c("model" , "new_price_EUR")]),]
+# new_prices <- AAA %>%
+#   group_by(model) %>%
+#   summarise(new_price_EUR_a = sum(new_price_EUR))
+# 
+# # merge data
+# SS_prices <- SS_prices %>%
+#   left_join(new_prices, c("model"))
+# 
+# SS_prices$ID_price_match <- data.frame(SS_prices[ match(SS_prices$new_price_EUR, table = SS_prices$new_price_EUR_a), "ID_price_match"])
+
+
+
+SS_prices <- SS_prices %>%
+  filter(new_price_EUR < 2500,
+         # !living == "N",
+          !pollutant == "PM10-2.5",
+          !pollutant == "PM2.5-0.5",
+          !pollutant == "PM2",
+          !pollutant == "PM3")
+# order in alphabetic order
+SS_prices <- SS_prices[order(SS_prices$model),]
+
+
+
+# number of pollutants measured by each sensor
+count_SS_prices <- SS_prices[!duplicated(SS_prices[c("model", "pollutant" )]),]
+count_SS_prices <- count_SS_prices %>%
+    group_by(model) %>%
+    summarise(counts = length(pollutant))
+
+# select unique PRICE and POLLUTANT per model of sensor
+SS_prices <- SS_prices[!duplicated(SS_prices[c("model", "price")]),]
+SS_prices <- SS_prices %>%
+  group_by(model) %>%
+  summarise(new_price_EUR = mean(new_price_EUR))
+
+count_SS_prices <- cbind(count_SS_prices, SS_prices$new_price_EUR)
+names(count_SS_prices)[3] <- "new_price_EUR"
+
+
+SS_prices$new_price_EUR = round(SS_prices$new_price_EUR, digits = 0)
+# order in alphabetic order
+SS_prices <- SS_prices[order(SS_prices$model),]
+
+
+plot <- ggplot(SS_prices, aes(reorder(model, new_price_EUR), new_price_EUR, fill = new_price_EUR)) +
+  theme_bw() +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  guides(fill=FALSE) +   # no legend
+  # xlab(" ") +
+  xlab(expression(paste("model"),size=50)) +
+  geom_text(data = count_SS_prices, aes(reorder(model, new_price_EUR), y = 700, label = counts, fontface="bold"), size = 4) +
+  theme(axis.title.x=element_text(face="bold", colour="black", size=14),
+        axis.text.x  = element_text(angle=0, vjust=1, hjust = 0.5, size=15, colour = "black", face="bold")) +
+  ylab(expression(paste("Price (EUR)"),size=30)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=13, colour = "black")) +
+  ggtitle(expression(paste("Average prices of Sensor Systems (SS)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+
+```
+
+\newline
+
+Among the sensor systems measuring multiple pollutants, we could indentify the **KUNAKAIR P10 V2**  by **kunak**, the **AirSensEUR (v.2)** by **LiberaIntentio** and the **AIRQuino** by the **CNR** for the detection of $NO_{2}$, $CO$, $O_{3}$ and $NO$ and $PM$. However,only the **AIRQuin** and the **AirSensEUR (v2)** were the two only sensor systems measuring multiple pollutants and with $R^2$ > 0.7 and 0.5 < $slope$ < 1.5 when compared with reference systems. Additionally, their commercial price is below the threshold limit defined for low-cost sensors (**Table 8**).
+We need to point out that, at the date, the **AIRQuino** can measures up to five pollutants ($PM_{2.5}$, $PM_{10}$, $NO_{2}$, $O_{3}$, $CO$ and $NO$, $CO_{2}$ and $VOCs$), however, only data from PM were available a the time of this review. On the other hand, the **AirSensEUR (v2)** is a complete sensor system that can measure particulate matter and all gaseous pollutants including "$CO_{2}$ and $Rn$ (radon)". This sensor system is already operative and has undergone multiple alibrations and filed test where measurements of gaseous pollutants and particulate matter with good agreement with reference measurements.
+
+\newline
+
+```{r Figure 13, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 6, fig.cap = "**Figure 13.** Only records with $R^2$ > 0.7 and 0.5 < $slope$ < 1.5 are shown. Price of low-cost sensor systems (numbers in bold indicates the number of pollutant measured by each sensor)."}
+
+#========Sensor price by model and number of pollutants
+
+# remove NA values
+DB_prices <- DB[!(is.na(DB$price)), ]
+DB_prices <- DB[!(is.na(DB$slope)), ]
+
+# open source
+DB_prices <- DB_prices %>%
+  filter(open_close == "open source")
+
+DB_prices$new_slope <- DB_prices$slope
+
+for (i in 1:nrow(DB_prices)) {
+if  (DB_prices$y[i] == "Sensor") {
+  DB_prices$new_slope[i] = 1/DB_prices$slope[i]
+} 
+  }
+
+
+# filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+DB_prices <- DB_prices %>%
+  filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+
+# convert prices from USD to EUR
+DB_prices$new_price_EUR <- DB_prices$price
+
+# only select sensor systems
+DB_prices <- DB_prices %>%
+  filter(OEM_system == "SS")
+
+# make all new prices in EUR
+for (i in 1:nrow(DB_prices)) {
+  if  (DB_prices$currency[i] == "USD") {
+    DB_prices$new_price_EUR[i] = 0.88*DB_prices$price[i]
+  } else DB_prices$new_price_EUR[i] = round(DB_prices$price[i], digits = 0)
+}
+
+# select prices <= 2500 EUR
+DB_prices <- DB_prices %>%
+  filter(new_price_EUR < 2500,
+         # !living == "N",
+          !pollutant == "PM10-2.5",
+          !pollutant == "PM2.5-0.5",
+          !pollutant == "PM2",
+          !pollutant == "PM3")
+# order in alphabetic order
+DB_prices <- DB_prices[order(DB_prices$model),]
+
+all_DB_prices <- DB_prices
+
+# DB_prices <- DB_prices %>%
+#   filter(OEM_system == "SS")
+
+# number of pollutants measured by each sensor
+count_DB_prices <- DB_prices[!duplicated(DB_prices[c("model", "pollutant" )]),]
+count_DB_prices <- count_DB_prices %>%
+    group_by(model) %>%
+    summarise(counts = length(pollutant))
+
+# select unique PRICE and POLLUTANT per model of sensor
+DB_prices <- DB_prices[!duplicated(DB_prices[c("model", "price")]),]
+
+count_DB_prices <- cbind(count_DB_prices, DB_prices$new_price_EUR)
+names(count_DB_prices)[3] <- "new_price_EUR"
+
+
+# only select sensor systems with more than 2 pollutants
+  names <- count_DB_prices[count_DB_prices$counts >= 2, ]$model
+  names <- as.character(names)
+  DB_prices <- DB_prices[DB_prices$model %in% names,]
+  
+  count_DB_prices <- count_DB_prices %>%
+    filter(counts >= 2)
+
+plot <- ggplot(DB_prices, aes(reorder(model, new_price_EUR), new_price_EUR, fill = new_price_EUR)) +
+  theme_bw() +
+  geom_bar(stat = "identity") +
+  guides(fill=FALSE) +   # no legend
+ # ylim(0, 2) +
+ geom_text(data = count_DB_prices, aes(reorder(model, new_price_EUR), y = 700, label = counts, fontface="bold"), size = 7) +
+  xlab("model") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=90, vjust=0.5, hjust = 1, size=13, colour = "black", face="bold")) +
+  ylab(expression(paste("Price (EUR)"),size=24)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=14),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=12, colour = "black")) +
+  # geom_hline(yintercept= 50, col="red", size = 1, linetype="dashed") +
+  # geom_hline(yintercept= 100, col="red", size = 1, linetype="dashed") +
+  # geom_hline(yintercept= 150, col="red", size = 1, linetype="dashed") +
+  # geom_hline(yintercept= 200, col="red", size = 1, linetype="dashed") +
+  ggtitle(expression(paste("Average prices for open source low-cost sensor systems"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+
+plot
+
+```
+
+
+\newline
+
+
+
+\newline
+
+```{r  echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+
+# select Sensor systems measuring more than 2 pollutnats (>=)
+SS_price_pollutants <-  count_DB_prices %>%
+  filter(counts >= 2)
+
+
+# identify pollutants measured by each sensor
+
+SS_price_pollutants <- as.data.frame(SS_price_pollutants[,1])
+names(SS_price_pollutants) <- "model" 
+
+SS_price_pollutants <- SS_price_pollutants %>%
+  left_join(all_DB_prices, c("model"))
+
+
+# make all new prices in EUR
+for (i in 1:nrow(SS_price_pollutants)) {
+  if  (SS_price_pollutants$currency[i] == "USD") {
+    SS_price_pollutants$new_price_EUR[i] = round(0.88*SS_price_pollutants$price[i], digits = 0)
+  } else SS_price_pollutants$new_price_EUR[i] = round(SS_price_pollutants$price[i], digits = 0)
+}
+
+
+SS_price_pollutants <- SS_price_pollutants %>%
+  select(-price)
+# rename "new_price_EUR"" into "price""
+names(SS_price_pollutants)[names(SS_price_pollutants)=="new_price_EUR"] <- "price"
+
+# select unique model and pollutant per model of sensor
+SS_price_pollutants <- SS_price_pollutants[!duplicated(SS_price_pollutants[c("model", "price", "pollutant")]),]
+
+SS_price_pollutants <- SS_price_pollutants %>%
+  select(model,
+         pollutant,
+         price)
+
+#only PM2.5
+SS_price_pollutants_PM25 <- SS_price_pollutants %>%
+  filter(pollutant == "PM2.5")
+
+#only PM10
+SS_price_pollutants_PM10 <- SS_price_pollutants %>%
+  filter(pollutant == "PM10")
+
+#only PM1
+SS_price_pollutants_PM1 <- SS_price_pollutants %>%
+  filter(pollutant == "PM1")
+
+#only NO2
+SS_price_pollutants_NO2 <- SS_price_pollutants %>%
+  filter(pollutant == "NO2")
+
+#only O3
+SS_price_pollutants_O3 <- SS_price_pollutants %>%
+  filter(pollutant == "O3")
+
+#only CO
+SS_price_pollutants_CO <- SS_price_pollutants %>%
+  filter(pollutant == "CO")
+
+AAA <- SS_price_pollutants_PM25 %>%
+  full_join(SS_price_pollutants_PM10, c("model")) 
+
+BBB <- AAA %>%
+  full_join(SS_price_pollutants_PM1, c("model")) 
+
+CCC <- BBB %>%
+  full_join(SS_price_pollutants_NO2, c("model")) 
+
+DDD <- CCC %>%
+  full_join(SS_price_pollutants_O3, c("model")) 
+
+EEE <- DDD %>%
+  full_join(SS_price_pollutants_CO, c("model"))
+EEE <- EEE %>%
+  select(-price.x,
+         - price.x.x,
+         - price.x.x.x,
+         - price.y,
+         - price.y.y,
+         - price.y.y.y)
+
+names(EEE)[names(EEE)=="pollutant.x"] <- "pollutant"
+names(EEE)[names(EEE)=="pollutant.x.x"] <- ""
+names(EEE)[names(EEE)=="pollutant.y"] <- ""
+names(EEE)[names(EEE)=="pollutant.y.y"] <- ""
+names(EEE)[names(EEE)=="pollutant.x.x.x"] <- ""
+names(EEE)[names(EEE)=="pollutant.y.y.y"] <- ""
+
+# merge with  price
+
+ 
+SS_price_pollutants <- SS_price_pollutants[!duplicated(SS_price_pollutants[c("model", "price")]),]
+
+EEE <- EEE[order(EEE$model),]
+SS_price_pollutants <- cbind(EEE, SS_price_pollutants$price)
+colnames(SS_price_pollutants) <- c("model", "pollutant", "", "", "", "", "", "price (EUR)")
+# sort by price
+SS_price_pollutants <- SS_price_pollutants[order(SS_price_pollutants$price),]
+
+Caption <- paste0("**Table 8.** Shortlist of sensor systems measuring two or more than pollutants in good agreement with reference systems ($R^2$ > 0.7; 0.5 < slope < 1.5).")
+set.caption(Caption)
+panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for 
+pander(SS_price_pollutants, emphasize.strong.cols = 1, missing = "")
+
+```
+
+\newline
+
+As shown in **Figure 14**, we did not find any relation between the commercial price of OEM sensors and the value of $R^{2}$ resulting from the comparison with reference systems. However, a slight increase of the price of sensor systems together with $R^{2}$ was observed. This is an indication that the quality of the data obtained from the sensors is somewhat depending from the type of data treatment and from the type of model used to validate the sensor itself against reference measurements.
+
+\newline
+
+
+```{r Figure 14, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 14.** Relation between prices of OEMs/Sensor Systems and $R^2$."}
+
+
+#======== prices of OEM vs r2
+
+# remove eventual NULL prices
+DB_prices <- DB[!(is.na(DB$price)), ]
+
+# make all new prices in EUR
+for (i in 1:nrow(DB_prices)) {
+  if  (DB_prices$currency[i] == "USD") {
+    DB_prices$new_price_EUR[i] = round(0.88*DB_prices$price[i], digits = 0)
+  } else DB_prices$new_price_EUR[i] = round(DB_prices$price[i], digits = 0)
+}
+
+
+
+# filter slopes by units
+DB_prices <- DB_prices %>%
+  filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "#", "mg/m3"))
+
+
+# DB_prices <- DB_prices %>%
+#   filter(model_type_calibration %in% c("linear", "MLR"))
+
+# select prices <= 2500 EUR
+DB_prices <- DB_prices %>%
+  filter(new_price_EUR < 2500)
+
+# remove data where r2  is NULL
+DB_prices_r2 <- DB_prices[!is.na(DB_prices$r2),]
+
+DB_prices_r2 <- DB_prices_r2 %>%
+  group_by(model,
+           OEM_system) %>%
+  summarise(mean_r2 = mean(r2),
+            mean_price = mean(new_price_EUR))
+
+
+DB_prices_r2$mean_r2 = round(DB_prices_r2$mean_r2, digits = 2)
+
+
+# plot of price OEM VS r2 (COMPARISON)
+
+plot <- ggplot(DB_prices_r2, aes(mean_r2, mean_price)) +
+  theme_bw() +
+  geom_point(size = 2) +
+  geom_smooth(method="lm") +  # Add linear regression line
+  # geom_smooth(method = "lm", formula = y ~ -1 + x) +  # force fit through the origin
+  facet_grid(OEM_system ~ .) +
+  ylab(expression("price (EUR)")) +
+  # xlab(expression(paste(R^2),size=40)) +
+  # ylim(c(0,2)) +
+  # xlim(c(0,2)) +
+  theme(strip.text = element_text(size = 20, face="bold")) +
+  theme(strip.text.y = element_text(angle = 0)) +
+  # xlab("Sensor Model") +
+  # ylab(" ") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=18, colour = "black", face="bold")) +
+  # ylab(expression(paste(R^2),size=40)) +
+  theme(axis.title.y = element_text(face="bold", colour="black", size=20),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=20, colour = "black")) +
+  ggtitle(expression(paste("Relation between prices of OEMs/Sensor Systems and ", R^2))) +
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5))
+plot
+ 
+
+```
+
+\newline
+
+
+
+```{r Figure 14a, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 14a.** Relation between prices of OEMs/Sensor Systems and $R^2$."}
+# 
+# 
+# #======== prices of OEM vs r2
+# 
+# # remove eventual NULL prices
+# DB_prices <- DB[!(is.na(DB$price)), ]
+# 
+# # make all new prices in EUR
+# for (i in 1:nrow(DB_prices)) {
+#   if  (DB_prices$currency[i] == "USD") {
+#     DB_prices$new_price_EUR[i] = round(0.88*DB_prices$price[i], digits = 0)
+#   } else DB_prices$new_price_EUR[i] = round(DB_prices$price[i], digits = 0)
+# }
+# 
+# 
+# 
+# # filter slopes by units
+# DB_prices <- DB_prices %>%
+#   filter(sensor_result_unit %in% c("µg/m3", "ppb", "ppm", "#", "mg/m3"))
+# 
+# # remove empty lines where slope is null
+# DB_prices <- DB_prices[!(is.na(DB_prices$slope)), ]
+# 
+# 
+# # DB_prices <- DB_prices %>%
+# #   filter(model_type_calibration %in% c("linear", "MLR"))
+# 
+# # select prices <= 2500 EUR
+# DB_prices <- DB_prices %>%
+#   filter(new_price_EUR < 2500)
+# 
+# 
+# DB_prices$new_slope <- DB_prices$slope
+# 
+# for (i in 1:nrow(DB_prices)) {
+# if  (DB_prices$y[i] == "Sensor") {
+#   DB_prices$new_slope[i] = 1/DB_prices$slope[i]
+# } else DB_prices$new_slope[i] = DB_prices$slope[i]
+#   }
+# 
+# # filter sensors with R2 > 0.7 and 0.5< slope< 1.5
+# 
+# # DB_prices <- DB_prices %>%
+# #   filter(r2 > 0.7 & new_slope > 0.5 & new_slope < 1.5)
+# 
+# DB_prices <- DB_prices %>%
+#   filter(new_slope < 1.5)
+# 
+# 
+# DB_prices_slope <- DB_prices %>%
+#   group_by(model,
+#            OEM_system) %>%
+#   summarise(mean_slope = mean(slope),
+#             mean_price = mean(new_price_EUR))
+# 
+# 
+# DB_prices_slope$mean_slope = round(DB_prices_slope$mean_slope, digits = 2)
+# DB_prices_slope <- DB_prices_slope %>%
+#   filter(mean_slope > 0)
+# 
+# 
+# # plot of price OEM VS r2 (COMPARISON)
+# 
+# plot <- ggplot(DB_prices_slope, aes(mean_slope, mean_price)) +
+#   theme_bw() +
+#   geom_point(size = 2) +
+#   geom_smooth(method="lm") +  # Add linear regression line
+#   # geom_smooth(method = "lm", formula = y ~ -1 + x) +  # force fit through the origin
+#   facet_grid(OEM_system ~ .) +
+#   ylab(expression("price (EUR)")) +
+#   # xlab(expression(paste(R^2),size=40)) +
+#   # ylim(c(0,2)) +
+#   # xlim(c(0,2)) +
+#   theme(strip.text = element_text(size = 20, face="bold")) +
+#   theme(strip.text.y = element_text(angle = 0)) +
+#   # xlab("Sensor Model") +
+#   # ylab(" ") +
+#   theme(axis.title.x=element_blank(),
+#         axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=18, colour = "black", face="bold")) +
+#   # ylab(expression(paste(R^2),size=40)) +
+#   theme(axis.title.y = element_text(face="bold", colour="black", size=22),
+#         axis.text.y  = element_text(angle=0, vjust=0.5, size=20, colour = "black")) +
+#   ggtitle(expression(paste("Relation between prices of OEMs/Sensor Systems and ", R^2))) +
+#   theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5))
+# plot
+#  
+
+```
+
+## 7. Bibliography
+
+\newline
