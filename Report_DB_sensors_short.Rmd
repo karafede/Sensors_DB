@@ -29,8 +29,7 @@ Today, there are more than 250 low-cost sensor systems commercially available on
 In this work, quantitative data about the performance of tested low-cost sensors against reference measurement were collected into a repository. This information was gathered from published reports and relevant testing laboratories. Other information was drawn from peer-reviewed journals that tested different types of sensors in research studies. Relevant metrics about the comparison of sensor systems against reference systems highlited the the most cost-effective sensor systems that could be used to monitor air quality pollutants with a good level of agreement rapresented by a coefficient of determination of $R^2$ > 0.75 a slope of 1.0 ± 0.5 and a price < 3 k€. This review wanted to highlight the possibltiy to have versatile sensors able to operate with multiple pollutants and with transparent data treatment.
 
 
-
-All references here [@aleixandre_review_2012; @alvarado_towards_2015; @aq-spec_air_2015; @austin_laboratory_2015; @badura_optical_2018; @barrett_coefficient_1974; @bettair_bettair_2017; @bigi_performance_2018; @borghi_precision_2018; @borrego_assessment_2016; @budde_suitability_2018; @castell_can_2017; @cavaliere_development_2018; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @chakrabarti_performance_2004; @cordero_using_2018; @crilley_evaluation_2018; @cross_use_2017; @crunaire_1er_2018; @dacunto_determining_2015; @duvall_performance_2016; @feinberg_long-term_2018; @gao_distributed_2015; @gerboles_airsenseur_2015; @gerboles_calibration_2019; @gillooly_development_2019; @han_feasibility_2017; @holstius_field_2014; @iscape_summary_2017; @jiao_community_2016; @jovasevic-stojanovic_use_2015; @karagulian_evaluation_2012; @kelly_ambient_2017; @key-vocs_metrology_2017; @kumar_rise_2015; @kunak_wireless_2017; @laquai_particle_2017; @lewis_low-cost_2018; @lewis_validate_2016; @lin_evaluation_2015; @liu_performance_2019; @manikonda_laboratory_2016; @marjovi_extending_2017; @mead_use_2013; @mijling_practical_2017; @mueller_design_2017; @mukherjee_assessing_2017; @northcross_low-cost_2013; @olivares_outdoor_2015; @piedrahita_next_2014; @pillarisetti_small_2017; @popoola_development_2016; @snyder_changing_2013; @sousan_evaluation_2016; @sousan_inter-comparison_2016; @spinelle_evaluation_2016; @spinelle_evaluation_2017; @spinelle_field_2015; @spinelle_field_nodate; @spinelle_performance_2015; @spinelle_report_2013; @spinelle_report_2013-1; @steinle_personal_2015; @sun_development_2016; @sun_development_2017; @the_world_air_quality_index_sensing_2019; @united_states_environmental_protection_agency_evaluation_2015; @vaughn_characterization_2010; @viana_field_2015; @wang_laboratory_2015; @wei_impact_2018; @white_sensors_2012; @williams_air_2014; @williams_evaluation_2014; @williams_sensor_2014; @zheng_field_2018; @zhou_recent_2015; @zikova_estimating_2017; @zimmerman_machine_2018"]
+All references here [@aleixandre_review_2012; @alvarado_towards_2015; @aq-spec_air_2015; @austin_laboratory_2015; @badura_optical_2018; @barrett_coefficient_1974; @bettair_bettair_2017; @bigi_performance_2018; @borghi_precision_2018; @borrego_assessment_2016; @budde_suitability_2018; @castell_can_2017; @cavaliere_development_2018; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @chakrabarti_performance_2004; @cordero_using_2018; @crilley_evaluation_2018; @cross_use_2017; @crunaire_1er_2018; @dacunto_determining_2015; @di_antonio_developing_2018; @duvall_performance_2016; @feinberg_long-term_2018; @gao_distributed_2015; @gerboles_airsenseur_2015; @gerboles_calibration_2019; @gillooly_development_2019; @han_feasibility_2017; @holstius_field_2014; @iscape_summary_2017; @jiao_community_2016; @jovasevic-stojanovic_use_2015; @karagulian_evaluation_2012; @kelly_ambient_2017; @key-vocs_metrology_2017; @kumar_rise_2015; @kunak_wireless_2017; @laquai_particle_2017; @lewis_low-cost_2018; @lewis_validate_2016; @lin_evaluation_2015; @liu_performance_2019; @manikonda_laboratory_2016; @marjovi_extending_2017; @mead_use_2013; @mijling_practical_2017; @mueller_design_2017; @mukherjee_assessing_2017; @northcross_low-cost_2013; @olivares_outdoor_2015; @piedrahita_next_2014; @pillarisetti_small_2017; @popoola_development_2016; @snyder_changing_2013; @sousan_evaluation_2016; @sousan_inter-comparison_2016; @spinelle_evaluation_2016; @spinelle_evaluation_2017; @spinelle_field_2015; @spinelle_field_nodate; @spinelle_performance_2015; @spinelle_report_2013; @spinelle_report_2013-1; @steinle_personal_2015; @sun_development_2016; @sun_development_2017; @the_world_air_quality_index_sensing_2019; @united_states_environmental_protection_agency_evaluation_2015; @vaughn_characterization_2010; @viana_field_2015; @wang_laboratory_2015; @wastine_airsenseur_2019; @wastine_essai_2019; @wei_impact_2018; @white_sensors_2012; @williams_air_2014; @williams_evaluation_2014; @williams_sensor_2014; @zheng_field_2018; @zhou_recent_2015; @zikova_estimating_2017; @zimmerman_machine_2018]
 
 
 
@@ -69,7 +68,7 @@ PROXY = TRUE; URL      = "10.168.209.72"; PORT     = 8012; LOGIN    = NULL; PASS
       } else reset_config()
 
 
-# All [@spinelle_report_2013; @spinelle_report_2013-1; @aq-spec_air_2015; @williams_evaluation_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @jiao_community_2016; @manikonda_laboratory_2016; @sousan_inter-comparison_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015; @dacunto_determining_2015; @borghi_precision_2018; @sun_development_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_performance_2015; @spinelle_field_2015; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @lin_evaluation_2015; @karagulian_evaluation_2012; @zheng_field_2018; @duvall_performance_2016; @mijling_practical_2017; @mead_use_2013; @wang_laboratory_2015; @cross_use_2017; @cordero_using_2018; @mueller_design_2017; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @gerboles_calibration_2019; @spinelle_evaluation_2016; @kunak_wireless_2017; @bettair_bettair_2017; @popoola_development_2016; @marjovi_extending_2017; @bigi_performance_2018; @spinelle_evaluation_2017; @kumar_rise_2015; @lewis_validate_2016; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @key-vocs_metrology_2017; @lewis_low-cost_2018; @barrett_coefficient_1974; @the_world_air_quality_index_sensing_2019; @liu_performance_2019; @iscape_summary_2017; @snyder_changing_2013; @aleixandre_review_2012; @white_sensors_2012; @zhou_recent_2015; @williams_air_2014; @crunaire_1er_2018]
+# All [@spinelle_report_2013; @spinelle_report_2013-1; @aq-spec_air_2015; @williams_evaluation_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @jiao_community_2016; @manikonda_laboratory_2016; @sousan_inter-comparison_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015; @dacunto_determining_2015; @borghi_precision_2018; @sun_development_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_performance_2015; @spinelle_field_2015; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @lin_evaluation_2015; @karagulian_evaluation_2012; @zheng_field_2018; @duvall_performance_2016; @mijling_practical_2017; @mead_use_2013; @wang_laboratory_2015; @cross_use_2017; @cordero_using_2018; @mueller_design_2017; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @gerboles_calibration_2019; @spinelle_evaluation_2016; @kunak_wireless_2017; @bettair_bettair_2017; @popoola_development_2016; @marjovi_extending_2017; @bigi_performance_2018; @spinelle_evaluation_2017; @kumar_rise_2015; @lewis_validate_2016; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @key-vocs_metrology_2017; @lewis_low-cost_2018; @barrett_coefficient_1974; @the_world_air_quality_index_sensing_2019; @liu_performance_2019; @iscape_summary_2017; @snyder_changing_2013; @aleixandre_review_2012; @white_sensors_2012; @zhou_recent_2015; @williams_air_2014; @crunaire_1er_2018; @wastine_essai_2019; @wastine_airsenseur_2019; @di_antonio_developing_2018]
 
 # Set global options
 # options(stringsAsFactors = TRUE)
@@ -612,6 +611,20 @@ names(PM_GAS_sensors_counts)[names(PM_GAS_sensors_counts)=="type_sensor"] <- "ty
 PM_GAS_sensors_counts$references <- paste0("$@^{", format(unlist(PM_GAS_sensors_counts$references)),"}$")
 
 
+
+# statistics of the MEDIAN of R2 for COMPARISON and CALIBRATION
+
+DB_R2 <- DB[!is.na(DB$r2 & DB$r2_calib), ]
+DB_R2 <- DB_R2 %>%
+  filter(r2 > 0,
+         r2_calib > 0) %>%
+  summarise(median_R2_CALIB = median(r2_calib, na.rm = T),
+            median_R2       = median(r2, na.rm = T),
+            mean_R2_CALIB = mean(r2_calib, na.rm = T),
+            mean_R2       = mean(r2, na.rm = T))
+  
+
+
 ```
 
 \newline
@@ -699,11 +712,16 @@ count_pollutant_sensor <- count_pollutant_sensor %>%
            type_sensor,
            field___lab) %>%
   summarise(counts = length(pollutant),
+            # counts_commercial = length(unique(model[which(commercial == "")]) ),
+            # counts_NON_commercial = length(unique(model[which(commercial == "NC")]) ),
             # references = paste(unique(id_ref), collapse=","))
             references = paste(unique(new_ref), collapse=", "))
 
 
 count_pollutant_sensor <- as.data.frame(count_pollutant_sensor)
+
+
+
 # count_pollutant_sensor <- count_pollutant_sensor[order(-count_pollutant_sensor$counts),]
 count_pollutant_sensor <- count_pollutant_sensor[order(count_pollutant_sensor$pollutant),]
 rownames(count_pollutant_sensor) <- NULL
@@ -740,7 +758,15 @@ Most of laboratory and field tests were collected results published and between 
 ```{r Figure 1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 5, fig.height = 4, fig.cap = "**Figure 1.** Number of references per year of publication."}
 
 # unique reference list
-DB_references <- DB[!duplicated(DB[c("reference")]),] # unique number of references
+
+DB_references <-DB[DB$reference %in% "AQ-SPEC", c("reference", "year_ref", "model")] %>% 
+    filter(!duplicated(.)) 
+DB_references$model <- NULL
+
+ DB_references <-rbind(DB_references,
+                       DB[-which(DB$reference %in% "AQ-SPEC"), c("reference", "year_ref")] %>% 
+    filter(!duplicated(.)))
+
 
 DB_YEAR <- DB_references %>%
   group_by(year_ref) %>%
@@ -749,8 +775,8 @@ DB_YEAR <- DB_references %>%
 # sum references from 2018 with 2019
 # DB_YEAR[DB_YEAR$year_ref == 2018,]$count_refs <- DB_YEAR[DB_YEAR$year_ref == 2019,]$count_refs + DB_YEAR[DB_YEAR$year_ref == 2018,]$count_refs
 
-DB_YEAR <- DB_YEAR %>%
-  filter(year_ref < 2019)
+# DB_YEAR <- DB_YEAR %>%
+#   filter(year_ref < 2019)
 
 DB_YEAR$year_ref <- as.factor(DB_YEAR$year_ref)
 
@@ -789,10 +815,13 @@ DB_sites <- DB %>%
              reference) %>%
   summarise(site_bin = 1)
 
+# remove NA row in the "site" column
+DB_sites <- DB_sites[!(is.na(DB_sites$site)), ]
+
 
 DB_sites <- DB_sites %>%
   group_by(site) %>%
-  summarise(reference_counts = sum(site_bin))
+  summarise(reference_counts = sum(site_bin, na.rm = T))
 
 # sum "urban" with "suburban"
 DB_sites[DB_sites$site == "urban",]$reference_counts <- DB_sites[DB_sites$site == "urban",]$reference_counts + DB_sites[DB_sites$site == "suburban",]$reference_counts
@@ -1085,19 +1114,23 @@ For the detection of Particulate Matter, the largest number of sensor tests, car
 ```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
 n_calibration_model <- DB %>%
-  group_by(model_type_calibration) %>%
+  group_by(pollutant,
+           model_type_calibration) %>%
   summarise(counts = length(model_type_calibration),
-#            references = paste(unique(id_ref), collapse=","))
-          references = paste(unique(new_ref), collapse=", "))
+#           references = paste(unique(id_ref), collapse=","))
+            references = paste(unique(new_ref), collapse=", "),
+            median_r2_calib = format(median(r2_calib, na.rm = T), digits = 2),  
+           median_r2 = format(median(r2, na.rm = T), digits = 2))
+
 
 
 # make all references as superscript
 # n_calibration_model$references <- paste0("$^{", format(unlist(n_calibration_model$references)),"}$")
 
-n_calibration_model <- na.omit(n_calibration_model)
+n_calibration_model <- n_calibration_model[!is.na(n_calibration_model$model_type_calibration),]
 names(n_calibration_model)[names(n_calibration_model)=="counts"] <- "n. records"
 names(n_calibration_model)[names(n_calibration_model)=="model_type_calibration"] <- "calibration model"
-total_n_calibration_records <- sum(n_calibration_model$`n. records`)
+total_n_calibration_records <- sum(n_calibration_model$`n. records`, na.rm = T)
 
 ```
 
@@ -1145,7 +1178,7 @@ DB_calibration <- DB_calibration %>%
   group_by(new_ref_author,
            model) %>%
    filter(OEM_system == "SS") %>%
-  summarise(mean_r2_calib = mean(r2_calib))
+  summarise(mean_r2_calib = mean(r2_calib, na.rm = T))
 
 DB_calibration <- DB_calibration %>%
   filter(mean_r2_calib > 0.25)
@@ -1171,9 +1204,9 @@ plot <- ggplot(DB_calibration, aes(mean_r2_calib, model)) +
   geom_text_repel(aes(label=new_ref_author), size = 6.5, show.legend = FALSE) +
   ylab("Sensor System") +
   scale_y_discrete(expand=c(0.01, 0.6)) +
-  xlim(0.25, 1.05) +
+  xlim(0.25, 1.02) +
   xlab(expression(paste(R^2),size=40)) + 
-  geom_vline(xintercept=1.0, linetype="dashed", color = "red", size = 1.5) +
+  geom_vline(xintercept=1.0, linetype="dashed", color = "red", size = 1.2) +
   theme(axis.title.y = element_text(face="bold", colour="black", size=22, margin = margin(t = 0, r = 20, b = 0, l = 0)),
         axis.text.y  = element_text(angle=0, vjust=0.5, size=22, colour = "black")) +
    theme(axis.title.x = element_text(colour="black", size=22),
@@ -1282,7 +1315,7 @@ DB_comparison_SS_24hour <- DB_comparison %>%
 
 We found about *`r total_n_comparison_records`* records about the comparison of calibrated sensors against a reference instrument. All comparisons were carried out by using a *linear regression* model between calibrated and reference data. The performance of the regression was evaluated with the coefficient of determination $R^{2}$ and the *slope* of the regression. As explained above, we need to stress out that not all the analyzed records reported the *Root Mean Square Error (RMSE)* of the regression therefore, we decided to omit it in the present review.
 
-In this work, records gathered from the comparison of sensors with reference systems came from OEMs and sensor systems using a custom calibration or a built-in calibration directly setup by the manufacturer. As for the records collected from the calibration of sensor, comparison with reference system was carried out at different time-resolutions. Here we only report comparisons performed at a time-resolution of 1 hour with *`r AVG_comp_SS`* and *`r AVG_comp_OEM`* records from sensor systems and OEMs, respectively. In **Figure 3a** we have reported the averaged $R^{2}$ for all reviewd sensor systems found from each reference workd. As for the evaluation of the calibration of sensors, we have averaged $R^{2}$ valuse obtained from the same raference and for the same sensor systems. It was observed that, for the same sensor system, we could find different $R^{2}$ value for the comparison with reference measurements. In the following we give a more detalied breakdown about the performances of each OEM / SS upon their comparison with reference mesurements at different averaging-times. 
+In this work, records gathered from the comparison of sensors with reference systems came from OEMs and sensor systems using a custom calibration or a built-in calibration directly setup by the manufacturer. As for the records collected from the calibration of sensor, comparison with reference system was carried out at different time-resolutions. Here we only report comparisons performed at a time-resolution of 1 hour with *`r AVG_comp_SS`* and *`r AVG_comp_OEM`* records from sensor systems and OEMs, respectively. In **Figure 4** we have reported the averaged $R^{2}$ for all reviewd sensor systems found from each reference workd. As for the evaluation of the calibration of sensors, we have averaged $R^{2}$ valuse obtained from the same raference and for the same sensor systems. It was observed that, for the same sensor system, we could find different $R^{2}$ value for the comparison with reference measurements. In the following we give a more detalied breakdown about the performances of each OEM / SS upon their comparison with reference mesurements at different averaging-times. 
 
 
 **Figure S3** shows the distribution of $R^{2}$ for sensors systems measuring $PM_{2.5}$, $PM_{10}$, $PM_{1}$, $O_{3}$, $NO_{2}$ and $CO$ against reference at 1-hour time-resolution. For the measurements of particulate matter, most of the comparisons were performed during field tests with the highest $R^{2}$ obtained from the sensor **PA-II** by **PurpleAir** [@aq-spec_air_2015] and **PATS+** by **Belkley Air** [@pillarisetti_small_2017]. These sensors reported values of $R^{2}$ between 0.8 and 1.0. Other sensors with $R^{2}$ values falling in the range 0.7-1.0 were identified in the  **PMS-SYS-1** by **Shinyei**, the **Dylos 1100 PRO** by **Dylos**, the **MicroPEM** by **RTI**, the **AirNUT** by **Moji China ** the **Egg (2018)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala**, the **AirVeraCity** by **AirVeraCity**, the NPM2 by MetOne [@crunaire_1er_2018] and, the **Air Quality Station** by **AS LUNG** [@aq-spec_air_2015]. Records from other sensors showed different values of $R^{2}$ depending of the type of field test and for the averaging time chosen to process the time-series of data. We need to point out that the performance of sensor systems measuring $PM_{10}$, on average, was very poor.    
@@ -1296,7 +1329,7 @@ The comparison of OEMs against reference systems, showed only few sensors for th
 
 \newline
 
-```{r Figure 3a, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 15, fig.height = 18, fig.cap = "**Figure 3a.** Mean $R^2$ for obtained from the comparison of sensor systems against reference measurements."}
+```{r Figure 4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 15, fig.height = 18, fig.cap = "**Figure 4.** Mean $R^2$ for obtained from the comparison of sensor systems against reference measurements."}
 
 
 DB_comparison <- DB[!(is.na(DB$r2)), ]
@@ -1306,7 +1339,7 @@ DB_comparison <- DB_comparison %>%
   group_by(new_ref_author,
            model) %>%
   filter(OEM_system == "SS") %>%
-  summarise(mean_r2_comparison = mean(r2))
+  summarise(mean_r2_comparison = mean(r2, na.rm = T))
 
 DB_comparison <- DB_comparison %>%
   filter(mean_r2_comparison > 0.25)
@@ -1328,11 +1361,11 @@ plot <- ggplot(DB_comparison, aes(mean_r2_comparison, model)) +
    geom_text_repel(aes(label=id_ref_new), size = 5.7, show.legend = FALSE) +
   ylab("Sensor Model") +
   scale_y_discrete(expand=c(0.01, 0.6)) +
-  xlim(0.25, 1) +
+  xlim(0.25, 1.1) +
   xlab(expression(paste(R^2),size=40)) + 
   geom_vline(xintercept=1.0, linetype="dashed", color = "red", size = 1.5) +
   theme(axis.title.y = element_text(face="bold", colour="black", size=22, margin = margin(t = 0, r = 20, b = 0, l = 0)),
-        axis.text.y  = element_text(angle=0, vjust=0.5, size=20, colour = "black")) +
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
    theme(axis.title.x = element_text(colour="black", size=22),
         axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=22, colour = "black")) +
   # ggtitle(expression(paste("Mean value of ", R^2, " from the COMPARISON of sensor systems with reference measurements"))) + 
@@ -1481,14 +1514,14 @@ Usually, the price of OEM sensors only represents a small fraction of the sellin
 
 For the evaluation of the price of sensors, we considered all sensor systems manufactured by commercial companies as well as sensor systems built for laboratory testing by research groups. The latter ones are custom-built devices assembled around an OEM sensor. We must to stress out that, while for the detection of different size of particulate matter it is possible to use the same optical sensor, for the detection of gaseous pollutant it is necessary to have a dedicated sensor for each pollutant. Therefore, among all the analyzed records, we tried identifying sensor systems that can measure concentration of particulate matter together with gaseous pollutants.   
 
-**Figure S12** and **Figure 4** show the commercial price of OEMs and sensor systems by model and number of pollutant measured by each sensor. There is a large number of sensor systems measuring single pollutants but few ones measuring multiple pollutants. This is an indication about the complexity to have a sensor system measuring multiple pollutants. Most of OEMs are open source devices (**Figure S12**). This means that OEMs can be used to build sensor systems for data acquisition and therefore to calibrate the sensor. On the other hand, most of the sensor systems are black box (**Figure 4**). This means that most of the manufacturers of sensor systems does not commercialize sensors that can be re-calibrated according to the requirements of the user. 
+**Figure S12** and **Figure 5** show the commercial price of OEMs and sensor systems by model and number of pollutant measured by each sensor. There is a large number of sensor systems measuring single pollutants but few ones measuring multiple pollutants. This is an indication about the complexity to have a sensor system measuring multiple pollutants. Most of OEMs are open source devices (**Figure S12**). This means that OEMs can be used to build sensor systems for data acquisition and therefore to calibrate the sensor. On the other hand, most of the sensor systems are black box (**Figure 5**). This means that most of the manufacturers of sensor systems does not commercialize sensors that can be re-calibrated according to the requirements of the user. 
 Sensor systems are intended to be ready-to-use air quality monitors. When purchased by the end-user, a sensor system should estimate the concentration of pollutants with a close agreement to the traditional reference systems used to monitor air quality. 
 
 
 \newline
 
 
-```{r Figure 4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 4.** Prices of SS grouped by model. (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
+```{r Figure 5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 5.** Prices of SS grouped by model. (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
 
 
 #======== prices of Sensor Systems 
@@ -1572,7 +1605,7 @@ plot <- ggplot(SS_prices[,c("model", "new_price_EUR")], aes(model, new_price_EUR
    geom_text(data = count_SS_prices, aes(x = model, y = 5000, label = commercial, fontface="bold", colour = factor(commercial)), size = 3, show.legend = FALSE) +
 scale_color_manual(values =c('black', "black", "red", "blue"),guide="none") +
   theme(axis.title.x=element_text(face="bold", colour="black", size=14),
-        axis.text.x  = element_text(angle=0, vjust=1, hjust = 0.5, size=15, colour = "black", face="bold")) +
+        axis.text.x  = element_text(angle=0, vjust=1, hjust = 0.5, size=14, colour = "black", face="bold")) +
   ylab(expression(paste("Price (EUR)"),size=30)) + 
   theme(axis.title.y = element_text(face="bold", colour="black", size=20),
         axis.text.y  = element_text(angle=0, vjust=0.5, size=13, colour = color_living)) +
@@ -1586,13 +1619,13 @@ plot
 
 \newline
 
-In **Figure 5** We have shortlisted sensor systems according to their level of agreement to reference systems. For this purpose, we considered metrics obtained from 1 hour and 24 hour averaged data of sensor systems with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2.   
+In **Figure 6** We have shortlisted sensor systems according to their level of agreement to reference systems. For this purpose, we considered metrics obtained from 1 hour and 24 hour averaged data of sensor systems with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2.   
 
 Among open source sensor systems we could identify the **AirSensEUR (v.2)** by **LiberaIntentio** and the **AIRQuino** by the **CNR** for the detection of $NO_{2}$, $CO$, $O_{3}$, $NO$ and $PM$, respectively. The remaining shortlisted sensor systems were identified as black box. **Table 4** and **Table S7** report the mean value of $R^{2}$ and of the $slope$ for the sensors systems shortlisted in Figure 15 for 1 hour and 24 hour averaged data. As we can see, the **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of ~ 0.90 and a $slope$ of ~ 0.94 while the **AIRQuino** resulted in a mean $R^{2}$ value of ~ 0.91 and a $slope$ of ~ 0.97. We need to point out that, at the date, the **AIRQuino** can measures up to five pollutants ($PM_{2.5}$, $PM_{10}$, $NO_{2}$, $O_{3}$, $CO$ and $NO$, $CO_{2}$ and $VOCs$), however, only data fror $PM$ were available a the time of this review. On the other hand, the **AirSensEUR (v2)** is a complete sensor system that can also measure particulate matter beside gaseous pollutants including "$CO_{2}$ and $Rn$ (radon)". This sensor system is already operative and has undergone multiple calibrations and field tests where measurements of gaseous pollutants showing good agreement with reference measurements.
 
 \newline
 
-```{r Figure 5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 6, fig.cap = "**Figure 5.** Price of low-cost sensor systems associated to measuremnts performed at different averaging times. Numbers in bold indicate the number of pollutant measured by open source (blue) and black box (black) sensors. Only records with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2 are shown. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
+```{r Figure 6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 6, fig.cap = "**Figure 6.** Price of low-cost sensor systems associated to measuremnts performed at different averaging times. Numbers in bold indicate the number of pollutant measured by open source (blue) and black box (black) sensors. Only records with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2 are shown. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
 
 #========Sensor price by model and number of pollutants
 
@@ -1772,8 +1805,10 @@ SS_price_pollutants <- SS_price_pollutants %>%
          commercial,
          pollutant,
          price) %>%
-  summarise(mean_r2 = mean(r2),
-            mean_slope = mean(slope))
+  summarise(mean_r2 = format(mean(r2, na.rm = T), digits = 2),
+            mean_slope = format(mean(slope, na.rm = T), digits = 2))
+
+
 
 SS_price_pollutants <- SS_price_pollutants %>%
   filter(!pollutant == "PM10-2.5",
@@ -1931,12 +1966,12 @@ pander(SS_price_pollutants, emphasize.strong.cols = 1, missing = "")
 \newline
 
 
-In **Figure 6** we reported the relation between the mean $R^{2}$ and the selling price of OEM/SS for field tests comparisons of sensors against reference systems using 1 hour averaged data. As shown in **Figure 6**, we did not find a significative relation between the commercial price of OEM sensors and the value of $R^{2}$ . On the other hand, we could observe a slight increase of the price of sensor systems together with $R^{2}$. The regression equations indicated in **Figure 6** have been calculated only considering "living" (or active) OEM/sensor when compared to reference measurements during field tests. For 24 hour averaged data from both OEMs and SS we did not show any relationship between mean $R^{2}$ and selling price. 
+In **Figure 7** we reported the relation between the mean $R^{2}$ and the selling price of OEM/SS for field tests comparisons of sensors against reference systems using 1 hour averaged data. As shown in **Figure 7**, we did not find a significative relation between the commercial price of OEM sensors and the value of $R^{2}$ . On the other hand, we could observe a slight increase of the price of sensor systems together with $R^{2}$. The regression equations indicated in **Figure 7** have been calculated only considering "living" (or active) OEM/sensor when compared to reference measurements during field tests. For 24 hour averaged data from both OEMs and SS we did not show any relationship between mean $R^{2}$ and selling price. 
 
 \newline
 
 
-```{r Figure 6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 6.** Relation between prices of OEMs/Sensor Systems (SS) and $R^2$ for field test only. Logarithmic scale has been set for both axis. Open source and black box models are indicated with open and full circles, respectively. Names of 'living' and 'non-living' sensors are indicated in black and blue color, respectively. $R^2$ refers to data averaged over 1 hour. Grey shade in the fit plots indicate a pointwise 95% confidence interval on the fitted values."}
+```{r Figure 7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure 7.** Relation between prices of OEMs/Sensor Systems (SS) and $R^2$ for field test only. Logarithmic scale has been set for both axis. Open source and black box models are indicated with open and full circles, respectively. Names of 'living' and 'non-living' sensors are indicated in black and blue color, respectively. $R^2$ refers to data averaged over 1 hour. Grey shade in the fit plots indicate a pointwise 95% confidence interval on the fitted values."}
 
 
 
@@ -2032,14 +2067,14 @@ plot
 
 \newline
 
-As shown in **Figure 6**, most of the reviewed sensor systems are "black box" systems. This means that the end-user cannot perform any further correction or re-calibration on the sensor system itself. The relationship observed between the coefficient of determination $R^{2}$ and the price of the sensor system, it is an evidence that complexity of building a detector for air quality is somewhat linked to the choice of materials, multi-functionality and time-spent to develop a reliable sensor system.
+As shown in **Figure 7**, most of the reviewed sensor systems are "black box" systems. This means that the end-user cannot perform any further correction or re-calibration on the sensor system itself. The relationship observed between the coefficient of determination $R^{2}$ and the price of the sensor system, it is an evidence that complexity of building a detector for air quality is somewhat linked to the choice of materials, multi-functionality and time-spent to develop a reliable sensor system.
 
-In order to target sensor systems in closer agreement and accuracy with reference systems, we displayed the distribution of SS models with $mean$  $R^{2}$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2. **Figure 7** indicates the **2B Tech. (POM)** by **2B Technologies**, the **AirSensEUR (v.2)** by **Liberantentio**, the **S-500** by **Aeroqual**, the **Egg (v.2)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala** and the **AirVeraCity** as the one having $mean$ $R^{2}$ --> 1 and $ $mean$ $slope$ = 1. These sensor systems give indicative measurements of air pollutants when comparared with the traditional reference monitoring systems over 1 hour averaging time. On the other hand, other sensors such as the **PA-II** by **Purple Air**, the **AirNut**, the **AQMesh v.3.0** by **AQMesh** and, the **AQY v0.5** by **Aeroqual** showed good agreement with reference systems but lower accuracy. 
+In order to target sensor systems in closer agreement and accuracy with reference systems, we displayed the distribution of SS models with $mean$  $R^{2}$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2. **Figure 8** indicates the **2B Tech. (POM)** by **2B Technologies**, the **AirSensEUR (v.2)** by **Liberantentio**, the **S-500** by **Aeroqual**, the **Egg (v.2)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala** and the **AirVeraCity** as the one having $mean$ $R^{2}$ --> 1 and $ $mean$ $slope$ = 1. These sensor systems give indicative measurements of air pollutants when comparared with the traditional reference monitoring systems over 1 hour averaging time. On the other hand, other sensors such as the **PA-II** by **Purple Air**, the **AirNut**, the **AQMesh v.3.0** by **AQMesh** and, the **AQY v0.5** by **Aeroqual** showed good agreement with reference systems but lower accuracy. 
 
 
 \newline
 
-```{r Figure 7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure 7.** Correspondence between $R^2$ and slope for sensor systems (SS) for 1 hour averaging time. Only sensor models with $mean$ $R^2$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2 are shown. Names of 'living' and 'non-living' sensors are indicated in black and blue color, respectively."}
+```{r Figure 8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure 8.** Correspondence between $R^2$ and slope for sensor systems (SS) for 1 hour averaging time. Only sensor models with $mean$ $R^2$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2 are shown. Names of 'living' and 'non-living' sensors are indicated in black and blue color, respectively."}
 
 
 DB_taylor <- DB
@@ -2130,9 +2165,9 @@ plot <- ggplot(data = DB_taylor_SS, aes(x = mean_slope, y = mean_r2)) +
   theme(strip.text = element_text(size = 15, face="bold")) +
   theme(strip.text.y = element_text(angle = 0)) +
   theme(axis.title.x = element_text(colour="black", size=15),
-        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=15, colour = "red")) +
+        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=13, colour = "red")) +
   theme(axis.title.y = element_text(colour="black", size=15),
-        axis.text.y  = element_text(angle=0, vjust=0.5, size=15, colour = "red")) +
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=13, colour = "red")) +
   # ggtitle(expression(paste("Relation between mean ", R^2, " and mean slope for Sensor Systems (1 hour avg. time)"))) +
   theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
 
@@ -2250,7 +2285,8 @@ optical <- DB %>%
   summarise(count = length(type_sensor))
 
 # sort sensors into alphabetic order
-# PM_sensor_model_OEM <- PM_sensor_model_OEM[order(PM_sensor_model_OEM$model),]
+sensor_model_OEM <- sensor_model_OEM[order(sensor_model_OEM$model),]
+
 
 Caption <- paste0("**Table S3.** Model of OEMs by pollutant, type, openness and price.")
 set.caption(Caption)
@@ -2289,6 +2325,7 @@ sensor_model_SS = data.frame(model = models,
 
 names(sensor_model_SS) <- c("model", "pollutant", "type", "reference", "open/close", "living", "price")
 
+sensor_model_SS <- sensor_model_SS[order(sensor_model_SS$model),]
 
 Caption <- paste0("**Table S4.** Models of Sensor Systems by pollutant, type, openness and price.")
 set.caption(Caption)
@@ -2398,7 +2435,7 @@ color_living <- counts_r2_calibration_OEM_SS %>%
   summarize(counts = length(count))
             
 color_living <- ifelse(color_living$living %in% c("Y", "updated"), "black", "red")
- 
+
 #======== Calibration plots for all pollutants (R2)
 
 # plot <- ggplot(DB_calibration_OEM_SS_1hour, aes(x = fct_reorder(model, r2_calib, fun = median, .desc =TRUE), y = r2_calib)) +
@@ -2533,7 +2570,7 @@ levels(DB_comparison_SS_1minute$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM
 
 
 
-```{r Figure S3a, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure S3a.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 minute. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S3, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure S3.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 minute. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2582,7 +2619,7 @@ plot
 
 \newline
 
-```{r Figure S3, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 8, fig.cap = "**Figure S3.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 8, fig.cap = "**Figure S4.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2632,7 +2669,7 @@ plot
 \newline
 
 
-```{r Figure S4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 13, fig.height = 14, fig.cap = "**Figure S4.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 13, fig.height = 14, fig.cap = "**Figure S5.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_OEM_1hour$pollutant))
@@ -2697,7 +2734,7 @@ plot
 \newline
 
 
-```{r Figure S5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 10, fig.cap = "**Figure S5.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 10, fig.cap = "**Figure S6.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2746,7 +2783,7 @@ plot
 
 \newline
 
-```{r Figure S6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 13, fig.cap = "**Figure S6.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 13, fig.cap = "**Figure S7.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_SS_24hour$pollutant))
@@ -2808,7 +2845,7 @@ plot
 \newline
 
 
-```{r Figure S7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S7.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S8.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for SS (slope) 
@@ -2869,7 +2906,7 @@ plot
 
 
 
-```{r Figure S8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 6, fig.cap = "**Figure S8.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S9, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 6, fig.cap = "**Figure S9.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for OEMs (slope) 
@@ -2941,7 +2978,7 @@ plot
 \newline
 
 
-```{r Figure S9, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S9.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S10, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S10.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for SS (slope) 
@@ -3011,7 +3048,7 @@ plot
 \newline
 
 
-```{r Figure S10, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure S10.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S11, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure S11.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for OEMs (slope) 
@@ -3071,7 +3108,7 @@ plot
 
 \newline
 
-```{r Figure S11, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 12, fig.height = 12, fig.cap = "**Figure S11.** Mean $slope$ for obtained from the comparison of OEMs and sensor systems against reference measurements."}
+```{r Figure S12, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 12, fig.height = 12, fig.cap = "**Figure S12.** Mean $slope$ for obtained from the comparison of OEMs and sensor systems against reference measurements."}
 
 DB_comparison_slope <- DB[!(is.na(DB$slope)), ]
 
@@ -3118,7 +3155,7 @@ plot <- ggplot(DB_comparison_slope, aes(mean_slope_comparison, model)) +
         axis.text.y  = element_text(angle=0, vjust=0.5, size=15, colour = "black")) +
    theme(axis.title.x = element_text(colour="black", size=20),
         axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=15, colour = "black")) +
-  ggtitle(expression(paste("Mean value of slope from the COMPARISON of OEMs and sensor systems with reference measurements"))) + 
+  # ggtitle(expression(paste("Mean value of slope from the COMPARISON of OEMs and sensor systems against reference"))) + 
   theme(plot.title = element_text(lineheight=.8, face="bold", size = 18, hjust = 0.5)) 
 plot
 
@@ -3130,7 +3167,7 @@ plot
 \newline
 
 
-```{r Figure S12, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure S12.** Prices of OEMs available on the market (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure S13, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure S13.** Prices of OEMs available on the market (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #======== prices of OEMs 
@@ -3175,11 +3212,15 @@ count_OEM_prices <- count_OEM_prices %>%
 
 # select unique PRICE and POLLUTANT per model of sensor
 OEM_prices <- OEM_prices[!duplicated(OEM_prices[c("model", "price")]),]
+OEM_prices <- OEM_prices %>%
+  group_by(model) %>%
+  summarise(new_price_EUR = mean(new_price_EUR))
 count_OEM_prices <- count_OEM_prices[!duplicated(count_OEM_prices[c("model")]),]
 count_OEM_prices <- as.data.frame(count_OEM_prices)
 
+
 price_EUR <- as.data.frame(OEM_prices$new_price_EUR)
-names(price_EUR) <- "new_price_EUR"
+# names(price_EUR) <- "new_price_EUR"
 
 count_OEM_prices <- cbind(count_OEM_prices, price_EUR)
 
@@ -3352,8 +3393,9 @@ SS_price_pollutants <- SS_price_pollutants %>%
          commercial,
          pollutant,
          price) %>%
-  summarise(mean_r2 = mean(r2),
-            mean_slope = mean(slope))
+  summarise(mean_r2 = format(mean(r2, na.rm = T), digits = 2),
+            mean_slope = format(mean(slope, na.rm = T), digits = T))
+            
 
 SS_price_pollutants <- SS_price_pollutants %>%
   filter(!pollutant == "PM10-2.5",
