@@ -27,14 +27,14 @@
 "26","Feinberg et al. 2018",26
 "27","Gao et al. 2015",27
 "28","Gerboles et al. 2015(a)",28
-"29","Gerboles et al. 2019",29
-"30","Gillooly et al. 2019",30
-"31","Han et al,.2016",31
-"32","Holstius et al 2014",32
-"33","iscape_summary_2017",33
-"34","Jiao et al. 2016",34
-"35","Jovasevic_Stojanovic et al 2015",35
-"36","Karagulian et al. 2012",36
+"29","Gillooly et al. 2019",29
+"30","Han et al,.2016",30
+"31","Holstius et al 2014",31
+"32","iscape_summary_2017",32
+"33","Jiao et al. 2016",33
+"34","Jovasevic_Stojanovic et al 2015",34
+"35","Karagulian et al. 2012",35
+"36","Karagulian et al. 2019",36
 "37","Kelly et al 2017",37
 "38","key-vocs_metrology_2017",38
 "39","kumar_rise_2015",39
@@ -62,26 +62,25 @@
 "61","Spinelle et al. 2015 (a)",61
 "62","Spinelle et al. 2016",62
 "63","Spinelle et at. 2015 Part A (b)",63
-"64","Spinelle et at. 2015 Part B",64
-"65","Spinelle et at. 2017 Part B",65
-"66","Spinelle_et_al_2013",66
-"67","Spinelle_et_al_2013(a)",67
-"68","spinelle_evaluation_2017",68
-"69","Steinle et al. 2015",69
-"70","Sun et al. 2016",70
-"71","Sun et al. 2017",71
-"72","the_world_air_quality_index_sensing_2019",72
-"73","US-EPA_2015",73
-"74","Vaughn D et al. 2010 (Sonoma Technology)",74
-"75","Viana et al. 2015",75
-"76","Wang et al. 2015",76
-"77","Wastine_2019_a",77
-"78","Wastine_2019_b",78
-"79","Wei et al. 2018",79
-"80","white_sensors_2012",80
-"81","Williams et al.  2014(b)",81
-"82","Williams et al.  2014(c)",82
-"83","williams_air_2014",83
-"84","Zheng et al. 2018",84
-"85","Zikova et al. 2017",85
-"86","Zimmerman_et_al_2018",86
+"64","Spinelle et at. 2017 Part B",64
+"65","Spinelle_et_al_2013",65
+"66","Spinelle_et_al_2013(a)",66
+"67","spinelle_evaluation_2017",67
+"68","Steinle et al. 2015",68
+"69","Sun et al. 2016",69
+"70","Sun et al. 2017",70
+"71","the_world_air_quality_index_sensing_2019",71
+"72","US-EPA_2015",72
+"73","Vaughn D et al. 2010 (Sonoma Technology)",73
+"74","Viana et al. 2015",74
+"75","Wang et al. 2015",75
+"76","Wastine_2019_a",76
+"77","Wastine_2019_b",77
+"78","Wei et al. 2018",78
+"79","white_sensors_2012",79
+"80","Williams et al.  2014(b)",80
+"81","Williams et al.  2014(c)",81
+"82","williams_air_2014",82
+"83","Zheng et al. 2018",83
+"84","Zikova et al. 2017",84
+"85","Zimmerman_et_al_2018",85
