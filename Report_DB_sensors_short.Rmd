@@ -1,7 +1,7 @@
 ---
 title: "Review of performance of Low-cost Sensors for Air Quality Monitoring"
 author:
-- Federico Karagulian, Maurizio Barbiere, Alexander Kotsev, Laurent Spinelle , Michel Gerboles1, Friedrich Lagler, Nathalie Redon, Sabine Crunaire and Annette Borowiak
+- Federico Karagulian, Maurizio Barbiere, Alexander Kotsev, Michel Gerboles1, Friedrich Lagler and Annette Borowiak
 
 date: "last update `r format(Sys.time(), '%d %B %Y, %H:%M')`"
 output:
@@ -19,18 +19,18 @@ link-citations: yes
 header-includes:
   - \usepackage{xcolor}
   - \usepackage{framed}
+  - \pagenumbering{arabic}
 ...
 
 \newline
 
 ## Abstract
 
-A growing number of companies started commercializing Sensor Systems able to give a “best guess” for the concentration of indoor and outdoor pollutants. The benefit about the use of low-cost sensor is the increase spatial coverage when monitoring air quality in cities and remote locations.
-Today, there are more than 250 low-cost sensor systems commercially available on the market with a cost ranging from a few hundreds to a few thousand euro. At the same time, independent information about the performance of sensor systems against reference measurements is only available for about 70 sensor systems in literature. In fact, the behaviour of commercial low-cost sensors is unstable and often affected by atmospheric condition, pollutants concentration range and, by the site location where the measurements are carried out.
-In this work, quantitative data about the performance of tested low-cost sensors against reference measurement were collected into a repository. This information was gathered from published reports and relevant testing laboratories. Other information was drawn from peer-reviewed journals that tested different types of sensors in research studies. Relevant metrics about the comparison of sensor systems against reference systems highlited the the most cost-effective sensor systems that could be used to monitor air quality pollutants with a good level of agreement rapresented by a coefficient of determination of $R^2$ > 0.75 a slope of 1.0 ± 0.5 and a price < 3 k€. This review wanted to highlight the possibltiy to have versatile sensors able to operate with multiple pollutants and with transparent data treatment.
+A growing number of companies started commercialising low-cost sensors (LCS) that are said to be able to monitor air pollution in outdoor air. The benefit about the use of LCS is the increased spatial coverage when monitoring air quality in cities and remote locations. Today, there are hundreds of LCSs commercially available on the market with a cost ranging from a few hundred to a few thousand euro. At the same time, independent evaluation of the performance of LCSs against reference measurements is only available in literature for about 110 LCSs in literature. These studies report that LCS are unstable and often affected by atmospheric condition, cross sensitivities from interfering compounds that may change LCS performance depending on site location. In this work, quantitative data about the performance of tested LCS against reference measurement are presented. This information was gathered from published reports and relevant testing laboratories. Other information was drawn from peer-reviewed journals that tested different types of LCSs in research studies. Relevant metrics about the comparison of LCSs systems against reference systems highlighted the most cost-effective LCSs that could be used to monitor air quality pollutants with a good level of agreement represented by a coefficient of determination of $R^2$ > 0.75 and slope close to 1.0. This review highlights the possibility to have versatile LCSs able to operate with multiple pollutants and  preferably with transparent LCS data treatment.
 
 
-All references here [@aleixandre_review_2012; @alvarado_towards_2015; @aq-spec_air_2015; @austin_laboratory_2015; @badura_optical_2018; @barrett_coefficient_1974; @bettair_bettair_2017; @bigi_performance_2018; @borghi_precision_2018; @borrego_assessment_2016; @budde_suitability_2018; @castell_can_2017; @cavaliere_development_2018; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @chakrabarti_performance_2004; @cordero_using_2018; @crilley_evaluation_2018; @cross_use_2017; @crunaire_1er_2018; @dacunto_determining_2015; @di_antonio_developing_2018; @duvall_performance_2016; @feinberg_long-term_2018; @gao_distributed_2015; @gerboles_airsenseur_2015; @gillooly_development_2019; @han_feasibility_2017; @holstius_field_2014; @iscape_summary_2017; @jiao_community_2016; @jovasevic-stojanovic_use_2015; @karagulian_calibration_2019; @karagulian_evaluation_2012; @kelly_ambient_2017; @key-vocs_metrology_2017; @kumar_rise_2015; @kunak_wireless_2017; @laquai_particle_2017; @lewis_low-cost_2018; @lewis_validate_2016; @lin_evaluation_2015; @liu_performance_2019; @manikonda_laboratory_2016; @marjovi_extending_2017; @mead_use_2013; @mijling_practical_2017; @mueller_design_2017; @mukherjee_assessing_2017; @northcross_low-cost_2013; @olivares_outdoor_2015; @piedrahita_next_2014; @pillarisetti_small_2017; @popoola_development_2016; @snyder_changing_2013; @sousan_evaluation_2016; @sousan_inter-comparison_2016; @spinelle_evaluation_2016; @spinelle_evaluation_2017; @spinelle_field_2015; @spinelle_field_nodate; @spinelle_performance_2015; @spinelle_report_2013; @spinelle_report_2013-1; @steinle_personal_2015; @sun_development_2016; @sun_development_2017; @the_world_air_quality_index_sensing_2019; @united_states_environmental_protection_agency_evaluation_2015; @vaughn_characterization_2010; @viana_field_2015; @wang_laboratory_2015; @wastine_airsenseur_2019; @wastine_essai_2019; @wei_impact_2018; @white_sensors_2012; @williams_air_2014; @williams_evaluation_2014; @williams_sensor_2014; @zheng_field_2018; @zhou_recent_2015; @zikova_estimating_2017;@zimmerman_machine_2018]
+
+All references here [@aleixandre_review_2012; @alvarado_towards_2015; @aq-spec_air_2015; @austin_laboratory_2015; @badura_optical_2018; @barrett_coefficient_1974; @bettair_bettair_2017; @bigi_performance_2018; @borghi_precision_2018; @borrego_assessment_2016; @budde_suitability_2018; @castell_can_2017; @cavaliere_development_2018; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @chakrabarti_performance_2004; @cordero_using_2018; @crilley_evaluation_2018; @cross_use_2017; @crunaire_1er_2018; @dacunto_determining_2015; @de_vito_calibrating_2018; @di_antonio_developing_2018; @directive_2008_50_ec; @duvall_performance_2016; @esposito_dynamic_2016; @european_commission_guide_2010; @feinberg_long-term_2018; @fishbain_evaluation_2017; @gao_distributed_2015; @gerboles_airsenseur_2015; @gillooly_development_2019; @han_feasibility_2017; @holstius_field_2014; @iscape_summary_2017; @jiao_community_2016; @jovasevic-stojanovic_use_2015; @karagulian_calibration_2019; @karagulian_evaluation_2012; @kelly_ambient_2017; @key-vocs_metrology_2017; @kumar_rise_2015; @kunak_wireless_2017; @laquai_particle_2017; @lewis_low-cost_2018; @lewis_validate_2016; @lin_evaluation_2015; @liu_performance_2019; @manikonda_laboratory_2016; @marjovi_extending_2017; @mead_use_2013; @mijling_practical_2017; @mueller_design_2017; @mukherjee_assessing_2017; @northcross_low-cost_2013; @olivares_outdoor_2015; @piedrahita_next_2014; @pillarisetti_small_2017; @popoola_development_2016; @snyder_changing_2013; @sousan_evaluation_2016; @sousan_inter-comparison_2016; @spinelle_evaluation_2016; @spinelle_evaluation_2017; @spinelle_field_2015; @spinelle_field_nodate; @spinelle_performance_2015; @spinelle_report_2013; @spinelle_report_2013-1; @steinle_personal_2015; @sun_development_2016; @sun_development_2017; @the_world_air_quality_index_sensing_2019; @thunis_performance_2012; @united_states_environmental_protection_agency_evaluation_2015; @vaughn_characterization_2010; @viana_field_2015; @wang_laboratory_2015; @wastine_airsenseur_2019; @wastine_essai_2019; @wei_impact_2018; @white_sensors_2012; @williams_air_2014; @williams_deliberating_2019; @williams_evaluation_2014; @williams_sensor_2014; @zheng_field_2018; @zhou_recent_2015; @zikova_estimating_2017; @zimmerman_machine_2018]
 
 
 
@@ -69,7 +69,7 @@ PROXY = TRUE; URL      = "10.168.209.72"; PORT     = 8012; LOGIN    = NULL; PASS
       } else reset_config()
 
 
-# All [@spinelle_report_2013; @spinelle_report_2013-1; @aq-spec_air_2015; @williams_evaluation_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @jiao_community_2016; @manikonda_laboratory_2016; @sousan_inter-comparison_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015; @dacunto_determining_2015; @borghi_precision_2018; @sun_development_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_performance_2015; @spinelle_field_2015; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @lin_evaluation_2015; @karagulian_evaluation_2012; @zheng_field_2018; @duvall_performance_2016; @mijling_practical_2017; @mead_use_2013; @wang_laboratory_2015; @cross_use_2017; @cordero_using_2018; @mueller_design_2017; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @karagulian_calibration_2019; @spinelle_evaluation_2016; @kunak_wireless_2017; @bettair_bettair_2017; @popoola_development_2016; @marjovi_extending_2017; @bigi_performance_2018; @spinelle_evaluation_2017; @kumar_rise_2015; @lewis_validate_2016; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @key-vocs_metrology_2017; @lewis_low-cost_2018; @barrett_coefficient_1974; @the_world_air_quality_index_sensing_2019; @liu_performance_2019; @iscape_summary_2017; @snyder_changing_2013; @aleixandre_review_2012; @white_sensors_2012; @zhou_recent_2015; @williams_air_2014; @crunaire_1er_2018; @wastine_essai_2019; @wastine_airsenseur_2019; @di_antonio_developing_2018]
+# All [@spinelle_report_2013; @spinelle_report_2013-1; @aq-spec_air_2015; @williams_evaluation_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @jiao_community_2016; @manikonda_laboratory_2016; @sousan_inter-comparison_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015; @dacunto_determining_2015; @borghi_precision_2018; @sun_development_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_performance_2015; @spinelle_field_2015; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @lin_evaluation_2015; @karagulian_evaluation_2012; @zheng_field_2018; @duvall_performance_2016; @mijling_practical_2017; @mead_use_2013; @wang_laboratory_2015; @cross_use_2017; @cordero_using_2018; @mueller_design_2017; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @karagulian_calibration_2019; @spinelle_evaluation_2016; @kunak_wireless_2017; @bettair_bettair_2017; @popoola_development_2016; @marjovi_extending_2017; @bigi_performance_2018; @spinelle_evaluation_2017; @kumar_rise_2015; @lewis_validate_2016; @cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM; @key-vocs_metrology_2017; @lewis_low-cost_2018; @barrett_coefficient_1974; @the_world_air_quality_index_sensing_2019; @liu_performance_2019; @iscape_summary_2017; @snyder_changing_2013; @aleixandre_review_2012; @white_sensors_2012; @zhou_recent_2015; @williams_air_2014; @crunaire_1er_2018; @wastine_essai_2019; @wastine_airsenseur_2019; @di_antonio_developing_2018; @directive_2008_50_ec; @williams_deliberating_2019; @fishbain_evaluation_2017; @esposito_dynamic_2016; @european_commission_guide_2010; @thunis_performance_2012; @de_vito_calibrating_2018]
 
 # Set global options
 # options(stringsAsFactors = TRUE)
@@ -632,68 +632,135 @@ DB_R2 <- DB_R2 %>%
 
 ## 1. Introduction
 
-The introduction and diffusion of the micro-sensors technology for monitoring ambient air pollution (as emerging measuring devices) is contributing to the rapid adoption of low-cost sensors (LCS) for air quality monitoring for citizen science initiative and by public authorities [@kumar_rise_2015]. Low-cost in this context is typically referring to the cost of the hardware component needed to make a measurement. LCS can provide real time measurements at lower cost allowing higher spatial coverage than the current reference methods of measurements of air pollutants. Additionally, the monitoring of air pollution with reference measurements methods requires skilled operators for the maintenance and calibration of measuring devices that are described in detailed Standard Operational Procedures [@cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM]. Conversely, it should be possible that LCS are operated without human intervention making it possible for unskilled users to be able to monitor air pollution without the need of important technical understanding.
+The widening of the commercial availability of micro-sensors technology is contributing to the rapid adoption of low-cost sensors for air quality monitoring by both citizen science initiatives and public authorities [@kumar_rise_2015].In general, public authorities want to increase the density of monitoring measurements and often want to rely on low-cost sensors because they cannot afford any reference Air Quality Monitoring Station (AQMS) [@directive_2008_50_ec].Low-cost sensors can provide real time measurements at lower cost allowing higher spatial coverage than the current reference methods for air pollutants measurements. Additionally, the monitoring of air pollution with reference measurement methods requires skilled operators for the maintenance and calibration of measuring devices that are described in detailed Standard Operational Procedures [@cen_ambient_2012_CO; @cen_ambient_2012_NO2; @cen_ambient_2012_O3; @cen_ambient_2012_SO2; @cen_ambient_2014_PM]. Conversely, it is expected that low-cost sensors can be operated without human intervention making it possible for unskilled users to monitor air pollution without the need of additional technical knowledge.
+Plenty of institutes in charge of air quality monitoring for regulatory purposes, as well as local authorities, are considering to include low-cost sensors within their routine method of measurements to supplement monitoring with reference measurements. However, the lack of exhaustive and accessible information in order to compare the performance of low-cost sensors and the wide commercial offer make it difficult to select the most appropriate low-cost sensors for monitoring purposes. 
+For classification and understanding of sensor deployment, one should distinguish between the sole sensor detector produced by Original Equipment Manufacturer (hereafter such sensors are called OEM, or OEM sensors) and sensor systems (SSys), which include OEM sensors together with a protective box, sampling system, power system, electronic hardware, and software for data acquisition, analogue to digital conversion, data treatment and data transfer [@lewis_validate_2016].Hereafter, OEM and SSys are referred to as low-cost sensors (LCS). From a user point of view, SSys are ready to use out of the box systems, while OEMs needs users to add hardware/software components for protection from meteorological conditions, data storage, data pushing, interoperability of data and generally the calibration of LCSs. The use of LCSs is of major interest for citizen-science initiatives. Therefore, Small and Medium Enterprises make SSys available which can be deployed by citizens who want to monitor the air quality in a chosen environment.
 
-However, a lot of LCS are becoming available whose performance regarding the agreement between LSC values and reference measurement can be of variable quality making it fundamental to evaluate LCS before choosing any LCS for routine measurements and case studies [@lewis_validate_2016]. As reported below, few independent tests are reported in academic publications. The rapid technological progress of LCS and the time needed to publish studies in academic journals makes publication of articles not the preferred route and the majority of the available information is found in grey literature, mainly of report types. 
-
-The major sources of information of LCS evaluation consist of AQ-SPEC [@aq-spec_air_2015], the US-EPA and the work carried out by the Joint Research Centre [@spinelle_evaluation_2017]. (check in the article US-EPA workshop what do they say).
-Although a number of reviews of the suitability of sensors for ambient air quality have been published [@iscape_summary_2017; @aleixandre_review_2012; @snyder_changing_2013; @kumar_rise_2015; @white_sensors_2012; @castell_can_2017; @zhou_recent_2015; @williams_air_2014], quantitative data for comparing and evaluating the agreement between sensors and reference data are mostly missing. Additionally, there is no commonly accepted protocol for the test of LCS, the metrics reported are generally diverse making it difficult to compare the performance of sensor between evaluation studies. The most common reported metrics consist of: the coefficient of determination, $R^{2}$, the slope and intercept of regression line between sensor and reference measurements, the Root mean square of Error, RMSE and the measurement uncertainty . Here after, the results of an exhaustive review of the existing literature on LCS evaluation are presented.
-
-The purpose of this review is to identify LCSs whose comparison with reference measurements shows the highest correlation and accuracy. For this purpose, we performed a comprehensive review about the performance of commercial LCSs. We have aggregated summary statistics about the agreement between sensors and reference instruments. Although in Europe, the main metrics to evaluate the performance of measuring methods consists of the measurement uncertainty, this metrics could not be used in our study since the majority of studies do not report it (*`r n_UNCERTAINITY_count`* records out of *`r n_DB_length`* total number of records reporting RMSE and other metrics for uncertainty ) give the number of studies with this parameter?). Conversely, we had to rely on most common metrics, i. e., the coefficient of determination $R^{2}$, the slope and intercept of linear regression line between sensor and reference measurement and, in few cases, the Root Mean Square of Error that were scrutinized and analyzed to identify sensors that could potentially be complementary to the reference methods of air quality monitoring.
-
-The market of LCSs for ambient air monitoring only consists of a small number of sensor model types that are manufactured by a few companies. These LCSs, are usually known as Original Equipment Manufacturers (OEM). 
-
-As per definition, an **OEM** is a chemical cell or physical unit that produces an analytically useful signal by detecting or measuring the analyte. On the other hand a **Sensor System (SS)** or **sensor node** is an integrated set of hardware that uses one or more sensors to detect and/or measure a chemical concentration or quantity that is able to supply real time measurements. A sensor systems contain a number of common components in addition to the basic sensing/analytical element that is used for detection. Common core components and functions may include:
-
-* Sensing element or detector (actually the sensor)
-* Sampling capability (active or passive sampling)
-* Power systems, including batteries
-* Analogue to digital conversation
-* Signal processing
-* Local data storage
-* Data transmission
-* Remote calibration
-* Housing/casing
-
-OEMs use chemical and physical techniques phenomena to sense pollutant in ambient air. However, in order to simplify measurement operations, calibration and data transfer into a convenient sensor object, OEMs need be integrated into a sensor system (SS), consisting of electronic boards, software and protective box gathering the hardware, software and OEM sensors.
-
-The use of low-cost sensors is extensively interesting for citizen-science initiatives. Therefore, Small Medium Enterprises were able to sell sensor-systems which could be deployed by citizen who wanted to monitor air quality in a chosen environment. Up to date, there are several sensor systems using sensors from the same OEM. However, outputs from these sensors system often differ from each other. 
-The ideal candidate sensor system would show good agreement with reference measurements and, at the same time, provide sensor raw data allowing to be calibrated using open source correction algorithms. The number of air pollutants being measured was also a parameter taken into consideration. Finally, the price of a low cost-sensor was also taken into account. 
+Although a number of reviews of the suitability of LCS for ambient air quality have been published [@iscape_summary_2017; @aleixandre_review_2012; @snyder_changing_2013; @kumar_rise_2015; @white_sensors_2012; @castell_can_2017; @zhou_recent_2015; @williams_air_2014], quantitative data for comparing and evaluating the agreement between LCS and reference data are mostly missing in the existing reviews. Additionally, there is no commonly accepted protocol for the test of LCS [@williams_deliberating_2019] and the metrics reported are generally diverse making it difficult to compare the performance of LCS between evaluation studies.
+Among the available tests of LCS, there are clear indications that the accuracy of LCS measurements can be questionable [@aq-spec_air_2015; @spinelle_field_2015] when comparing LSC values and reference measurements. LCS data can be of variable quality, and it is therefore of fundamental importance to evaluate LCS in order to choose the most appropriate ones for routine measurements or other case studies[@lewis_validate_2016]. However, only a few independent tests are reported in academic publications. 
+Hereafter, the results of the exhaustive review of existing literature on LCS evaluation that is not available elsewhere are presented. The main purpose of this review was to estimate the agreement between LCS data against reference measurements both with field and tests under controlled conditions carried out by laboratories and research institutes independent from sensor manufacturers and commercial interest. It can provide all stakeholders with exhaustive information for selecting the most appropriate LCS. Quantitative information was gathered from the existing literature about the performance of LCS according to the following criteria:
+1. Agreement between LCS and reference measurements
+2. Availability of raw data, transparency of data treatment making a-posteriori calibration possible
+3. Capability to measure multiple pollutants
+4. Affordability of LCSs taking into consideration the number of provided OEMs
 
 
 \newline
 
-## 2. Methods
+## 2. Sources of available information, method of classification and evaluation
 
-### 2.1. Data sources
+### 2.1. Origin of data
+
+The research was focused on LCS for Particulate Matter (PM), ozone (O3), nitric dioxide (NO2) and carbon monoxide (CO), the pollutants that are included into the European Union Air Quality Directive [@directive_2008_50_ec]. References were also included for nitrogen monoxide LCSs. 
+
+About *`r n_DB_length`* independent laboratory or field tests of LCS versus reference measurements (called ‘Records’ in the rest of the manuscript) were gathered from peer-reviewed studies of LCS available in the Scopus database, the World Wide Web, the AirMontech website (http://db-airmontech.jrc.ec.europa.eu/search.aspx), ResearchGate, Google search, and reports from research laboratories. Sensor validation studies provided by LCS manufacturers or other sources with concern of a possible conflict of interest were not taken into consideration. Overall, *`r n_references`* independent studies were found from different sources including reports and peer-reviewed papers. 
+Additionally, a significant number of test results came from reports published by research institutes. In fact, the rapid technological progress on LCS, the difficulty to publish LCS data that do not agree with reference measurements and the time needed to publish studies in academic journals makes the publication of articles not the preferred route. Consequently,  a great part of the available information is found in grey literature, mainly in the form of reports. A substantial quantity of presented results come from research institutes having a LCS testing program in place, e.g. the Air Quality Sensor Performance Evaluation Center (AQ-SPEC)[@aq-spec_air_2015], the European Union Joint Research Centre (EU JRC) [@aleixandre_review_2012; @spinelle_evaluation_2016; @spinelle_evaluation_2017; @spinelle_field_2015; @spinelle_field_nodate; @spinelle_performance_2015; @spinelle_report_2013; @spinelle_report_2013-1; @gerboles_airsenseur_2015; @karagulian_calibration_2019],and the United States Environmental Protection Agency (US EPA) [@williams_air_2014; @williams_deliberating_2019; @williams_evaluation_2014; @williams_sensor_2014; @vaughn_characterization_2010]. 
+
+A significant portion of the data comes from the first French field intercomparison exercise (Crunaire [@crunaire_1er_2018]) for gas and particle LCS carried out in January/February of 2018. This exercise was carried out by two members of the French Reference Laboratory for Air Quality Monitoring (LCSQA). The objective of the study was to test LCS under field conditions at Air Quality Monitoring Station of urban type sited at the IMT Lille Douai research facilities in Dorignies. A large number of different SSys and OEM were installed in order to evaluate their ability to monitor the main pollutants of interest in the ambient air: NO2, O3 and PM2.5/PM10. This exercise involved nearly 5 French laboratories in charge of air pollution monitoring and 10 companies (manufacturers or distributors/sellers), 23 SSys and OEM of different design and origin (France, Netherlands, United Kingdom, Spain, Italy, Poland, United States), for a total of more than sixty devices, when taking into account replicates.
+
+Within another project, called AirLab (http://www.airlab.solutions/), many LCSs were tested through field and indoor tests. Results are reported based on the Integrated Performance Index  (IPI) developed by Fishbain et al. [@fishbain_evaluation_2017] which is an integrated indicator of correlation, bias, failure, source apportionment with LCS, accuracy and time series variability of LCSs and reference measurements. Since the IPI is not available in other studies and cannot be compared with the metrics used in the current review, it was decided not to include the AirLab results in the current work. 
+
+A shared database of laboratory and field test results and its associated scripts for summary statistics were created using the collected information. It will be possible to update the database with future results of LCS tests. The purpose of this development was to setup a structured repository to be used for comparing the performances of LCSs. 
+Each database ‘Record’ describing laboratory or field LCS test results was included into the database only if comparison against a reference measurement (hereinafter defined as “comparison”) was provided. The comparison data allowed to evaluate the correlation between LCS data and reference measurements. Most of the reviewed studies reported only regression parameters obtained from the comparison between LCS and reference measurements, generally without more sophisticated metrics like Root Mean Square Error and measurement uncertainty (see section 3). 
 
 
-About *`r n_DB_length`* records were systematically gathered from peer-reviewed studies of sensors for air quality and air pollution reported in the Scopus database, the World Wide Web, the AirMontech web site (http://db-airmontech.jrc.ec.europa.eu/search.aspx), ResearchGate and Google search. Overall, about a number of *`r n_references`* independent studies were found from different sources from reports, peer-review papers and sensors manufacturers. The research was focused on sensors for Particulate Matter $(PM)$, Ozone $(O_{3})$, Nitric Dioxide $(NO_{2})$ and Carbon Monoxide $(CO)$. A few references were also included for nitrogen monoxide sensors $(NO)$. We have started evaluating summary statistics from the correlation of sensors with reference measurements (validation). 
-
-The research covered the period between 2010 and 2018 (year of publication). Data gathered from sensor studies were reviewed according to criteria described in the following sections. Additionally, reviewed sensor data were used to populate a database that was used to generate summary statistics about characteristics and performances of sensors.
+### 2.2. Classification of low-cost sensors
 
 
+For each model of SSys, the OEM manufacturer was identified and the manufacturer of the SSys as well. Overall, we found *`r n_model_count`* models of LCS including both OEMs *(`r n_OEM_count`)* and SSys *(`r n_SS_count`)* manufactured by *`r n_manufacturer_count`* manufacturers (*`r n_DB_manufacturers_OEM`* OEM and *`r n_DB_manufacturers_SS`* SSys).
+In addition, *`r n_projects_count`* projects about the evaluation of OEMs and/or SSys reporting quantitative comparison of LCS data and reference measurements were identified. They include the Air Quality Egg, Air Quality Station, AirCasting [@aq-spec_air_2015; @mukherjee_assessing_2017; @feinberg_long-term_2018; @borghi_precision_2018], Carnegie Mellon[@feinberg_long-term_2018; @zikova_estimating_2017], CitiSense[@williams_sensor_2014] Cairsense[@jiao_community_2016], Developer Kit [@aq-spec_air_2015], HKEPD/14-02771 [@sun_development_2016], making-sense.eu [@mijling_practical_2017], communitysensing.org [@vaughn_characterization_2010], MacPoll.eu [@spinelle_field_2015], OpenSense II [@mueller_design_2017; @bigi_performance_2018], Proof of Concept AirSensEUR[@karagulian_calibration_2019], SNAQ Heathrow [@mead_use_2013; @popoola_development_2016]). 
+Out of the *`r n_DB_length`* r Records collected from literature, we identified *`r n_DB_length_records_living`* Records (*`r n_DB_length_records_living_OEM`* OEM and *`r n_DB_length_records_living_SS`* SSys) from *`r n_DB_length_living`* **alive** sensors (*`r n_DB_length_living_OEM`* OEM and *`r n_DB_length_living_SS`* SSys) and *`r n_DB_length_records_non_living`* Records (*`r n_DB_length_records_non_living_OEM`* OEM and *`r n_DB_length_records_non_living_SS`* SS ) from *`r n_DB_length_non_living`*  “non active” (or discontinued) LCSs (*`r n_DB_length_non_living_OEM`* OEM and *`r n_DB_length_non_living_SS`* SSys).
+“Low-cost” refers to the price of purchase of LCS [@lewis_low-cost_2018] compared to the purchase and operating cost of reference analysers[@mead_use_2013] hat can easily exhibit a 10 fold ratio for the monitoring of regulated inorganic pollutants and particulate matter. More recently, ultra-affordable OEMs are starting to appear on the market for PM monitoring. [@laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018]. For the detection of $PM_{2.5}$, some of these sensors are starting achieving performances comparable  to low-cost OEMs manufactured in the Western world.  Many of them are designed to be integrated in Internet of Things (IoT) networks of interconnected devices. Currently, for PM detection it is possible to purchase optical sensors that cost between a few tens and a few hundreds of euro. Those devices are manufactured in emerging economies such as the Republic of China and the Republic of Korea [@the_world_air_quality_index_sensing_2019].Some of these LCS can achieve similar performance to more expensive OEMs [@aq-spec_air_2015; @williams_air_2014; @williams_deliberating_2019; @williams_evaluation_2014; @williams_sensor_2014; @vaughn_characterization_2010; @fishbain_evaluation_2017; @holstius_field_2014].
+The data treatment of LCSs can be classified in two distinct categories:
 
-### 2.2. Data collection 
-Most of the reviewed studies reported regression parameters obtained from the comparison between sensors and reference measurements. Records from regression parameters were the result of both calibration and comparison of the sensor with a reference instrument. In the case of calibration, we identified four types of most used regression models: linear, multilinear (MLR), quadratic and logarithmic. 
+1)  Processing of LCS data performed by an “open source” software tuned according to several calibration parameters and environmental conditions. All data treatments from data acquisition until the conversion to pollutant concentration levels is known to the user. There were identified identified *`r open_source`* Records made of *`r open_source_OEM`*  OEMs and *`r open_source_SS`* SSys using such an open source software for data management. These *`r open_source`* Records came from *`r n_open_source`* unique LCSs. Usually, outputs from these LCS are already in the same measurement units as the reference measurements. In this category, LCS devices are generally connected to a custom-made data acquisition system to acquire LCS raw data. Generally, users are expected to set a calibration function in order to convert LCS raw data to validate against reference measurements. 
+
+
+2)  LCS with calibration algorithms whose data treatment is unknown and without the possibility to change any parameter have been identified as “black boxes”. This is due to  the impossibility for the user to accurately know the whole chain of data treatment. There were identified *`r black_box`* Records made up of *`r black_box_OEM`* and *`r black_box_SS`* SSys not using an open source software for data treatment. These *`r black_box`* Records came from *`r n_open_source`* unique LCSs. In most cases, these SSys are previously calibrated against a reference system or, the calibration parameters can be remotely adjusted by the manufacturer. Finally, we should point out that some LCSs used for the detection of Particulate Matter (such as the OPC-N2; OPC-N3 by Alphasense and the PMS series from Plantower) could be used as open source devices if users compute PM mass concentration using the available counts per bins. However, these PM sensors are mostly used as a “black box” with mass concentration computed by unknown algorithms developed by manufacturers. 
+
+
+Clear definitions and examples of the principle of operations used by the different types of sensor (electrochemical, metal oxides, optical particulate counter, optical sensors) are reported in a recent work by WMO [@lewis_low-cost_2018]. This work also describes several limitations of each type of sensor such as, interference by meteorological parameters, cross-sensitivities to other pollutants, drifts and aging effect. To date, there is a larger number of active and commercially available LCS (Figure 2). However, while most of the OEMs are open sources, allowing end-users to integrate them into SSys, most of the SSys themselves were found to be “black-box” devices. This represents a limitation when the SSys might need a posteriori calibration other then the one provided by the manufacturer since raw-data are unavailable.
+LCS are also classified according to their commercial availability. LCSs were assigned to the “Commercial” category if they could be purchased and operated by any user. LCSs fell under the “Non-commercial” category when it was not possible to find any supplier for purchasing. Typically, this type of LCS are used for research and publication while it is difficult for any user to repeat the same sensor setup. 
+Figure 1. shows the number of LCSs, either OEM or SSys, that were found still active or discontinued, with open or “black box” type of data treatment and that are commercially available.
+
+\newline
+
+
+```{r, Figure 1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 5, fig.cap = "**Figure 1.** Number of sensor models gathered from the literature review. Sensors has ben classified by their type of technology, availability, openness and commerciality."}
+
+# create summary table as data frame (for stacked plot)
+
+  OEM <- c(as.numeric(n_DB_length_living_OEM), 
+              as.numeric(n_DB_length_non_living_OEM),
+              as.numeric(n_open_source_OEM),
+              as.numeric(n_black_box_OEM),
+              as.numeric(DB_commercial_OEM),
+              as.numeric(DB_non_commercial_OEM))
+   
+ SS <-  c(as.numeric(n_DB_length_living_SS),
+             as.numeric(n_DB_length_non_living_SS),
+             as.numeric(n_open_source_SS),
+             as.numeric(n_black_box_SS),
+             as.numeric(DB_commercial_SS),
+             as.numeric(DB_non_commercial_SS))
+ 
+
+ names_df <- c("active", "non-active", "open source", "black box", "commercial", "non-commercial")  
+ 
+  df_sensors <- as.data.frame(cbind(names_df, OEM, SS))
   
+# replace 0 with NA
+df_sensors[df_sensors == 0] <- NA
 
-### 2.3. Evaluation criteria
+#gather data
+summary_df_sensors <- gather(df_sensors, "system", "records", 2:3)
 
-We have carried out an extensive literature review of OEM sensors and sensor systems (SS) that were used to estimate concentration of air pollutants against a reference systems during field and laboratory tests. The purpose was to gather quantitative information about the performance of sensors according to the following criteria: 
+summary_df_sensors$names_df <- as.character(summary_df_sensors$names_df)
+summary_df_sensors$system <- as.factor(summary_df_sensors$system)
+summary_df_sensors$records <- as.numeric(summary_df_sensors$records)
 
-1.  Agreement between sensor and reference measurements
-2.  Availability of raw data, transparency of data treatment and possibility of a-posteriori calibration
-3.	Capability to measure multiple pollutants
-4.	Affordability of sensor systems taking into consideration the number of provided sensors
-5.  Capacity to satisfy the requirement of interoperability of data according to the INSPIRE directive
-6.  Automatic data-transfer and website visualization of sensor data
+# display total number of counts for sensors
+counts_sensors <- summary_df_sensors %>%
+  group_by(names_df) %>%
+  summarise(counts = sum(records))
 
-The review was focused on available commercially available OEMs and sensor systems, even though a few non-commercial sensor were also considered, measuring concentrations of Particulate Matter ($PM_{2.5}$, $PM_{10}$, $PM_{1}$), Nitric Dioxide ($NO_{2}$), Nitrix Monoxide ($NO$), Carbon Monoxide ($CO$) and Ozone $O_{3}$. **Table 1** reports the number of records, by pollutant and operating technology, gathered in literature about validation and testing of OEMs / sensor systems against a reference system. Records were collected from laboratory (*`r lab_tests`*) and field tests (*`r field_tests`*). 
+counts_sensors$names_df <- as.factor(counts_sensors$names_df)
+counts_sensors$counts <- as.integer (counts_sensors$counts)
+
+# change SS with SSys
+levels(summary_df_sensors$system) <- gsub("^SS$","SSys", levels(summary_df_sensors$system))
+
+q <- ggplot(data = summary_df_sensors, 
+            aes(names_df, records, fill = system)) +
+  theme_bw() +
+  geom_bar(stat = "identity", position = position_stack()) +
+  scale_x_discrete(limits = names_df) + 
+  geom_text(aes(label=records), vjust=1, color="black",
+            position = position_stack(0.85), size=4)+
+  theme(legend.text = element_text(colour="black", size = 10, face = "bold")) +
+  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1, size=10)) +
+  theme(axis.text.x=element_text(size=13,face="bold", colour = "black")) +
+  theme(axis.title.x = element_blank()) +                                     
+  ylab(expression(paste("number of sensors"))) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=14),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=14, colour="black")) +
+  # ggtitle("Low-cost sensors") + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 13, hjust=0.5)) 
+q
+
+
+
+```
 
 
 \newline
 
+### 2.3. Recent tests per pollutant and per sensor type 
+
+Table 1 reports the number of ‘Records’, by pollutant and sensor technology, gathered in literature about validation and testing of LCSs against a reference system. Records were collected from laboratory (*`r lab_tests`*) and field tests (*`r field_tests`*). The majority of records refer to commercially available OEMs and SSys, even though a few references about non-commercial LCS were also picked up. 
+
+
+\newline
 
 ```{r Table 1, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
   
@@ -753,10 +820,18 @@ pander(count_pollutant_sensor, emphasize.strong.cols = 1, missing = "")
 
 \newline
 
-Most of laboratory and field tests were collected results published and between the year 2010 and 2018. As reported in **Figure 1**, only few preliminary works were published from 2010 to 2014. On 2015 we recorded the highest number of references with 16 different works publishing results about performances of sensors for air quality monitoring. Since 2015, the number of references publishing works on sensors with about 10 - 12 publications per year.
+
+For the detection of Particulate Matter, the largest number of LCS tests were carried out for Optical Particle Counters (OPC) with *`r OPC`*  Records followed by Nephelometers with *`r neph`*  Both systems detect particulate matter by measuring the light scattered by particles, with the OPC being able to directly count particles according to their size. On the other hand, nephelometers estimate particle density that is subsequently converted into particle mass. For the detection of gaseous pollutants such as $NO_{2}$, ${NO}$, $CO$ and $O_{3}$,the largest number of tests were performed using electrochemical sensors with 343 Records, followed by Metal Oxides sensors (MOs) with *`r GAS_sensors_counts_electrochemical`* records, followed by metal oxides sensors (MOs) with *`r GAS_sensors_counts_MOS`* Records (see Table 1). Electrochemical sensors are based on a chemical reaction between gases in the air and the working electrode of an electrochemical cell that is dipped into an electrolyte. In a MOs, also named resistive sensor, semiconductor, gases in the air react on the surface of a semiconductor and exchange electrons modifying its conductance.
+
+Table S2 reports the models of OEMs currently used to monitor Particulate Matter and gaseous pollutants ($NO_{2}$, ${NO}$, $CO$ and $O_{3}$) according to their type of technology. On the other hand, models of SSys measuring concentration of particulate matter and gaseous pollutants are reported in Table A3. We want to point out that several SSys can use the same set of OEMs. In very few cases, the same model of SSys was tested using different types of OEMs when performing validation tests [@karagulian_calibration_2019; @gerboles_airsenseur_2015] .
+
+“Living” LCS are devices that are currently available for commercial or research purposes. Considering only the “living” LCSs of Table A2 and Table A3, one may observe that there are less OEMs (24) compared to SSys (65), and therefore different SSys are often based on the same set of OEMs. Additionally, there is a lack of laboratory tests for the OEMs compared to SSys. Among the reviewed ‘Records’ only ~ 11% were attributed to laboratory tests. Therefore, most LCS (~ 90%) were tested in the field where it is not possible to isolate the effect of single pollutants and/or meteorological parameters, since in the ambient air many of these parameters are correlated with each other. Establishing calibration models relying only on field results might lead to cases where parameters that have no effect on the sensor data but that are correlated with other variables having an effect, are taken into account. The performance of such calibration models can be poor when LCSs are used at other sites than the ones used for calibration where the relationship between the parameter used for calibration and the ones having an effect on the response of LCSs may change [@mueller_design_2017; @liu_performance_2019; @esposito_dynamic_2016].
+The research covered the period between 2010 and 2019 (year of publication). As shown in Figure 2, only a few preliminary studies about the evaluation of performance of LCSs were published from 2010 to 2014. In 2015, we recorded the highest number of references with 27 different works publishing results about performances of LCS for air quality monitoring. For the test studies carried out by AQ-SPEC [@aq-spec_air_2015], Records were evaluated per model of LCS.
 
 
-```{r Figure 1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 5, fig.height = 4, fig.cap = "**Figure 1.** Number of references per year of publication."}
+\newline
+
+```{r Figure 2, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 5, fig.height = 4, fig.cap = "**Figure 2.** Number of references per year of publication."}
 
 # unique reference list
 
@@ -802,8 +877,6 @@ q
 
 
 ```
-
-
 
 \newline
 
@@ -865,14 +938,20 @@ models_24h <- DB_AVG_time$`n. OEMs & SS`[3]
 
 ```
 
+\newline
+  
 
-Overall, we found *`r n_refs_URBAN`* references reporting field tests with sensors co-located at urban sites, *`r n_refs_RURAL`* references for rural sites and, *`r n_refs_TRAFFIC`* references for traffic sites. 
-Most of the laboratory and field tests reported hourly averages with about *`r hourly_records`* records obtained for over *`r hourly_models`*  models of OEMs and sensor systems. On the other hand, we found about *`r records_24h`* records from tests performed over an averaging time of 24 hours and 5 minutes with about *`r models_24h`* models of sensors (**Table S1**). Therefore, 1 hour averaged measurements were considered statistically more signifative to represent most of the scrutinized *`r n_model_count`* models of OEMs and sensor systems.   
+Overall, *`r n_refs_URBAN`* references reporting field tests with LCSs co-located at urban sites were found, as well as *`r n_refs_RURAL`* references for rural sites, and *`r n_refs_TRAFFIC`* references for traffic sites. Most of the laboratory and field tests reported hourly data (*`r hourly_records`* Records for *`r hourly_models`*  models of LCSs). We also found *`r records_24h`* Records for *`r models_24h`* LCSs using daily data. Therefore, hourly data were considered statistically more significant.
 
-For the evaluation of sensors against reference systems we considered the metrics that were more frequently reported in the reviewed works about the evaluation of the sensor performance both in field and/or laboratory tests. The coefficient of determination $R^{2}$ is usually used as indication of "usefulness" or "goodness" of fit obained from regression models comparing sensor measurements with reference measurements **Table S2**. However, $R^{2}$ is a partial measures of how sensors data agree with reference measurements according to a regression model [@barrett_coefficient_1974]. A larger $R^{2}$ reflects an increase in the predictive precision of the regression model but it ignores the loss in information due to possible loss in degrees of freedom. A significance test is therefore suggested in this case. Alternatively, $R^{2}$ can be viewd as a measure of goddness of fit (how close evaluation data is to the reference measurements) and  the slope of the regression as level of accuracy. However, if the goodness of fit about the regression is fixed, then the slope will increase and consequentely also the $R^{2}$. Therefore, when it happens to calibrate different datasets, calibration using slope and $R^{2}$ values close to 1.0 might be less precise than calibration using smaller values of slope and $R^{2}$.  As shown in **Table 2**, most of the works reported coefficients of determination $R^{2}$ as well as the $slope$ of regression line mainly from field tests. Root mean square error ($RMSE$) and the uncertainty ($U$), were mostly calculated as value of standard deviation and only reported in few works (*`r uncertainty_references`*). Therefore, for the purpose of this work, we only focused on the analysis of the comparions of $R^{2}$ and $slope$ of laboratory and field tests of sensors. 
+### 3. Method of evaluation
+
+The European Union Air Quality Directive [@directive_2008_50_ec] indicates that measurement uncertainty shall be the main indicator used for the evaluation of the data quality objective of air pollution measurement methods [@directive_2008_50_ec].However, the evaluation of this metric is cumbersome [@european_commission_guide_2010] and it is not included in the majority of sensor studies (see Table 2). For the performance criteria used to evaluate air quality modeling applications [@thunis_performance_2012], the set of statistical indicators includes the Root Mean Square Error (RMSE), the bias, the Standard Deviation (SD) and the correlation coefficient (R) among which RMSE is thought to be the most explicative one. The statistical indicators can be better visualised in a target diagram [@spinelle_field_2015].Unfortunately, Table 2 also shows that RMSE is also mainly unavailable in literature. As already mentioned above, integrated indicators like the IPI [@fishbain_evaluation_2017] would breach our objective to use merely quantitative and comparable indicators. Additionally, it is impossible to compute IPIs a posteriori  since time series are mainly not available in literature. 
+Therefore, we had to rely on the most common metrics, i. e., the coefficient of determination R2, the slope and intercept of linear regression line between LCS data and reference measurement. $R^{2}$ can be viewed as a measure of goodness of fit (how close evaluation data is to the reference measurements) and the slope of the regression as level of accuracy. $R^{2}$ measures the  strength of the association between two variables but it is insensitive to bias between LCS and reference data, either relative bias (slope different from 1) or absolute bias (intercept different from 0). $R^{2}$ is a partial measure of how much LCS data agree with reference measurements according to a regression model [@barrett_coefficient_1974]. A larger $R^{2}$ reflects an increase in the predictive precision of the regression model. 
+An increase of $R^{2}$ may not be the result of an improvement of LCS data quality since $R^{2}$ may increase when the range  of reference measurements increases [@aleixandre_review_2012] or according to the seasonality of sampling reported in different studies. Moreover, since LCS are affected by long time drift and ageing, longer field studies are more likely to report lower $R^{2}$ than shorter one. 
+
+Nearly all published studies report the coefficient of determination ($R^{2}$) between reference and LCS data (see Table 2). Fortunately, the majority of these studies also reports the slope and intercept of the regression line between LCS data and reference measurements that describe the possible bias of LCS data. A few studies also report the Root Mean Square of Error, RMSE [@spinelle_field_2015; @karagulian_calibration_2019; @feinberg_long-term_2018; @mijling_practical_2017; @bigi_performance_2018; @holstius_field_2014; @castell_can_2017; @cross_use_2017; @gillooly_development_2019; @piedrahita_next_2014; @cordero_using_2018; @zheng_field_2018; @liu_performance_2019] which clearly indicates the magnitude of the error in LCS data unit and that is sensitive to extreme values and outliers. Only a few studies report the measurement uncertainty [@karagulian_calibration_2019; @spinelle_field_2015; @williams_evaluation_2014;@laquai_particle_2017; @castell_can_2017; @wei_impact_2018; @zimmerman_machine_2018]. Therefore, for the purpose of this work, we only focused on the analysis of the comparison of laboratory and field tests of LCSs.
 
 \newline
-
 
 ```{r Table 2, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
@@ -1012,108 +1091,6 @@ pander(df_metrics, emphasize.strong.cols = 1, missing = "")
 
 \newline
 
-## 3. Classification of sensors
-
-For each model of sensor system we identified the manufacturer of OEM sensor and the manufacturer of the sensor system itself including the sensors, protective box, internal hardware and software for data acquisition, data treatment and data transfer. Each database record describing the laboratory or field performance of a sensors was considered valuable only if it reported information about laboratory tests and/or field comparison against a reference measurement at a reference monitoring station. Overall, we found *`r n_model_count`* models of sensors including both OEMs *(`r n_OEM_count`)* and sensor systems *(`r n_SS_count`)* manufactured by *`r n_manufacturer_count`* manufacturers (*`r n_DB_manufacturers_OEM`* OEM and *`r n_DB_manufacturers_SS`* SS). In addition, we identified *`r n_projects_count`* projects about the evaluation of OEMs/sensor systems under different operational conditions (Air Quality Egg, Air Quality Station, AirCasting, [@aq-spec_air_2015; @mukherjee_assessing_2017; @feinberg_long-term_2018; @borghi_precision_2018], Carnegie Mellon[@feinberg_long-term_2018; @zikova_estimating_2017], CitiSense[@williams_sensor_2014] Cairsense[@jiao_community_2016], Developer Kit [@aq-spec_air_2015], HKEPD/14-02771 [@sun_development_2016], making-sense.eu [@mijling_practical_2017], communitysensing.org [@vaughn_characterization_2010], MacPoll.eu [@spinelle_field_2015], OpenSense II [@mueller_design_2017; @bigi_performance_2018], Proof of Concept AirSensEUR[@karagulian_calibration_2019], SNAQ Heathrow [@mead_use_2013; @popoola_development_2016]). 
-Out of *`r n_DB_length`* records collected from literature, we identified *`r n_DB_length_records_living`* records (*`r n_DB_length_records_living_OEM`* OEM and *`r n_DB_length_records_living_SS`* SS) from *`r n_DB_length_living`* **alive** sensors (*`r n_DB_length_living_OEM`* OEM and *`r n_DB_length_living_SS`* SS) and *`r n_DB_length_records_non_living`* records (*`r n_DB_length_records_non_living_OEM`* OEM and *`r n_DB_length_records_non_living_SS`* SS ) from *`r n_DB_length_non_living`* "non active" (or **discontinued**) sensors (*`r n_DB_length_non_living_OEM`* OEM and *`r n_DB_length_non_living_SS`* SS).
-
-Commonly speaking, "low-cost" refers to the cost of a sensor system compared to the cost of a reference instrument measuring the air pollutant [@lewis_low-cost_2018]. More recently, ultra-affordable OEMs are starting to appear on the market for PM monitoring. Many of them are designed to be integrated in the Internet of things (IoT) network of devices. Currently, for the detection of $PM_{2.5}$, it is possible to purchase optical sensor at prices of few hundreds euros to few tens of euros from devices manufactured in emerging economies such as the Republic of China and Republic of Korea [@the_world_air_quality_index_sensing_2019]. For the detection of $PM_{2.5}$, some of these sensors are starting achieving performances comparable  to low-cost OEMs manufactured in the Western world.
-
-   
-\newline
-
-
-
-### 3.1.	Raw data and traceability of data treatment
-
-The data treatment of measurements of OEM sensors and sensor systems can be classified in two distinct categories:  
-
-1)  Data acquisition and data processing of sensor data that are operated by an **"open source"** software tuned according to different calibration parameters and environmental conditions. All data treatments from data acquisition until the conversion to pollutant concentration levels is known to the user. Among *`r n_open_source`* sensors, we identified *`r open_source`* records from OEMs (*`r open_source_OEM`* ) and sensor systems (*`r open_source_SS`*) using an open source software for data management. Usually, outputs from these sensor were already in the same measurement units as the reference measurements.In this category, sensor devices are generally connected to a custom-made data acquisition system to acquire sensor raw data. Generally, users are expected to set a calibration function in order to convert sensor raw data to validate against reference measurements. In this category, the sensor only consists of OEMs integrated in data acquisition system, in most cases with a posteriori data treatment.  
-
-
-2)  Sensor systems with integrated built-in OEM sensors, data acquisition system and calibration algorithms whose data treatment is unknown and without the possibility to change any parameter have been identified as **"black box"**. This is because of the impossibility for the user to accurately know the whole chain of data treatment and to tuen the sensor itself. Among *`r n_black_box`* sensors, we identified *`r black_box`* records among OEMs (*`r black_box_OEM`*) and sensor systems (*`r black_box_SS`*) not using an open source software for data management.In most cases, the sensor system wasare previously calibrated against a reference system or, the calibration parameters wereare remotely adjusted by the manufacturer.
-
-Clear definitions and examples of the principle of operations used by the different type of sensor (electrochemical, metal oxides, optical particulate counter, optical sensors) are reported in a recent work by WMO [@lewis_low-cost_2018]. This work also reports the several limitation of each type of sensor such as, interference by meteorological parameters, cross-sensitivities to other pollutants, drifts and aging effect. At the date, there is a larger number of active and commercially available sensors (**Figure 2**). However, while most of the OEM sensors are open sources, allowing end-users to integrate them into sensors systemes, most of the sensor systems themselves were found to be "black-box" devices. This represents a limitation when the sensor system might need further re-calibration other then the one provided by the manufacturer. 
-
-Sensor are also classified according to their commercial availability. Sensor were assigned to the “Commercial” category if they could be purchased and operated by any user without the need for another service for data treatment or reporting activing (as a consultant service for example). Sensors fell under category non-commercial when it was non possible to find any supplier for purchasing. Typically this type of sensor are used for research and publication while it is difficult for any user to repeat the same sensor setup. 
-
-
-\newline
-
-```{r, Figure 2, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 5, fig.cap = "**Figure 2.** Number of sensor models gathered from the literature review. Sensors has ben classified by their type of technology, availability, openness and commerciality."}
-
-# create summary table as data frame (for stacked plot)
-
-  OEM <- c(as.numeric(n_DB_length_living_OEM), 
-              as.numeric(n_DB_length_non_living_OEM),
-              as.numeric(n_open_source_OEM),
-              as.numeric(n_black_box_OEM),
-              as.numeric(DB_commercial_OEM),
-              as.numeric(DB_non_commercial_OEM))
-   
- SS <-  c(as.numeric(n_DB_length_living_SS),
-             as.numeric(n_DB_length_non_living_SS),
-             as.numeric(n_open_source_SS),
-             as.numeric(n_black_box_SS),
-             as.numeric(DB_commercial_SS),
-             as.numeric(DB_non_commercial_SS))
- 
-
- names_df <- c("active", "non-active", "open source", "black box", "commercial", "non-commercial")  
- 
-  df_sensors <- as.data.frame(cbind(names_df, OEM, SS))
-  
-# replace 0 with NA
-df_sensors[df_sensors == 0] <- NA
-
-#gather data
-summary_df_sensors <- gather(df_sensors, "system", "records", 2:3)
-
-summary_df_sensors$names_df <- as.character(summary_df_sensors$names_df)
-summary_df_sensors$system <- as.factor(summary_df_sensors$system)
-summary_df_sensors$records <- as.numeric(summary_df_sensors$records)
-
-# display total number of counts for sensors
-counts_sensors <- summary_df_sensors %>%
-  group_by(names_df) %>%
-  summarise(counts = sum(records))
-
-counts_sensors$names_df <- as.factor(counts_sensors$names_df)
-counts_sensors$counts <- as.integer (counts_sensors$counts)
-
-# change SS with SSys
-levels(summary_df_sensors$system) <- gsub("^SS$","SSys", levels(summary_df_sensors$system))
-
-q <- ggplot(data = summary_df_sensors, 
-            aes(names_df, records, fill = system)) +
-  theme_bw() +
-  geom_bar(stat = "identity", position = position_stack()) +
-  scale_x_discrete(limits = names_df) + 
-  geom_text(aes(label=records), vjust=1, color="black",
-            position = position_stack(0.85), size=4)+
-  theme(legend.text = element_text(colour="black", size = 10, face = "bold")) +
-  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1, size=10)) +
-  theme(axis.text.x=element_text(size=13,face="bold", colour = "black")) +
-  theme(axis.title.x = element_blank()) +                                     
-  ylab(expression(paste("number of sensors"))) + 
-  theme(axis.title.y = element_text(face="bold", colour="black", size=14),
-        axis.text.y  = element_text(angle=0, vjust=0.5, size=14, colour="black")) +
-  # ggtitle("Low-cost sensors") + 
-  theme(plot.title = element_text(lineheight=.8, face="bold", size = 13, hjust=0.5)) 
-q
-
-
-
-```
-
-
-\newline
-
-### 3.2.	Sensors for air quality
-
-For the detection of Particulate Matter, the largest number of sensor tests, carried out with OEM and SS, was found for Optical Particle Counters (OPC) with *`r OPC`* records followed by Nephelometers with *`r neph`* records (**Table 1**). Both systems detect particulate matter by measuring the light scattered by particles, with the OPC being able to directly count particles according to their size. On the other hand, nephelometers estimate particle density that is subsequently converted into particle mass. For the detection of gaseous pollutant such as, $NO_{2}$, $CO$ and $O_{3}$, the largest number of tests was found for electrochemical sensors with *`r GAS_sensors_counts_electrochemical`* records, followed by metal oxides sensors (MOs) with *`r GAS_sensors_counts_MOS`* records (**Table 2**). Electrochemical sensors are based on a chemical reactions between gases in the air and the working electrode of an electrochemical cells. The current of electrons being created is measured between the working and counter electrode that are dipped into an electrolyte in a metal oxide sensor (also named resistive sensor, semiconductor). Therefore, gases in the air react on the surface of a semi-conductor and exchange electrons modifying its conductance.
-
-
 ```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
 n_calibration_model <- DB %>%
@@ -1138,16 +1115,16 @@ total_n_calibration_records <- sum(n_calibration_model$`n. records`, na.rm = T)
 ```
 
 
-
-**Table S3** reports the models of OEM sensors currently used to monitor particulate matter according to principle of operation and the cut-off of particulate size. For the sake of clarity, we aggregated records from $PM_{2.5}$ together with $PM_{0.5-2.5}$, $PM_{2}$ and $PM_{3}$. The same was done for $PM_{10}$ records that were aggregated with coarse $PM_{2.5-10}$. On the other hand, models of sensor systems measuring  concentration of particulate matter were reported in **Table S4** [@aq-spec_air_2015; @williams_evaluation_2014; @williams_sensor_2014; @feinberg_long-term_2018; @mukherjee_assessing_2017; @sousan_evaluation_2016; @crilley_evaluation_2018; @borrego_assessment_2016; @jiao_community_2016; @manikonda_laboratory_2016; @northcross_low-cost_2013; @holstius_field_2014; @steinle_personal_2015; @han_feasibility_2017; @jovasevic-stojanovic_use_2015; @dacunto_determining_2015; @borghi_precision_2018; @cavaliere_development_2018; @karagulian_evaluation_2012; @zheng_field_2018; @wang_laboratory_2015; @alvarado_towards_2015; @olivares_outdoor_2015; @austin_laboratory_2015; @gao_distributed_2015; @kelly_ambient_2017; @zikova_estimating_2017; @viana_field_2015; @chakrabarti_performance_2004; @laquai_particle_2017; @budde_suitability_2018; @badura_optical_2018; @pillarisetti_small_2017; @gillooly_development_2019; @karagulian_calibration_2019; @kunak_wireless_2017; @crunaire_1er_2018]. Several sensor systems can use the same OEM. In very few cases, the same model of sensor system was tested using different  types of OEM sensors when performing validation tests. **Table S5** and **Table S6** report the models of OEM and sensor systems, respectively, currently used to measure concentration of gaseous air pollutants $NO_{2}$, $O_{3}$, $NO$ and, ${CO}$ according their their type of technology.[@aq-spec_air_2015; @jiao_community_2016; @cavaliere_development_2018; @castell_can_2017; @spinelle_field_2015; @spinelle_evaluation_2016; @spinelle_report_2013; @spinelle_report_2013-1; @spinelle_field_nodate; @williams_sensor_2014; @zimmerman_machine_2018; @vaughn_characterization_2010; @sun_development_2017; @mijling_practical_2017; @duvall_performance_2016; @mead_use_2013; @cross_use_2017; @borrego_assessment_2016; @united_states_environmental_protection_agency_evaluation_2015; @cordero_using_2018; @mueller_design_2017; @feinberg_long-term_2018; @sun_development_2016; @piedrahita_next_2014; @wei_impact_2018; @gerboles_airsenseur_2015; @gillooly_development_2019; @kunak_wireless_2017; @bettair_bettair_2017; @marjovi_extending_2017; @bigi_performance_2018; @crunaire_1er_2018]
-
-\newline
+## 4.Evaluation of sensor data quality
 
 
-## 4.	Calibration of Sensors
+### 4.1 Calibration of sensors
 
-Calibration of the sensor is somewhat considered a sensitive information from most of sensor manufacturers. Several studies performed calibration of sensors during laboratory or field tests. The calibration consisted in the application of a regression model in order to adjust the response of the sensor to a reference system. 
-We found calibration records for both OEMs and sensor systems. Overall, we gathered over *`r total_n_calibration_records`* records about calibration of sensors using different types of mathematical models **(Table 3)** and at different time resolutions. The *linear* model and the multi linear regression model (*MLR*) were largely used to calibrate the sensor response against a reference measurement. Other calibration approaches used the *exponential*, *logarithmic*, *quadratic*, *Random Forest* and, few types of *neural network* models. We could observe that most of MLR models, covariates such as meteorological  parameters  *Temperature* and *Relative Humidity*, and gaseous pollutant such as, Nitric Dioxide ($NO_{2}$), Nitric Monoxide ($NO$) and Ozone ($O_{3}$), were used to optimize the calibration. Some types of model also took into cosnideration the $time-drift$ of the sensor as covariate. The calibration of OEMs was performed using the raw signal of the sensor that most of the time was expressed as a voltage or as a current. On the other hand, for sensor systems, the calibration was carried out using the units of the reference system.  
+The method used for the calibration of LCS is generally considered confidential information by the majority of LCS manufacturers. In fact, little information can be found about the calibration of LCS that fall under the category “black box” compared to the ones that fall under the category “Open source”. In fact, several studies can be found about the calibration of “Open source” LCSs, both with laboratory and field tests. Calibration consists of setting a mathematical model describing the relationship between LCS data and reference measurements. However, most of the calibrations were carried out during field tests, while only a limited number of laboratory experiments were found available. 
+
+Out of a total of *`r n_DB_length`* records in the database, *`r total_n_calibration_records`* Records (25%) included information about LCS calibration giving details of used statistical or deterministic models (see Table 3). However, among these *`r n_DB_length`* Records with details on calibration method, about 20 % do not report $R^{2}$, that is the principal metrics used for LCS performance evaluation. This is typically the case for Artificial Neural Networks, Random Forest  and support vector regression calibration methods (see below) and it explains why the number of $R^{2}$ found for calibration in Table 2 is lower than *`r total_n_calibration_records`*.
+
+The linear model and the multi-linear regression model (MLR) which includes the use of covariates to improve the quality of the calibration are the most widely used techniques to calibrate the LCS data against a reference measurement. Other calibration approaches used the exponential, logarithmic, quadratic, Kohler theory of particles growing factor and few types of supervised learning techniques including Artificial Neural Networks (ANN), Random Forest (RF: ), Support Vector Machine (SVM: ) and support vector regression (SVR). Most of MLR models used covariates such as meteorological parameters (temperature and relative humidity) and cross-sensitivities from gaseous interferent such as nitric dioxide ($NO_{2}$), Nitric Monoxide ($NO$) and Ozone ($O_{3}$)in order to improve LCS calibration. Rarely, LCS data time-drift was included into the list of calibration covariates [@jiao_community_2016; @piedrahita_next_2014].
 
 \newline
 
@@ -1165,10 +1142,22 @@ pander(n_calibration_model, emphasize.strong.cols = 1, missing = "")
 
 \newline
 
-As explained above, from the analyzed records, we found several type of regression model that were used to calibrate sensors from OEM and sensor systems against reference systems. In order the estimate quality of the used calibration model, we reported the coefficient of determination $R^{2}$ as indication of the amount of total variability explained by the model.
-On a first instance, The coefficient of determination can be used as indication of performance of the calibration model chosen to validate the sensor with a reference system. In addition to simple linear models, raw sensor data were validated using multilinear and quadratic models  which included the use of covariates to improve the quality of the calibration (**Table 3**).  
+When $R^{2}$ is both available for calibration and comparison, the median of $R^{2}$ is higher for calibration (mean of $R^{2}$ = 0.70) than for comparison (median of $R^{2}$ = 0.58). This is an expected results since it is easier to fit a model on a short calibration dataset than correctly forecast LCSs data using the calibration model at later dates. For gaseous LCSs, calibration using a linear model gives the worth $R^{2}$ of field comparison. Linear calibration should be avoided for gas LCSs.
+For ${CO}$ and ${CO}$, the calibration method giving the highest $R^{2}$² (about 0.90) is the MLR method using temperature or relative humidity as covariates. The use of supervised learning techniques (ANN, RF or SVR) did not improve performance for CO or gave similar results than MLR for NO. This is in slight contradiction with other studies about the performance of supervised techniques [@jovasevic-stojanovic_use_2015; @de_vito_calibrating_2018]. In the majority of cases, these tested LCSs consisted of electrochemical sensors. 
+For $NO_{2}$, supervised learning techniques (ANN, RF, SVM or SVR) performed slightly better than MLRs looking at the $R^{2}$ of comparison tests in field, except for SVR which is in slight contradiction with other studies [@de_vito_calibrating_2018]. However, the number of records is much higher MLR than for supervised learning techniques. MLR was applied to both MOs sensor and electrochemical sensors which resulted in scattered R² when looking at individual studies. Additionally, supervised learning techniques may be more sensitive to re-location than MLR [@esposito_dynamic_2016].  
+For $O_{3}$, ANN and MLR calibration gave similar $R^{2}$ of comparison (median value about 0.90). As for $NO_{2}$, the higher number of studies makes the $R^{2}$ of the MLR method more significant than the one of ANN.
 
-**Figure 3** shows a summary of all mean $R^{2}$ obtained from the calibration of sensor systems against reference measurements. Results were grouped by model of sensor system and averaged per reference work. For the same sensor systems we can observe $R^{2}$ ranging from low to high values up to the unit. This show the variability of the performance of sensor systems depending from the type of calibration. In the following we are going to report a detailed discussion about performance of several OEM and sensor systmens during their calibration at different averaging-times.         
+For PM, the $R^{2}$ for comparison tests are very scattered over the calibration methods. Some high values ($R^{2}$ higher than 0.95) were reported for studies using a linear calibration while MLR did not perform well ($R^{2}$ < 0.5). This results are misleading, since the good results with linear calibration are generally obtained by discarding LSCs data obtained with relative humidity exceeding a threshold between 70 and 80% for which humidity is responsible for particle growing [@crilley_evaluation_2018; @di_antonio_developing_2018]. This effect is more important for $PM_{10}$ than for $PM_{1}$ and $PM_{2.5}$. Other studies did not discard high relative humidity. They took into consideration the particle growing factor either on mass concentration with an exponential calibration model ([@dacunto_determining_2015; @austin_laboratory_2015; @kelly_ambient_2017]) with a median $R^{2}$ of 98 or using the Kölher theory on PM mass concentration [@han_feasibility_2017] or directly for the particles beans of each OPC bin [100] leading to $R^{2}$ about 0.80.
+
+Figure 3 shows a summary of all mean $R^{2}$ obtained from the calibration of SSys against reference measurements. Results were grouped by model of SSys and averaged per reference work. For the same SSys we can observe $R^{2}$ ranging between 0.40 and 1.00. This shows the variability of the performance of SSys depending on the type of calibration, type of testing sites and seasonality and making it difficult to compare the results of different studies. 
+Calibration of LSC against a reference analyser was found to be carried out using different averaging time. Test results with hourly data are presented in Figure A1 and test results with minute data time are given in Figure A2. 
+The best performance, according to the time average availability in literature and tests in laboratory and/or in the field, were found for:
+
+
+* For the measurement of $PM_{2.5}$, $R^{2}$ ~ 1 close to 1 were found for hourly data of **PMS1003** by **Plantower** [@kelly_ambient_2017] and for the **PMS3003**, **Dylos DC1100 PRO** and **DC1700** by **Dylos** for minute data [@zheng_field_2018; @aq-spec_air_2015; @steinle_personal_2015].Strangely, higher $R^{2}$ were reported for the Plantower and Dylos when calibrated with minute data than for hourly data. The **OPC-N2** by **AlphaSense** [@aq-spec_air_2015] reported values of $R^{2}$ falling within the range of 0.7 - 1.0. The same OEM sensor OPC-N2, reported values of $R^{2}$ just above 0.7 when measuing $PM_{1}$ while it did not show a good performance when measuring $PM_{10}$ [@aq-spec_air_2015].We need to stress out that optical sensors, such as OPCs and nephelometers, are somewhat limited to fight gravity when detecting coarse particulate matter because of the low-efficiency of the sampling system. Most of the regression models used for the calibration of LCSs used hourly data. 
+* For the calibration of  $O_{3}$ LCS the highest values of $R^{2}$ for hourly data was reported for **FIS SP-61** by **FIS** and **O3-3E1F** by **CityTechnology** (Figure A1) [@spinelle_evaluation_2016]. On the other hand, for minute data, values of $R^{2}$ close to 1 were found for **AirSensEUR (v.2)** by **LiberaIntentio** [@karagulian_calibration_2019] as well as for the **S-500** by **Aeroqual** [@aq-spec_air_2015] (Figure A2). AirSensEUR used a built-in AlphaSense **OX-A431** OEM. We want to point out that, most of the MLR models used for calibrating $O_{3}$ LCSs needs $NO_{2}$ to correct for the strong $NO_{2}$ cross-sensitivity. 
+* For the calibration of $NO_{2}$ LCSs, we found values of $R^{2}$ for hourly data within the range 0.7 - 1.0 for the *NO2-B42F**  (by Alphasense [@wei_impact_2018]), *AirSensEUR (v.2)** by LiberaIntentio [@karagulian_calibration_2019] and for the minute values **MAS** [@sun_development_2016] (see Figure 3). The $NO_{2} measurement of the AirSensEUR (v.2) are carried out using the NO2-B43F OEM by AlphaSense.
+* Most of the Records about the calibration of $CO$ LCSs showed high values of $R^{2}$. As shown in Figure A1, the OEMs **CO 3E300** by **City Technology** [@gerboles_airsenseur_2015] and **CO-B4** by **Alphasense** [@wei_impact_2018] reported $R^{2}$ ~ 1 for hourly data. High values of $R^{2}$ were also reported for the SSys **AirSensEUR (v.2)** when calibrating CO minute data [@karagulian_calibration_2019] (Figure A2). Other LCSs reporting values of $R^{2}$ within the range 0.7 - 1.0 for hourly data consisted of the **MICS-4515** by  and **SGX Sensortech** [@piedrahita_next_2014], the **Smart Citizen Kit** by **Acrobotic** [@aq-spec_air_2015] and the **RAMP** [@zimmerman_machine_2018] 
 
 \newline
 
@@ -1221,6 +1210,82 @@ plot
 
 ```
 
+\newline
+
+### 4.2 Comparison of calibrated low-cost sensors with reference measurements
+
+In this review, Records describing the comparison of LCS data with reference measurements came from “open source” and “black box” LCSs. As for the Records collected from the calibration of LCS, comparison with reference system was carried out at different time-resolutions. Here we only report comparisons of hourly data with *`r AVG_comp_SS`* and *`r AVG_comp_OEM`*  Records from SSys and OEMs, respectively. In Figure 4 we have reported the $R^{2}$ values for SSys per reference averaged for all pollutants measured by each SSys. One can observe scattered of $R^{2}$ for a few SSys that are tested in several references in different locations, seasons and durations. 
+
+Figure A3 and Figure A4 show the distribution of $R^{2}$ of LCSs hourly and minute values measuring $PM_{2.5}$, $PM_{10}$, $PM_{1}$, $O_{3}$, $NO_{2}$ and $CO$ against reference measurements:
+
+* For the SSys,  **PA-II** by **PurpleAir** [@aq-spec_air_2015] and **PATS+** by **Belkley Air** [@pillarisetti_small_2017] showed the highest $R^{2}$ with values between 0.8 and 1.0. Other LCSs with $R^{2}$ values ranging between 0.7-1.0 included the **PMS-SYS-1** by **Shinyei**, the **Dylos 1100 PRO** by **Dylos**, the **MicroPEM** by **RTI**, the **AirNUT** by **Moji China ** the **Egg (2018)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala**, the **AirVeraCity** by **AirVeraCity**, the **NPM2** by MetOne [@crunaire_1er_2018] and, the **Air Quality Station** by **AS LUNG** [@aq-spec_air_2015]. We need to point out that the performance of LCSs measuring PM10, on average, was very poor.
+* For the hourly PM measurements of OEMs (Figure A5), the **OPC-N2**, **OPC-N3** [@aq-spec_air_2015; @mukherjee_assessing_2017; @feinberg_long-term_2018; @crilley_evaluation_2018; @badura_optical_2018] the **SDS011** by **Nova Fitness** [@badura_optical_2018] showed $R^{2}$ values in the range 0.7 - 1.0. For the 24-hour PM measurements of OEMs (Figure A6), we found $R^{2}$ within the range 0.7 - 1.0 for the **OPC-N2**, **OPC-N3** [@aq-spec_air_2015].
+* For the 24-hour PM measurements of SSys (Figure A7), **PA-II**, [@aq-spec_air_2015] **AirQUINO** by **CNR** [@cavaliere_development_2018] showed $R^{2}$ values close to 1 for $PM_{2.5}$.
+* For gaseous pollutants, high $R^{2}$ ranging between 0.7 and 1.0 were found for the following multipollutant LCSs: **AirSensEUR (v.2)** by **LiberaIntentio** [@karagulian_calibration_2019], the **AirVeraCity**, the **AQY** and **S-500** by Aeroqual and the **SNAQ** of the University of Cambridge (Figure A3).
+* For the hourly gaseous measurements (Figure A5), we found very few OEMs with $R^{2}$ in the range 0.7 - 1.0. These included the **CairClip O3/NO2** by **CairPol** [@spinelle_field_2015; @williams_sensor_2014; @duvall_performance_2016; @feinberg_long-term_2018], the **Aeroqual Series 500 (and SM50)** [@feinberg_long-term_2018], the **O3-3E1F** by **CityTechnology** [@spinelle_field_2015; @spinelle_performance_2015; @feinberg_long-term_2018; @gerboles_airsenseur_2015] and the **NO2-B43F** by **Alphasense** [@zimmerman_machine_2018; @sun_development_2017]. On the other hand, we found very few Records for SSys using daily data. Additionally, one can notice, comparing Figure A4 and Figure A5, that the performance of OEMs is generally enhanced when they are integrated inside a SSys, except for $PM_{10}$. 
+
+
+\newline
+
+```{r Figure 4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 15, fig.height = 18, fig.cap = "**Figure 4.** Mean $R^2$ for obtained from the comparison of sensor systems against reference measurements."}
+
+
+DB_comparison <- DB[!(is.na(DB$r2)), ]
+
+# summarize by reference
+DB_comparison <- DB_comparison %>%
+  group_by(new_ref_author,
+           model) %>%
+  filter(OEM_system == "SS") %>%
+  summarise(mean_r2_comparison = mean(r2, na.rm = T))
+
+DB_comparison <- DB_comparison %>%
+  filter(mean_r2_comparison > 0.25)
+
+# create a new referecne with number (ID) of the reference and first author name
+DB_comparison$id_ref_new <- NULL
+# DB_comparison$id_ref_new <- paste0("[", DB_comparison$id_ref, "]")
+DB_comparison$id_ref_new <- DB_comparison$new_ref_author
+
+#======== Calibration plots for all pollutants (R2)
+
+
+plot <- ggplot(DB_comparison, aes(mean_r2_comparison, model)) +
+  theme_bw() +
+   theme(panel.grid.major.y = element_line(colour="grey", size = 1, linetype="dashed"),
+        panel.grid.major.x = element_line(colour="grey", size = 1)) +
+  geom_point(alpha=1, color="black", size = 4) + 
+  geom_line(size = 1) +
+   geom_text_repel(aes(label=id_ref_new), size = 5.7, show.legend = FALSE) +
+  ylab("Sensor Model") +
+  scale_y_discrete(expand=c(0.01, 0.6)) +
+  xlim(0.25, 1.1) +
+  xlab(expression(paste(R^2),size=40)) + 
+  geom_vline(xintercept=1.0, linetype="dashed", color = "red", size = 1.5) +
+  theme(axis.title.y = element_text(face="bold", colour="black", size=22, margin = margin(t = 0, r = 20, b = 0, l = 0)),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
+   theme(axis.title.x = element_text(colour="black", size=22),
+        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=22, colour = "black")) +
+  # ggtitle(expression(paste("Mean value of ", R^2, " from the COMPARISON of sensor systems with reference measurements"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
+plot
+
+
+```
+
+
+\newline
+
+Figure A8 and Figure A10 show selected SSys that gave a slope of linear regression line of hourly LCS data versus reference measurement from 0.5 to 1.5 and $R^{2}$ higher than 0.7. This selection includes the **AirSensEUR**, the **AirVeracity**, and the **S-500** for gaseous pollutants and the **AirNut**, **AQY v0.5**, **Egg v.2 (PM)**, the **NPM2** for hourly data and AIRQuino, **AQY v0.5**, **Egg v.2 (PM)** and the **PA-I**  for daily data.
+Figure A9 and Figure A11 show the same selection as Figure A8 but for OEMs. This list includes the SM50, the **CairClip O3/NO2**, the **S-500** ($O_{3}$, $NO_{2}$), the **NO2-B4F** ($NO_{2}$) for gaseous measurements and the Nova Fitness **SDS011** for $PM_{2.5}$, measurements for hourly data and the **OPC-N2** by Alphasense and the **DataRAM** for daily data. 
+
+
+## 5 Cost of purchase
+
+For the evaluation of the price of LCSs, we considered all SSys manufactured by commercial companies. Operating costs such as calibration, maintenance, deployment and data treatment are not included in the estimated price of SSys.  
+Figure 5 shows the commercial price of LCSs by model and number of measured pollutants and Figure A13 shows the prices for OEMs. There is a large number of SSys measuring one pollutant and only a few ones measuring multiple pollutants. Most OEMs are open source devices (Figure A13). On the other hand, most of the SSys are “black boxes” (Figure 5). Therefore, most of the SSys cannot be easily re-calibrated by users. In fact, most SSys are intended to be ready-to-use air quality monitors. 
+In Figure 6 we have shortlisted the best SSys according to their level of agreement with reference systems. Figure 6 includes SSys with hourly and daily data showing $R^{2}$ higher than 0.85 and slopes ranging between 0.8 and 1.2. The Figure shows the price, the number of pollutants being measured, the averaging time and the data openness of the selected SSys. Table 4 reports the SSys shortlisted in Figure 6 with the R² and slope mean values, the list of pollutants being measured, the openness of data, their commercial availability and price.
+Among “open source” SSys, we could identify the AirSensEUR by LiberaIntentio and the AIRQuino by the CNR. The remaining shortlisted SSys were identified as “black box”. The **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of 0.90 and a slope  of 0.94 while the AIRQuino resulted in a mean $R^{2}$ value of 0.91 and a slope of 0.97. We need to point out that, to date, the AIRQuino can be used for the detection of up to five pollutants ($NO_{2}$, ${NO}$, $CO$, $O_{3}$ and $PM$). However, only data for PM were available at the time of this review. 
 
 \newline
 
@@ -1243,18 +1308,7 @@ levels(DB_calibration_OEM_SS_1hour$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", 
 
 ```
 
-
-
-Calibration of sensor data against a reference system was found to be carried out using input data at different time resolution. Therefore, in order to make a comparison of $R^2$ obtained at the same time resolution data, we chose records averaged over different time-scale of 1 hour **(Figure S1)** and 1 minute **(Figure S2)**. Most of these records were from OEMs *(`r AVG_calib_OEM`)* whereas only a limited number were from sensor systems *(`r AVG_calib_SS`)*. For the measurement of $PM_{2.5}$, values of $R^{2}$ ~ 1 were found for the sensors **PMS1003** by **Plantower** [@kelly_ambient_2017] at 1-hour resolution and for the the **PMS3003** , **Dylos DC1100 PRO** and **DC1700** by **Dylos** at a resolution of 1 minute. [@zheng_field_2018; @aq-spec_air_2015; @steinle_personal_2015] The Plantower and Dylos sensors showed higher $R^{2}$ when calibrated with 1 minute resolution reference data. Other sensors such as, the  **OPC-N2** by **AlphaSense** [@aq-spec_air_2015] reported values of $R^{2}$ falling within the range of 0.7 - 1.0 at a resolution of 1 hour. The same OEM sensor OPC-N2, reported values of $R^{2}$ just above 0.7 when measuing $PM_{1}$ while it did not show a good performance when measuring $PM_{10}$ [@aq-spec_air_2015]. We need to stress out that optical sensors, such as OPCs and nephelometers, are somewhat limited when detecting coarse particulate patter $PM_{10}$ because of the low-efficiency of the sampling system when sampling large particles in ambient air. 
-
-Most of regression models used for the calibration of sensors detecting gaseous pollutants used a time-resolution of 1 hour. For the calibration of sensors measuring $O_{3}$, the largest values of $R^{2}$ was reported for the OEM sensors **FIS SP-61** by **FIS** and **O3-3E1F** by **CityTechnology**, when using a time-resolution of 1 hour (**Figure S1**) [@spinelle_evaluation_2016]. On the other hand, when using a time-resolution of 1 minute, values of $R^{2}$ ~ 1 were found for the sensor system **AirSensEUR (v.2)** by **LiberaIntentio** [@karagulian_calibration_2019] as well as for the OEM **S-500** by **Aeroqual** [@aq-spec_air_2015] (**Figure S2**). The AirSensEUR uses a built-in OEM **OX-A431**. We want to point out that, most of the MLR models used for calibration ozone sensors foresees the use of reference $NO_{2}$ because of the strong oxidizing effect of $O_{3}$ on gas sensors with consequent formation of $NO_{2}$. For the calibration of sensors measuring $NO_{2}$ we found values of $R^{2}$ within the range 0.7 - 1.0 for the OEM sensor **NO2-B42F**  (by Alphasense [@wei_impact_2018]), at a time resolution of 1 hour, and the sensor systems **AirSensEUR (v.2)** (by LiberaIntentio) [@karagulian_calibration_2019]) and **MAS** [@sun_development_2016] at a time resolution of 1 minute (Figure 3). We need to point out that for the measurement of $NO_{2}$, the AirSensEUR (v.2) uses the OEM sensor NO2-B43F by AlphaSense. 
-
-Most of the records about the calibration of sensor measuring $CO$ showed high values of $R^{2}$. As shown in Figure S1, the OEMs **CO 3E300** by **City Technology** [@gerboles_airsenseur_2015] and **CO-B4** by **Alphasense** [@wei_impact_2018] reported $R^{2}$ ~ 1 for time-resolution of 1 hour. High values of $R^{2}$ were also reported for the sensor system **AirSensEUR (v.2)** when calibrating for $CO$ at a time-resolution of 1 minute (Figure S2) [@karagulian_calibration_2019]. Other sensors reporting values of $R^{2}$ within the range 0.7 - 1.0 where the **MICS-4515** by  and **SGX Sensortech** [@piedrahita_next_2014], the **Smart Citizen Kit** by **Acrobotic** [@aq-spec_air_2015] and the **RAMP** [@@zimmerman_machine_2018]. All these sensors used 1 hour time-resolution data. 
-
-
-
 \newline
-
 
 ```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 DB_comparison <- DB[!(is.na(DB$r2)), ]
@@ -1311,82 +1365,8 @@ DB_comparison_SS_24hour <- DB_comparison %>%
 
 ```
 
-
 \newline
 
-## 5.	Comparison with reference systems
-
-We found about *`r total_n_comparison_records`* records about the comparison of calibrated sensors against a reference instrument. All comparisons were carried out by using a *linear regression* model between calibrated and reference data. The performance of the regression was evaluated with the coefficient of determination $R^{2}$ and the *slope* of the regression. As explained above, we need to stress out that not all the analyzed records reported the *Root Mean Square Error (RMSE)* of the regression therefore, we decided to omit it in the present review.
-
-In this work, records gathered from the comparison of sensors with reference systems came from OEMs and sensor systems using a custom calibration or a built-in calibration directly setup by the manufacturer. As for the records collected from the calibration of sensor, comparison with reference system was carried out at different time-resolutions. Here we only report comparisons performed at a time-resolution of 1 hour with *`r AVG_comp_SS`* and *`r AVG_comp_OEM`* records from sensor systems and OEMs, respectively. In **Figure 4** we have reported the averaged $R^{2}$ for all reviewd sensor systems found from each reference workd. As for the evaluation of the calibration of sensors, we have averaged $R^{2}$ valuse obtained from the same raference and for the same sensor systems. It was observed that, for the same sensor system, we could find different $R^{2}$ value for the comparison with reference measurements. In the following we give a more detalied breakdown about the performances of each OEM / SS upon their comparison with reference mesurements at different averaging-times. 
-
-
-**Figure S3** shows the distribution of $R^{2}$ for sensors systems measuring $PM_{2.5}$, $PM_{10}$, $PM_{1}$, $O_{3}$, $NO_{2}$ and $CO$ against reference at 1-hour time-resolution. For the measurements of particulate matter, most of the comparisons were performed during field tests with the highest $R^{2}$ obtained from the sensor **PA-II** by **PurpleAir** [@aq-spec_air_2015] and **PATS+** by **Belkley Air** [@pillarisetti_small_2017]. These sensors reported values of $R^{2}$ between 0.8 and 1.0. Other sensors with $R^{2}$ values falling in the range 0.7-1.0 were identified in the  **PMS-SYS-1** by **Shinyei**, the **Dylos 1100 PRO** by **Dylos**, the **MicroPEM** by **RTI**, the **AirNUT** by **Moji China ** the **Egg (2018)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala**, the **AirVeraCity** by **AirVeraCity**, the NPM2 by MetOne [@crunaire_1er_2018] and, the **Air Quality Station** by **AS LUNG** [@aq-spec_air_2015]. Records from other sensors showed different values of $R^{2}$ depending of the type of field test and for the averaging time chosen to process the time-series of data. We need to point out that the performance of sensor systems measuring $PM_{10}$, on average, was very poor.    
-
-For gaseous pollutants, high $R^2$ values were found for the sensor systems **2B Tech. (POM)** by **2B Technologies** ($O_{3}$) [@aq-spec_air_2015], the **AirSensEUR (v.2)** by **LiberaIntentio** [@karagulian_calibration_2019]  the **Bettair** by **Bettair Cities** [@bettair_bettair_2017] the **AirCasting** by **HabitatMap** [@williams_evaluation_2014] the **KUNAKAIR A10 V2** by **kunak** [@kunak_wireless_2017] ($O_{3}$, $NO_{2}$, $CO$ and $NO$), the **Spec**, the **AQMesh**. These sensors reported values of $R^{2}$ between 0.8 and 1.0. As shown in **Figure S3**, we found a non-negligible number of records for sensor systems whose $R^{2}$ resulting from the comparison with reference systems was within the range 0.7 - 1.0 using 1-hour averaged data. We want to point out that, among all tested sensor systems, only the **AirSensEUR (v.2)** was the only one measuring multiple pollutants.
-
-
-The comparison of OEMs against reference systems, showed only few sensors for the measurement of $PM$ had $R^2$ within the range 0.7 - 1.0 when average over a time-scale of 1 hour. Among them we could identify the **Dylos DC 1700** [@manikonda_laboratory_2016; @sousan_evaluation_2016; @holstius_field_2014; @jovasevic-stojanovic_use_2015] and the **OPC-N2** (**Figure S4**) [@aq-spec_air_2015; @mukherjee_assessing_2017; @feinberg_long-term_2018; @crilley_evaluation_2018; @badura_optical_2018] when measuring $PM_{2.5}$. On the other hand, when the comparison was performed over a time-scale of 24 hour we found $R^2$ within the range 0.7 - 1.0 for several OEMs which included the **PMS7003** by **Plantower** [@badura_optical_2018], the **SDS011** by **Nova Fitness** [@badura_optical_2018], the **OPC-NO2** [@aq-spec_air_2015], and the **Egg v.2 (PM)** by **Air Quality Egg** [@aq-spec_air_2015] when measuring $PM_{2.5}$ (**Figure S5**). The same behavior was observed from the comparison of sensor systems against a reference system when measuring 24-hour averaged data of $PM_{2.5}$. As we can see from **Figure S6**, several sensor systems such as, **Dylos DC 1700** [@northcross_low-cost_2013], **PA-II**, [@aq-spec_air_2015] **AirQUINO** by **CNR** [@cavaliere_development_2018] reported values of $R^2$ ~ 1.    
-
-
-
-\newline
-
-```{r Figure 4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 15, fig.height = 18, fig.cap = "**Figure 4.** Mean $R^2$ for obtained from the comparison of sensor systems against reference measurements."}
-
-
-DB_comparison <- DB[!(is.na(DB$r2)), ]
-
-# summarize by reference
-DB_comparison <- DB_comparison %>%
-  group_by(new_ref_author,
-           model) %>%
-  filter(OEM_system == "SS") %>%
-  summarise(mean_r2_comparison = mean(r2, na.rm = T))
-
-DB_comparison <- DB_comparison %>%
-  filter(mean_r2_comparison > 0.25)
-
-# create a new referecne with number (ID) of the reference and first author name
-DB_comparison$id_ref_new <- NULL
-# DB_comparison$id_ref_new <- paste0("[", DB_comparison$id_ref, "]")
-DB_comparison$id_ref_new <- DB_comparison$new_ref_author
-
-#======== Calibration plots for all pollutants (R2)
-
-
-plot <- ggplot(DB_comparison, aes(mean_r2_comparison, model)) +
-  theme_bw() +
-   theme(panel.grid.major.y = element_line(colour="grey", size = 1, linetype="dashed"),
-        panel.grid.major.x = element_line(colour="grey", size = 1)) +
-  geom_point(alpha=1, color="black", size = 4) + 
-  geom_line(size = 1) +
-   geom_text_repel(aes(label=id_ref_new), size = 5.7, show.legend = FALSE) +
-  ylab("Sensor Model") +
-  scale_y_discrete(expand=c(0.01, 0.6)) +
-  xlim(0.25, 1.1) +
-  xlab(expression(paste(R^2),size=40)) + 
-  geom_vline(xintercept=1.0, linetype="dashed", color = "red", size = 1.5) +
-  theme(axis.title.y = element_text(face="bold", colour="black", size=22, margin = margin(t = 0, r = 20, b = 0, l = 0)),
-        axis.text.y  = element_text(angle=0, vjust=0.5, size=18, colour = "black")) +
-   theme(axis.title.x = element_text(colour="black", size=22),
-        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=22, colour = "black")) +
-  # ggtitle(expression(paste("Mean value of ", R^2, " from the COMPARISON of sensor systems with reference measurements"))) + 
-  theme(plot.title = element_text(lineheight=.8, face="bold", size = 15, hjust = 0.5)) 
-plot
-
-
-```
-
-
- \newline
- 
- For the evaluation of gaseous pollutants, we found very few OEMs with $R^2$ within 0.7 - 1.0 when using data at at time-resolution of 1 hour. These sensors included the **CairClip O3/NO2** by **CairPol** [@spinelle_field_2015; @williams_sensor_2014; @duvall_performance_2016; @feinberg_long-term_2018], the **Aeroqual Series 500 (and SM50)** [@feinberg_long-term_2018], the **O3-3E1F** by **CityTechnology** [@spinelle_field_2015; @spinelle_performance_2015; @feinberg_long-term_2018; @gerboles_airsenseur_2015] and the **NO2-B43F** by **Alphasense** [@zimmerman_machine_2018; @sun_development_2017] (**Figure S4**). On the other hand, we found very few records for sensor systems using 24 hour data. As a general remark, we can see that the performance of OEMs sensors is enhanced when they are integrated inside a sensor systems. It is also evident that most of the gathered records from $PM_{2.5}$ and gaseous pollutants $O_{3}$, $NO_{2}$, $CO$ and $NO$, used 24 hours and 1 hour time-resolution data as required by the European Air Quality Directive.
-
-To check the accuracy of a sensor, when compared to a reference system, we looked at the value of the slope obtained from the linear regression of the sensor measurements against a reference measurement. Most of comparisons were carried out during field tests, while only a limited number laboratory tests were available. Ideally, only an $R^2$ ~ 1.0 and a **slope** ~ 1.0 should be a good indicator of performance for a sensor. Therefore, we only selected records with $R^2$ > 0.7 and  **slope** within the range 0.5-1.5. 
-
-
-\newline
 
 ```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
@@ -1531,34 +1511,8 @@ DB_comparison_OEM_24hour_filtered <- DB_comparison_OEM_24hour %>%
 ```
 
 
-**Figure S7** shows sensor systems such as, the **AQM 60**, the **KUNAKAIR A10 V2**, the **AirSensEUR (v2)** has $slopes$ ~ 1 for most of measured gaseous pollutants when using 1 hour time-resolution data. On the other hand, only few records from $PM_{2.5}$ sensor systems showed $slopes$ ~ 1 for 1-hour (**PATS+** and **AirNut**) and 24-hour (**AIRQuino**)  time-averaged sensor systems.
-Only few $PM_{2.5}$ sensors performed well at ideal conditions. Sensor systems such as, **AIRQino**, **SidePak AM510**, **Air Quality Egg (v.2) (PM)**, **Dylos DC1100 PRO**, **AirNut** and the OEM **OPC-N2** were in good agreement with a reference system (**Figure S7**, **Figure S8**). 
-
-Among OMEs showing $slopes$ ~ 1 when using 1-hour time-averaged data, we found the **SM50**, the **CairClip O3/NO2**, the **S-500**, ($NO_{2}$, $O_{3}$) and, the **NO2-B4F** ($NO_{2}$) and the **Egg v.2 (PM)** ($PM_{2.5}$) (**Figure S9**). On the other hand, when using 24-hour time-averaged data, the OEM **OPC-N2** by **Alphasense** and the **Egg v.2 (PM)** by **Air Quality Egg**, shoed slopes ~ 1 when measuring $PM_{10}$ (**Figure S10**).
-
-As general remark, from the above analysis we could observe that for some OEMs and sensor systems, the width of the interquartile  range IQR (H-spread) was very narrow. This is an indication of the *reproducibility* of the regression parameters used in their calibration. This becomes relevant when it comes to the development of a reliable sensor system that uses the same OEM sensor and the same calibration algorithms. From the present analysis,     
-
-
 \newline
 
-
-## 6. Price of sensors
-
-As preliminary outcome of the present analysis, we have started identifying sensors systems that are in good agreement with reference instruments commonly used to monitor pollutant concentrations. Although the sensor market constantly develops, we decided to identify a sensor system that is commercially available or that can be assembled with commercially available OEM sensors. 
-
-Usually, the price of OEM sensors only represents a small fraction of the selling value of the entire sensor system. In the common understanding, a sensor for air quality is classified as low-cost when its price is less than 10000 EUR. In addition, if a low-cost sensor can measure multiple pollutants, potentially it could be used by local authorities as complementary source of air quality data as subsitute of reference instruments whose cost might rise up to one order of magnitude. 
-
-
-\newline
-
-
-For the evaluation of the price of sensors, we considered all sensor systems manufactured by commercial companies as well as sensor systems built for laboratory testing by research groups. The latter ones are custom-built devices assembled around an OEM sensor. We must to stress out that, while for the detection of different size of particulate matter it is possible to use the same optical sensor, for the detection of gaseous pollutant it is necessary to have a dedicated sensor for each pollutant. Therefore, among all the analyzed records, we tried identifying sensor systems that can measure concentration of particulate matter together with gaseous pollutants.   
-
-**Figure S12** and **Figure 5** show the commercial price of OEMs and sensor systems by model and number of pollutant measured by each sensor. There is a large number of sensor systems measuring single pollutants but few ones measuring multiple pollutants. This is an indication about the complexity to have a sensor system measuring multiple pollutants. Most of OEMs are open source devices (**Figure S12**). This means that OEMs can be used to build sensor systems for data acquisition and therefore to calibrate the sensor. On the other hand, most of the sensor systems are black box (**Figure 5**). This means that most of the manufacturers of sensor systems does not commercialize sensors that can be re-calibrated according to the requirements of the user. 
-Sensor systems are intended to be ready-to-use air quality monitors. When purchased by the end-user, a sensor system should estimate the concentration of pollutants with a close agreement to the traditional reference systems used to monitor air quality. 
-
-
-\newline
 
 
 ```{r Figure 5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure 5.** Prices of SS grouped by model. (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
@@ -1656,12 +1610,6 @@ plot
 
 
 ```
-
-\newline
-
-In **Figure 6** We have shortlisted sensor systems according to their level of agreement to reference systems. For this purpose, we considered metrics obtained from 1 hour and 24 hour averaged data of sensor systems with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2.   
-
-Among open source sensor systems we could identify the **AirSensEUR (v.2)** by **LiberaIntentio** and the **AIRQuino** by the **CNR** for the detection of $NO_{2}$, $CO$, $O_{3}$, $NO$ and $PM$, respectively. The remaining shortlisted sensor systems were identified as black box. **Table 4** and **Table S7** report the mean value of $R^{2}$ and of the $slope$ for the sensors systems shortlisted in Figure 15 for 1 hour and 24 hour averaged data. As we can see, the **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of ~ 0.90 and a $slope$ of ~ 0.94 while the **AIRQuino** resulted in a mean $R^{2}$ value of ~ 0.91 and a $slope$ of ~ 0.97. We need to point out that, at the date, the **AIRQuino** can measures up to five pollutants ($PM_{2.5}$, $PM_{10}$, $NO_{2}$, $O_{3}$, $CO$ and $NO$, $CO_{2}$ and $VOCs$), however, only data fror $PM$ were available a the time of this review. On the other hand, the **AirSensEUR (v2)** is a complete sensor system that can also measure particulate matter beside gaseous pollutants including "$CO_{2}$ and $Rn$ (radon)". This sensor system is already operative and has undergone multiple calibrations and field tests where measurements of gaseous pollutants showing good agreement with reference measurements.
 
 \newline
 
@@ -1815,10 +1763,6 @@ plot
 
 ```
 
-
-\newline
-
-As shown in **Table 4**, the price of sensor systems ranged from few hundreds of euros to about 9000 euros. We have investigated the possibility of having a relationship between the performance of the sensor (here expressed as $R^{2}$) and the selling price of the sensor. For this purpose we have compared the mean $R^{2}$ of all sensor models against their price. 
 
 \newline
 
@@ -2046,11 +1990,10 @@ pander(SS_price_pollutants, emphasize.strong.cols = 1, missing = "")
 
 ```
 
-
 \newline
 
+Figure 7 shows the relationship between the mean R2 of SSys and the decimal logarithm of the price of LCSs. In Figure 7 only the “living” LCSs are compared. It shows that for OEMs there is not a significant linear relationship between the price of OEMs and the value of R2. Conversely, there is a significant light increase of $R^{2}$ with the logarithm of the price of SSys. The regression equations indicated in Figure 7 shows that R² can increase of 14 ± 6% for a 10-fold increase of the prices of SSys which is a limited increase at high cost. Figure 7 also shows a higher scattering of $R^{2}$ at the low end of the price scale with SSys price lower than 500 euro with more fluctuation of the SSys performance.
 
-In **Figure 7** we reported the relation between the mean $R^{2}$ and the selling price of OEM/SS for field tests comparisons of sensors against reference systems using 1 hour averaged data. As shown in **Figure 7**, we did not find a significative relation between the commercial price of OEM sensors and the value of $R^{2}$ . On the other hand, we could observe a slight increase of the price of sensor systems together with $R^{2}$. The regression equations indicated in **Figure 7** have been calculated only considering "living" (or active) OEM/sensor when compared to reference measurements during field tests. For 24 hour averaged data from both OEMs and SS we did not show any relationship between mean $R^{2}$ and selling price. 
 
 \newline
 
@@ -2160,12 +2103,15 @@ model_OEM <- lm(log10(DB_prices_r2_fit[DB_prices_r2_fit$OEM_system == "OEM", ]$m
 
 \newline
 
-As shown in **Figure 7**, most of the reviewed sensor systems are "black box" systems. This means that the end-user cannot perform any further correction or re-calibration on the sensor system itself. The relationship observed between the coefficient of determination $R^{2}$ and the price of the sensor system, it is an evidence that complexity of building a detector for air quality is somewhat linked to the choice of materials, multi-functionality and time-spent to develop a reliable sensor system.
+## 6. Conclusions
 
-In order to target sensor systems in closer agreement and accuracy with reference systems, we displayed the distribution of SS models with $mean$  $R^{2}$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2. **Figure 8** indicates the **2B Tech. (POM)** by **2B Technologies**, the **AirSensEUR (v.2)** by **Liberantentio**, the **S-500** by **Aeroqual**, the **Egg (v.2)** by **Air Quality Egg**, the **AQT410 v.1.15** by **Vaisala** and the **AirVeraCity** as the one having $mean$ $R^{2}$ --> 1 and $ $mean$ $slope$ = 1. These sensor systems give indicative measurements of air pollutants when comparared with the traditional reference monitoring systems over 1 hour averaging time. On the other hand, other sensors such as the **PA-II** by **Purple Air**, the **AirNut**, the **AQMesh v.3.0** by **AQMesh** and, the **AQY v0.5** by **Aeroqual** showed good agreement with reference systems but lower accuracy. 
+There is little information available in the literature regarding calibration of LCSs. Nevertheless, it was anyhow possible to list the calibration methods giving the highest $R^{2}$ when applied to the results of field tests. For ${CO}$ and ${NO}$ reviewed works showed that the MLR models were the most suitable for calibration. ANN gave the same level of performance than MLR only for NO. For ${NO}_2$ and ${O}_3$, supervised learning models such as, SVR, SVM, (not for ${O}_3$), ANN, and RF followed by MLR models showed to be the most suitable method of calibration. Regarding Particulate Matter, the best results were obtained with linear models when calibrating ${PM}_2.5$. However, these models were applied only to ${PM}_2.5$ with high relative humidity data (> 75-80%) that were discarded. For higher relative humidity, models accounting for the growing of the particulates must be further developed. So far, the calibration using the Khöler theory seems to be the promising method.
 
-
+A list of SSys with $R^{2}$ and slope close to 1.0 were drawn from the whole database of Records of comparison tests of LCSs data versus reference measurements that indicates the best performance of SSys as shown in Figure 8. In fact, Figure 8 evidences a best selection region for SSys with blue background. The best SSys would be the one which reaches the point with coordinates $R^{2}$ = 1 and slope = 1. Within the blue background region, the following SSys can be found: the **2B Tech. (POM)**, the **PA-II**, the **AirSensEUR (v.1)**, the **PA-I**, the **S-500**, the **AirSensEUR (v.1)**, the **SNAQ**, the **Vaisala AQT410 v.15**, the **MetOne (NM)**, the **Egg (v.2)**, the **AQY v0.5**, the **CairClip O3/NO2**, the **AQMesh v3.0**, the **AQT410 v.11** and the **AirVeraCity**. Additionally, Figure 8 shows that there are more SSys underestimating reference measurements with slopes lower than 1 than SSys overestimating reference measurements.
+Analysing the price of SSys and their price, it was found that $R^{2}$ increases of 14 % for a 10-fold increase of the prices of SSys, a limited improvement for a large price increase.
+ 
 \newline
+
 
 ```{r Figure 8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure 8.** Correspondence between $R^2$ and slope for sensor systems (SS) for 1 hour averaging time. Only sensor models with $mean$ $R^2$ > 0.75 and 0.5 < $mean$ $slope$ < 1.2 are shown. Names of 'living' and 'non-living' sensors are indicated in black and blue color, respectively."}
 
@@ -2272,25 +2218,17 @@ plot <- ggplot(data = DB_taylor_SS, aes(x = mean_slope, y = mean_r2)) +
 
 \newline
 
-
-## 7. Conclusions
-
-According to the European Air Quality Directive2, a sensor system can be considered "Equivalent" when it meets the Data Quality Objectives (DQOs) set for data capture and uncertainty3,4 .In order for sensor system measurement to be incorporated into the legal framework set by the Air Quality Directive in Europe, they shall satisfy one of the data quality objectives (DQOs) of the Directive. DQOs, defined as the maximum allowed relative uncertainty, are defined either for reference and indicative measurements or for objective estimations. For inorganic gaseous pollutants, they correspond to 15, 25 to 30 and 75 %, respectively. Although, the objective of sensor systems is to provide the most accurate air pollution measurements, it is most likely that the DQO for reference measurements is out reach while it is believed that by improving the sensor calibration procedures the DQO of "Indicative Measurements" could be met at fixed monitoring sites [@key-vocs_metrology_2017].
+Although this paper gives an exhaustive survey of the independent LCS evaluations, the concept of comparing LCS field tests from different studies can be difficult or results in misleading conclusions. It is difficult because of the lack of uniformity of the metrics representing LCS data quality that are different between studies and difficult to compare. Comparing field tests of LCS may also be misleading since in order to take into consideration the highest number of studies it was necessary to mainly rely on the coefficient of determination $R^{2}$. However,$R^{2}$ is too much dependent on the range of reference measurements, on the duration of test field and on the season and location of the tests making change of $R^{2}$ not completely dependent on LCS data quality or of calibration methods. This shortcoming makes the standardisation of a protocol of evaluation of LCSs at international level of great importance and the results of intercomparison exercise where gathering LCSs are gathered at the same test sites and at the same time greatly desired.
 
 
-\newline
-\newline
-\newline
-\newline
-
-## Supplementary material
+## Appendix A
 
 \newline
 
-```{r Table S1, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+```{r Table A1, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
 
-Caption <- paste0("**Table S1.** Number of analyzed records and sensor models by averaging time.")
+Caption <- paste0("**Table A1.** Number of analyzed records and sensor models by averaging time.")
 set.caption(Caption)
 panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
 panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
@@ -2301,44 +2239,39 @@ pander(DB_AVG_time, emphasize.strong.cols = 1, missing = "")
 ```
 
 
-
-\newline
-\newline
 \newline
 
 
-```{r Table  S2, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+```{r Table  S2A, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
-# build table reporting and explaining formulas about metrics
-Comparison_metrics <- c("Coefficient of determination", "Slope of linear relation ship", "Intercept of the linear relationship Mi = Slope RMI + Offset", "Root Mean Square Error", "Measurement uncertainty", "Correlation Coefficient")
-
-Short_name <- c("$R^{2}$", "$slope$", "$Offset$", "$RMSE$", "$U$", "$r$")
-
-Mathematical_formulas <- c("$$R^2 = 1-\\frac{SS_{RES}}{SS_{TOT}}$$, where SS_RES is the sum of squares of residuals and SS_TOT is the total sum of squares", "", "", "$$\\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i- RM_i} \\right)^2}$$", "$$U = kU_{c}$$", "$$\\frac{ \\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i - M})({M_i - RM} \\right)}   { \\sqrt{ \\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i- M} \\right)^2\\frac{1}{n}\\sum_{i=1}^{n}\\left( {RM_i- RM} \\right)  }}$$")
-
-Characteristics <- c("$R^2$ measures the strentgth of relationship between $M_{i}$ and $RM_{i}$, of the percentage of total                               variance that is explained by a linear relationship", "", "", 
-                     "indicates the magnitude of the error and retains the variable's unit; is sensitive to extreme values and                       to outliers; tends to vary as a function of the standard deviation of the RM",
-                     "", "measures the strength and the direction of a linear relationship between two variables, and receives                       a value between -1 and 1; is independent of the difference in the variance (var) of M and RM, thus if r=1                       and var(M)<var(RM), then variance correction may be required")
-
-df_Comparison_metrics <- data.frame(Comparison_metrics, Short_name, Mathematical_formulas, Characteristics)
-names(df_Comparison_metrics) <- c("Comparison metrics", "Short name", "Mathematical formulas", "Characteristics")
-
-Caption <- paste0("**Table S2.** Metrics used for comparing sensor data, $M_{i}$, and reference measurements, $RM_{i}$.")
-set.caption(Caption)
-panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
-panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
-panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
-pander(df_Comparison_metrics, emphasize.strong.cols = 1, missing = "")
+# # build table reporting and explaining formulas about metrics
+# Comparison_metrics <- c("Coefficient of determination", "Slope of linear relation ship", "Intercept of the linear relationship Mi = Slope RMI + Offset", "Root Mean Square Error", "Measurement uncertainty", "Correlation Coefficient")
+# 
+# Short_name <- c("$R^{2}$", "$slope$", "$Offset$", "$RMSE$", "$U$", "$r$")
+# 
+# Mathematical_formulas <- c("$$R^2 = 1-\\frac{SS_{RES}}{SS_{TOT}}$$, where SS_RES is the sum of squares of residuals and SS_TOT is the total sum of squares", "", "", "$$\\sqrt{\\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i- RM_i} \\right)^2}$$", "$$U = kU_{c}$$", "$$\\frac{ \\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i - M})({M_i - RM} \\right)}   { \\sqrt{ \\frac{1}{n}\\sum_{i=1}^{n}\\left( {M_i- M} \\right)^2\\frac{1}{n}\\sum_{i=1}^{n}\\left( {RM_i- RM} \\right)  }}$$")
+# 
+# Characteristics <- c("$R^2$ measures the strentgth of relationship between $M_{i}$ and $RM_{i}$, of the percentage of total                               variance that is explained by a linear relationship", "", "", 
+#                      "indicates the magnitude of the error and retains the variable's unit; is sensitive to extreme values and                       to outliers; tends to vary as a function of the standard deviation of the RM",
+#                      "", "measures the strength and the direction of a linear relationship between two variables, and receives                       a value between -1 and 1; is independent of the difference in the variance (var) of M and RM, thus if r=1                       and var(M)<var(RM), then variance correction may be required")
+# 
+# df_Comparison_metrics <- data.frame(Comparison_metrics, Short_name, Mathematical_formulas, Characteristics)
+# names(df_Comparison_metrics) <- c("Comparison metrics", "Short name", "Mathematical formulas", "Characteristics")
+# 
+# Caption <- paste0("**Table S2.** Metrics used for comparing sensor data, $M_{i}$, and reference measurements, $RM_{i}$.")
+# set.caption(Caption)
+# panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
+# panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
+# panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
+# pander(df_Comparison_metrics, emphasize.strong.cols = 1, missing = "")
                         
 
 ```
 
 \newline
 
-\newline
 
-
-```{r Table S3, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
+```{r Table A2, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
 
 # Model of sensors by for the detection of Particulate Matter. OME/SS indicates Original Equipment Manufacture and Sensor System.
 
@@ -2381,7 +2314,7 @@ optical <- DB %>%
 sensor_model_OEM <- sensor_model_OEM[order(sensor_model_OEM$model),]
 
 
-Caption <- paste0("**Table S3.** Model of OEMs by pollutant, type, openness and price.")
+Caption <- paste0("**Table A2.** Model of OEMs by pollutant, type, openness and price.")
 set.caption(Caption)
 panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
 panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
@@ -2392,10 +2325,9 @@ pander(sensor_model_OEM, emphasize.strong.cols = 1, table.emphasize.rownames = F
 
 \newline
 
-\newline
 
 
-```{r Table S4, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
+```{r Table A3, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE,  comment=FALSE}
 
 # Model of sensors by for the detection of Particulate Matter. OME/SS indicates Original Equipment Manufacture and Sensor System.
 
@@ -2420,7 +2352,7 @@ names(sensor_model_SS) <- c("model", "pollutant", "type", "reference", "open/clo
 
 sensor_model_SS <- sensor_model_SS[order(sensor_model_SS$model),]
 
-Caption <- paste0("**Table S4.** Models of Sensor Systems by pollutant, type, openness and price.")
+Caption <- paste0("**Table A3.** Models of Sensor Systems by pollutant, type, openness and price.")
 set.caption(Caption)
 panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
 panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
@@ -2434,85 +2366,7 @@ pander(sensor_model_SS, emphasize.strong.cols = 1, table.emphasize.rownames = FA
 
 \newline
 
-
-\newline
-
-
-```{r Table S5, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
-
-# # Model of sensors by for the detection of CO, NO2 and O3. OME/SS indicates Original Equipment Manufacture and Sensor System.
-# 
-# models = unique(DB$model[intersect(which(grepl(paste(c("NO2", "O3", "CO", "NO"), collapse = "|"),  x = DB$pollutant)), which(DB$OEM_system == "OEM"))])
-# List.Pollutants <- sapply(models, function(i) paste(unique(DB$pollutant[DB$model == i]), collapse = ", "))
-# List.Types      <- sapply(models, function(i) paste(unique(DB$type_sensor[DB$model == i]), collapse = ", "))
-# List_Refs       <- sapply(models, function(i) paste(unique(DB$id_ref[DB$model == i]), collapse = ", "))
-# List_Open       <- sapply(models, function(i) paste(unique(DB$open_close[DB$model == i]), collapse = ", "))
-# List_living     <- sapply(models, function(i) paste(unique(DB$living[DB$model == i]), collapse = ", "))
-# List_price      <- sapply(models, function(i) if (all(is.na(DB$new_price_EUR[which(DB$model == i)]))) NA else median(DB$price[which(DB$model == i)], na.rm =T) )
-# 
-# GAS_sensor_model_OEM = data.frame(model = models,
-#            List.Pollutants = List.Pollutants,
-#            List.Types  = List.Types,
-#            List_Refs = List_Refs,
-#            List_Open   = List_Open,
-#            List_living = List_living,
-#            List_price  = List_price,
-#            stringsAsFactors = F)
-# 
-# names(GAS_sensor_model_OEM) <- c("model", "pollutant", "type", "reference", "open/close", "living", "price")
-# 
-# Caption <- "**Table S5**. Model of OEMs for the detection of $NO_{2}$, $CO$, $NO$ and $O_{3}$."
-# set.caption(Caption)
-# panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
-# panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
-# panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
-# pander(GAS_sensor_model_OEM, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
-
-```
-
-
-\newline
-\newline
-
-
-```{r Table S6, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
-
-# # Model of sensors by for the detection of CO, NO2 and O3. OME/SS indicates Original Equipment Manufacture and Sensor System.
-# 
-# models = unique(DB$model[intersect(which(grepl(paste(c("NO2", "O3", "CO", "NO"), collapse = "|"),  x = DB$pollutant)), which(DB$OEM_system == "SS"))])
-# List.Pollutants <- sapply(models, function(i) paste(unique(DB$pollutant[DB$model == i]), collapse = ", "))
-# List.Types      <- sapply(models, function(i) paste(unique(DB$type_sensor[DB$model == i]), collapse = ", "))
-# List_Refs       <- sapply(models, function(i) paste(unique(DB$id_ref[DB$model == i]), collapse = ", "))
-# List_Open       <- sapply(models, function(i) paste(unique(DB$open_close[DB$model == i]), collapse = ", "))
-# List_living     <- sapply(models, function(i) paste(unique(DB$living[DB$model == i]), collapse = ", "))
-# List_price      <- sapply(models, function(i) if (all(is.na(DB$new_price_EUR[which(DB$model == i)]))) NA else median(DB$price[which(DB$model == i)], na.rm =T) )
-# 
-# GAS_sensor_model_SS = data.frame(model = models,
-#            List.Pollutants = List.Pollutants,
-#            List.Types  = List.Types,
-#            List_Refs = List_Refs,
-#            List_Open   = List_Open,
-#            List_living = List_living,
-#            List_price  = List_price,
-#            stringsAsFactors = F)
-# 
-# names(GAS_sensor_model_SS) <- c("model", "pollutant", "type", "reference", "open/close", "living", "price")
-# 
-# Caption <- "**Table S6**. Model of Sensor Systems for the detection of $NO_{2}$, $CO$, $NO$ and $O_{3}$."
-# set.caption(Caption)
-# panderOptions("table.emphasize.rownames", FALSE) # remove row.names from the table
-# panderOptions("table.split.table", Inf) # to avoid to split tables if rows are too long
-# panderOptions('table.alignment.default', function(df) ifelse(sapply(df, is.numeric), 'right', 'left')) # right alignment for numeric, left otherwise
-# pander(GAS_sensor_model_SS, emphasize.strong.cols = 1, table.emphasize.rownames = FALSE, missing = "")
-
-```
-
-
-\newline
-
-\newline
-
-```{r Figure S1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure S1.** Distribution of $R^2$ for OEMs and sensor systems obtained from the calibration against the reference. Records were averaged over a time-scale of 1 hour. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A1, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure A1.** Distribution of $R^2$ for OEMs and sensor systems obtained from the calibration against the reference. Records were averaged over a time-scale of 1 hour. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 # compute frequency of records for each model of sensor
 counts_r2_calibration_OEM_SS <- DB_calibration_OEM_SS_1hour %>%
@@ -2569,7 +2423,7 @@ plot
 \newline
 
 
-```{r Figure S2, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure S2.** Distribution of $R^2$ for OEMs and ensor systems obtained from the calibration against the reference. Records were averaged over a time-scale of 1 minute. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A2, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure A2.** Distribution of $R^2$ for OEMs and ensor systems obtained from the calibration against the reference. Records were averaged over a time-scale of 1 minute. Dashed lines indicate the value of 0.7 and 1.0. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # calibration models
@@ -2636,11 +2490,6 @@ plot
 
 \newline
 
-
-
-
-
-
 ```{r, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
 ### Sensor Systems (1 hour)
@@ -2662,8 +2511,7 @@ levels(DB_comparison_SS_1minute$pollutant) <-  c("CO","NO", "NO[2]", "O[3]", "PM
 \newline
 
 
-
-```{r Figure S3, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure S3.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 minute. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A3, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 8, fig.cap = "**Figure A3.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 minute. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2712,7 +2560,7 @@ plot
 
 \newline
 
-```{r Figure S4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 8, fig.cap = "**Figure S4.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A4, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 8, fig.cap = "**Figure A4.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2762,7 +2610,7 @@ plot
 \newline
 
 
-```{r Figure S5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 13, fig.height = 14, fig.cap = "**Figure S5.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A5, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 13, fig.height = 14, fig.cap = "**Figure A5.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 levels(DB_comparison_OEM_1hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_OEM_1hour$pollutant))
@@ -2827,7 +2675,7 @@ plot
 \newline
 
 
-```{r Figure S6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 10, fig.cap = "**Figure S6.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 8, fig.height = 10, fig.cap = "**Figure A6.** Distribution of $R^2$ from the comparison of OEMs against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 # compute frequency of records for each model of sensor
@@ -2876,7 +2724,7 @@ plot
 
 \newline
 
-```{r Figure S7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 13, fig.cap = "**Figure S7.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A7, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 13, fig.cap = "**Figure A7.** Distribution of $R^2$ from the comparison of sensor systems against reference systems. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 levels(DB_comparison_SS_24hour$pollutant) <- gsub("^PM2.5-0.5$","PM2.5", levels(DB_comparison_SS_24hour$pollutant))
@@ -2938,7 +2786,7 @@ plot
 \newline
 
 
-```{r Figure S8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S8.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A8, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure A8.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for SS (slope) 
@@ -2999,7 +2847,7 @@ plot
 
 
 
-```{r Figure S9, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 6, fig.cap = "**Figure S9.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A9, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 6, fig.cap = "**Figure A9.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 1 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for OEMs (slope) 
@@ -3071,7 +2919,7 @@ plot
 \newline
 
 
-```{r Figure S10, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure S10.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A10, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 9, fig.height = 9, fig.cap = "**Figure A10.** Distribution of slopes from the comparison of sensors systems against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown. Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for SS (slope) 
@@ -3141,7 +2989,7 @@ plot
 \newline
 
 
-```{r Figure S11, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure S11.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A11, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 7, fig.cap = "**Figure A11.** Distribution of slopes from the comparison of OEMs against the reference. Only records with $R^2$ > 0.7 and 0.5 < slope < 1.5 are shown.  Records were averaged over a time-scale of 24 hour. Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #========Validation plot for OEMs (slope) 
@@ -3199,9 +3047,7 @@ plot
 
 
 
-\newline
-
-```{r Figure S12, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 12, fig.height = 12, fig.cap = "**Figure S12.** Mean $slope$ for obtained from the comparison of OEMs and sensor systems against reference measurements."}
+```{r Figure A12, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 12, fig.height = 12, fig.cap = "**Figure A12.** Mean $slope$ for obtained from the comparison of OEMs and sensor systems against reference measurements."}
 
 DB_comparison_slope <- DB[!(is.na(DB$slope)), ]
 
@@ -3260,7 +3106,7 @@ plot
 \newline
 
 
-```{r Figure S13, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure S13.** Prices of OEMs available on the market (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
+```{r Figure A13, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 11, fig.cap = "**Figure A13.** Prices of OEMs available on the market (Numbers in bold indicates the number of pollutant measured by each sensor. x-axis uses logarithmic scale). Numbers in bold indicate the number of open source (blue) and black box (black) records. Names of 'living' and 'non-living' sensors are indicated in black and red color, respectively."}
 
 
 #======== prices of OEMs 
@@ -3353,8 +3199,7 @@ plot
 \newline
 
 
-
-```{r Table S7, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
+```{r Table A4, echo = FALSE, warning = FALSE, cache = FALSE, out.width = "70%", results = 'asis', message = FALSE, comment=FALSE}
 
 # remove NA values
 DB_prices <- DB[!is.na(DB$price & DB$slope & DB$intercept), ]
@@ -3672,9 +3517,7 @@ pander(SS_price_pollutants, emphasize.strong.cols = 1, missing = "")
 
 
 \newline
-\newline
+
+*** end of the document ***
 
 ## Bibliography
-
-\newline
-
