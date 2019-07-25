@@ -1,0 +1,325 @@
+---
+title: Calibration of electrochemical sensors for air pollution monitoring using the AirSensEUR box – Laboratory experiments
+author:
+  - name: F. Karagulian
+    affil: 1,\ddagger
+    orcid: 0000-0003-0518-0955
+    email: federico.karagulian@ec.europa.eu
+  - name: L. Spinelle2
+    affil: 2,\ddagger
+    orcid: 0000-0002-5832-3588
+  - name: F. A. Kotsev
+    affil: 3,\ddagger
+    orcid: 0000-0003-0411-741X
+  - name: M. Signorini
+    affil: 4,\ddagger
+    orcid: 0000-0003-0518-0955
+  - name: M. Gerboles
+    affil: 5,\ddagger,*
+    orcid: 0000-0002-7015-1627
+affiliation:
+  - num: 1
+    address: |
+      European Commision,  Joint Research Centre, 
+      Ispra, Italy
+    email: federico.karagulian@ec.europa.eu
+  - num: 2
+    address: |
+      Institut national de l'Environnement Industriel et des Risques (INERIS) 
+      Parc technologique Alata, BP 2, F-60550 Verneuil-en-Halatte, France
+    email: laurent.spinelle@ineris.fr
+  - num: 3
+    address: |
+      European Commision,  Joint Research Centre, 
+      Ispra, Italy
+    email: alexander.kotsev@ec.europa.eu
+  - num: 4
+    address: |
+      Liberaintentio Srl, 
+      Malnate 21046, Italy
+    email: marco.signorini@liberaintentio.com
+  - num: 5
+    address: |
+      European Commision,  Joint Research Centre, 
+      Ispra, Italy
+    email: michel.gerboles@ec.europa.eu
+
+# firstnote to eighthnote
+firstnote: |
+  Current address: Updated affiliation
+secondnote: |
+  These authors contributed equally to this work.
+correspondence: |
+  michel.gerboles@ec.europa.eu; Tel.: +39-0332-78-5652
+journal: sensors
+type: article
+status: submit
+bibliography: mybibfile.bib
+#appendix: appendix.tex
+simplesummary: |
+  A Simple summary goes here.
+abstract: |
+  A single paragraph of about 200 words maximum. For research articles, 
+  abstracts should give a pertinent overview of the work. We strongly encourage
+  authors to use the following style of structured abstracts, but without 
+  headings: 1) Background: Place the question addressed in a broad context and
+  highlight the purpose of the study; 2) Methods: Describe briefly the main
+  methods or treatments applied; 3) Results: Summarize the article's main 
+  findings; and 4) Conclusion: Indicate the main conclusions or interpretations. 
+  The abstract should be an objective representation of the article, it must not 
+  contain results which are not presented and substantiated in the main text and 
+  should not exaggerate the main conclusions.
+keywords: |
+  temperature effect; humidity effect; interference; drift.
+acknowledgement: |
+  All sources of funding of the study should be disclosed. Please clearly 
+  indicate grants that you have received in support of your research work. 
+  Clearly state if you received funds for covering the costs to publish in open 
+  access.
+authorcontributions: |
+  For research articles with several authors, a short paragraph specifying their 
+  individual contributions must be provided. The following statements should be 
+  used ``X.X. and Y.Y. conceive and designed the experiments; X.X. performed the 
+  experiments; X.X. and Y.Y. analyzed the data; W.W. contributed 
+  reagents/materials/analysis tools; Y.Y. wrote the paper.'' Authorship must be
+  limited to those who have contributed substantially to the work reported.
+conflictsofinterest: |
+  The authors declare no conflict of interest.
+sampleavailability: |
+  Samples of the compounds ...... are available from the authors.
+abbreviations:
+  - short: MDPI
+    long: Multidisciplinary Digital Publishing Institute
+  - short: DOAJ
+    long: Directory of open access journals
+  - short: TLA
+    long: Three letter acronym
+  - short: LD 
+    long: linear dichroism
+output: rticles::mdpi_article
+
+---
+
+
+```{r include=FALSE}
+#================================================================CR
+### Function Load.Packages (170420)
+#================================================================CR
+Load.Packages <- function(list.Packages) {
+    # list.Packages                 vector of names of the packages to load
+    # 
+    cat("", sep = "\n")
+    cat("[Load.Packages] INFO CHECK Installed packages and Toolbox to run the script", sep = "\n")
+    #
+    for (i in list.Packages) {
+        
+        # Installing packages
+        if (i %in% rownames(installed.packages()) == FALSE) {
+            cat(sprintf("[Load.Packages] INFO Installing %s", i), sep = "\n")
+            install.packages(i)
+        } else {
+            cat(sprintf("[Load.Packages] INFO Package %s already installed",i), sep = "\n")
+        }
+        # cat(i,quote=FALSE)
+        do.call("library", as.list(i))
+        #library(i, character.only = TRUE)
+        cat(sprintf("[Load.Packages] INFO Package %s loaded",i), sep = "\n")
+        
+    }
+    #
+    # List of loaded packages
+    cat("[Load.Packages] INFO List of installed packages", sep = "\n")
+    print(search(), quote = FALSE)
+    cat("", sep = "\n")
+}
+
+cat("-----------------------------------------------------------------------------------\n")
+cat("INFO, Check or install packages needed to run the script\n")
+# Packages to be loaded
+# writing of articles in LateX                                          --> rticles
+#  downloads and installs TeX Live over the network                     --> tinytex
+#  markdown package                                                     --> rmarkdown
+# referenc ceitations                                                   --> citr
+list.Packages <- c("rticles"         , "tinytex"         , "rmarkdown"       , "citr"            )
+Load.Packages(list.Packages)
+
+# install tinytex
+# For windows
+# install.packages('tinytex')
+# For linux
+# wget -qO- "https://yihui.name/gh/tinytex/tools/install-unx.sh" | sh
+
+#if (!tiny::is_tinytex()) tinytex::install_tinytex()
+
+cat("-----------------------------------------------------------------------------------\n")
+
+```
+
+# Version
+
+This Rmd-skeleton uses the mdpi Latex template published 2019/02. 
+However, the official template gets more frequently updated than the 'rticles'
+package. Therefore, please make sure prior to paper submission, that you're 
+using the most recent .cls, .tex and .bst files 
+(available [here](http://www.mdpi.com/authors/latex)).
+
+# Introduction
+
+In the last years an incrusing number of studies describing several methods for the calibration of electrochemical low-cost sensors have been pusblished. The majority of these calibration methods by field experiments with co-location of sensor systems and reference analysers sited at Air Quality Monitoring Stations (AQMS) (references needed). Converseley, little or no laboratory experiments under controlled conditions are generally carried out. The aim of field test experiments is to establish the relationship between sensor data and reference measurements possibly taking into consideration co-variates that affects sensor responses (Reference needed) and later prediction of sensor data at other sites than the one use for calibration. Among this type of model equations used for calibration, one can distinghuish between emprical (multi-)linear approaches [@spinelle_field_2015] and  machine learning methods [@de_vito_calibrating_2018; @spinelle_field_2015]. It has become an established technical methodology to improve the data quality of such sensor systems by co-locating them at traditional air quality monitoring stations equipped with reference instrumentation and field-calibrating individual units using various statistical techniques. Methods range from (multi-)linear regression to more complex statistical techniques, often using additional predictor variables such as air temperature or relative humidity (e.g. Spinelle et al., 2017), and occasionally data not actually measured by the sensor system itself (e.g. station observations or model output). that is data fishing, the tests in the data sheets of manufacturer can help to correctly fish. 
+
+Several laboratories studies have shown that low cost sensor are strongly affected from changes of several Variables either as cross-sensitivies (reference) or meteorological parameters, mainly temperature and humidity 
+However, in field the variables affecting sensor measurements are not independent. Major co-linearities are common, for example between CO, NO and PM or anti-correlation between temperature and humidity.
+The majority of statistical tools, e. g. multilinear regression or …, are affected by collinearities of xs making the decision of taking into account affecting parameters very much erratic.
+Including type 1 and type 2, it is becoming impossible to say which parameter drives the system
+
+The trend is towards artificial intelligence
+ANN and random forest seems not to be able to manage change of sampling sites De vito and Hueglin).
+
+Is it possible to use simple deterministic model
+Are these model similar at the same place for several ASE. ->  pre calibration set
+
+What if we change of place? Type of site
+Sensitivity analysis effect of parameter variability of measurement uncertainty
+Best period for calibration, rolling calibration period and $R^2$ of calibration
+Principle of electrochemical sensor
+Position of the auxiliary electrode: it remains within the electrolyte while the working electrode is exposed to air.
+The electrolyte is a gel
+Effect
+Are the effect temperature, relative humidity, cross sensitivities additive?
+Using the results of laboratory experiments, (Mueller et al., 2017) concluded that the raw signal of two NO2-B42F sensors were dependent of the rate of change of humidity with humidity changing between 40 and 60 % at rate of about 
+Questions: should we use dynamic measurement or static for calibration, what is the rate of change of humidity in field?
+Add about CO2 from Lewis and Hueglin
+
+Does sensitivity change with Temperature and humidity: use design of experiment
+
+# Theory
+
+## Electrochemical sensors
+
+Amperometric gas sensors (AGS) sensors are based on electrochemical cells assuring the transfer of charges from an electrode to another which are in connection through an electrolyte phase. This electrolyte phase has to carry the cell current by enabling the transport of charge carriers in form of ions and often has to provide co-reactants (usually water, protons or hydroxide ions) to the electrode as well as to allow the removal of ionic products from the reaction site. The electrolyte can be solid [@kumar_solid_2000], gel-like or organic gel as in the case of Sensoric City Technology sensors (DE) [@xiong_amperometric_2014], liquid or gaseous electrolytes e. g. for sensors manufactured by SGX Sensortech (CH). AGSs require at least a measuring electrode and a counter electrode through which flows a current generated by the redox reaction of an analyte at the working electrode when a fixed or variable proper potential is applied to sensor electrodes. For measurement at low levels, the majority of amperometric sensors  include a $3^{rd}$ electrode, the reference electrode, to which a bias voltage can be applied to modify the potanital of the working electrode. More recently a $4^th$ electrode, named an auxiliary electrode, have been added to a few sensor model (e. g. the sensors manufactured by AlphaSense (UK), CityTechnology Ltd (UK) and Membrapor (CH)). The $4^th$  electrode is used to correct for changes in sensor signal that are not induced by changes in the gaseous compound being sampled [@popoola_development_2016] + (American reference) but it accounts for changes in for example temperature and humidity of the ambient air being sampled.  
+In the AGSs, the reaction rate, reflected by the current, $i_{lim}$, at the sensing electrode, occurs for any reaction triggered by the applied electrode potential. The fundamental process for sensing an analyte by an AGS can be described in four steps: (1) the analyte diffuses to the sensing electrode. In order to achieve selectivity and/or diffusion-limited working mode this diffusion may proceed through a membrane or some other diffusion barrier. (2) The analyte is adsorbed on the sensing electrode. (3) The electrochemical reaction occurs. (4) The reaction products desorb from the sensing electrode and diffuse away [@helm_measurement_2010].
+Using Fick’s first law and Faraday’s law the following general expression for the steady state current of an amperometric sensor can be written [@helm_measurement_2010]: 
+
+\begin{equation}
+i_{lim} = \frac {nF}{ R_k + \sum_{i=1}^{n} R_i} [C]_{gas} 
+\label{ilim}
+\end{equation}
+
+where $i_{lim}$ is the sensor output current, n is number of electrons involved in electrochemical reaction, F is the Faraday constant, $R_k$ is the kinetic resistance of the electrochemical reaction and $R_i$ are several resistances to the analyte diffusion at layers i. ADD the layer from Popoola, 2016
+Generally a membrane in placed on top of the working electrode so that the rate of mass transport ($R_d$) by diffusion and permeation through the membrane of the reactant to the electrode surface is much higher than the rate of the electrode reaction ($R_k$). In fact, if $R_k$ is much higher than $\sum R_i$, the rate of reaction at the electrode surface is the rate-limiting step, the limiting current, $i_{lim}$ is controlled by the rate of the electrode kinetics. In this case, the analyte reaches the surface much faster than it is reacted, and so the concentration at the electrode surface is the same as in the gas surrounding the electrode. When operated under appropriate diffusion-limited conditions, $i_{lim}$, is simply proportional to the concentration of the analyte [@helm_measurement_2010] as shown in Equation \eqref{ilim_linear}. The simple relationship given in Equation \eqref{ilim_linear} is valid provided that the limiting factor to the transport of charge in the sensor cell is controlled by the gas molecules diffusing to the working electrode rather than by the rate of redox reaction at this electrode. In this equation, the current, ilim, is directly proportional to, C, the gaseous concentration in volume or mass concentration. This is only valid for steady concentration using the 1st Fick’s law, what about 2nd law of Fick when concentration is changing?
+
+\begin{equation}
+i_{lim} =  k [C]_{gas} 
+\label{ilim_linear}
+\end{equation}
+
+The expression for the current obeys the Faraday’s law and a dynamic reaction achieving a steady-state condition in the sensor and it takes the form of Equation \eqref{ilim_exp} where k represents the standard rate constant, F is the faraday constant, R is the gas constant, T is the Kelvin temperature, A is the area of the electrode, C is the concentration, n represents the number of electrons per molecule reacting, and R and E are the transfer coefficient and overvoltage of the electrode reaction, respectively. Although Equation \eqref{ilim_exp} corresponds to a limited current state that is not used in this study, it shows what can be the influence of temperature in the sensor cell.
+
+\begin{equation}
+i_{lim} =  nFkA e^{\frac {nFE}{RT}} 
+\label{ilim_exp}
+\end{equation}
+
+This process comprises a chemical reaction of the electrode as well as charge transport through the electrolyte, which can both be chemically influenced. 
+amperometric if the current of an oxidoreduction reaction that is linearly proportional to the gas concentration is measured. The principle behind amperometric sensors is the measurement of the current-potential relationship in an electrochemical cell where equilibrium is not established. The current is quantitatively related to the rate of the electrolytic process at the working electrode whose potential is kept constant using the so-called reference electrode.
+The gas molecules diffuses into the sensor and the measuring electrode where a direct electron transfer takes place due to chemical reactions. These reactions produce a current proportional to the concentration of the compound [@knake_amperometric_2005] following the Nernst Law. Nowadays, the amperometric sensors also includes a reference electrodes, while the trend is to add a 4th auxiliary electrode for correction of electrodes physical changes and sensor drift. Hereafter we present an evaluation of commercially available sensors for O3 and NO2. 
+
+## Calibration of sensors
+
+The objective is to set calibration equations that fit sensor raw current over a short calibration time interval when sensor and reference data are available. This is called calibration as in Equation \eqref{Ri_cal}, where $R_i$ is the raw CO, NO, NO2 or O3 sensor data in nA or Volt that is fitted as a multilinear combination of $C_j$, the set of parameters that affect the sensor measurements at degree k (integer or real) and $a_j$ the coefficients of the multilinear combination. One should note that for j equals 1, $C_1$ is the Identity vector and $a_1$ is the baseline or zero current, and for j equals 2, $C_2$ is $C_i$ the reference gas concentrations of interest while $a_2$ is the sensitivity of the sensor for the gas compounds being monitored. For j > 2, $C_j$ can be called covariates.
+
+\begin{equation}
+R_i = \sum_{i=1}^{n} a_j [C_j]^k = a_1 + a_2[C_i] + \sum_{i=3}^{n} a_j [C_j]^k 
+\label{Ri_cal}
+\end{equation}
+
+Subsequently the calibration is applied to compute pollutant levels outside the calibration time period using Equation \eqref{Ci_cal}, hereafter called prediction or inference. 
+\begin{equation}
+[C_i] = \frac {R_i-a_1 -(\sum_{i=3}^{n} a_j [C_j]^k)}{a_2}
+\label{Ci_cal}
+\end{equation}
+
+# Materials and Methods
+
+Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited.
+
+Research manuscripts reporting large datasets that are deposited in a publicly available database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication.
+
+Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code.
+
+# Results
+
+This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.
+
+## Subsection Heading Here
+
+Subsection text here.
+
+### Subsubsection Heading Here
+
+Bulleted lists look like this:
+
+* First bullet
+* Second bullet
+* Third bullet
+
+Numbered lists can be added as follows:
+
+1. First item
+2. Second item
+3. Third item
+
+The text continues here.
+
+All figures and tables should be cited in the main text as Figure 1, Table 1, etc.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=3 cm]{logo-mdpi}
+\caption{This is a figure, Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.}
+\end{figure}
+
+
+\begin{table}[H]
+\caption{This is a table caption. Tables should be placed in the main text near to the first time they are cited.}
+\centering
+%% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+\begin{tabular}{ccc}
+\toprule
+\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+\midrule
+entry 1		& data			& data\\
+entry 2		& data			& data\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is an example of an equation:
+
+\begin{equation}
+\mathbb{S}
+\end{equation}
+<!-- If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph. -->
+
+<!-- Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows: -->
+Example of a theorem:
+\begin{Theorem}
+Example text of a theorem.
+\end{Theorem}
+
+The text continues here. Proofs must be formatted as follows:
+
+Example of a proof:
+\begin{proof}[Proof of Theorem 1]
+Text of the proof. Note that the phrase `of Theorem 1' is optional if it is clear which theorem is being referred to.
+\end{proof}
+The text continues here.
+
+# Discussion
+
+Authors should discuss the results and how they can be interpreted in perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
+
+# Conclusion
+
+This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+
