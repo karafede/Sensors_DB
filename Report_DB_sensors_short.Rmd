@@ -164,6 +164,7 @@ for (i in 1:length(ref)) {
    DB$new_ref_author[i] <- ref[[i]][1] 
 } 
 
+
 # select only few field of interest
 DB <- DB %>%
   select(manufacturer,
@@ -178,7 +179,12 @@ DB <- DB %>%
          time_avg,
          r2,
          r2_calib,
+         max_concentration,
+         season,
          rmse,
+         mae,
+         bias,
+         nrmse__,
          u,
          intercept,
          slope,
@@ -1022,7 +1028,7 @@ DB_comparison_RMSE_FIELD <- DB_comparison_RMSE %>%
 n_DB_comparison_RMSE_FIELD <- nrow(DB_comparison_RMSE_FIELD)
 
 
-# total number of comparison tests reporting the Uncertainty (U)
+# total number of comparison tests reporting the Uncertainty (U) (standard deviation)
 DB_comparison_U <- DB[!(is.na(DB$u)), ]
 n_DB_comparison_U <- nrow(DB_comparison_U)
 
@@ -1034,13 +1040,55 @@ DB_comparison_U_FIELD <- DB_comparison_U %>%
   filter(field___lab == "Feld Test")
 n_DB_comparison_U_FIELD <- nrow(DB_comparison_U_FIELD)
 
+
+# total number of comparison tests reporting the Mean Abosolute Error (MAE) 
+DB_comparison_MAE <- DB[!(is.na(DB$mae)), ]
+n_DB_comparison_MAE <- nrow(DB_comparison_MAE)
+
+DB_comparison_MAE_LAB <- DB_comparison_MAE %>%
+  filter(field___lab == "Laboratory Test")
+n_DB_comparison_MAE_LAB <- nrow(DB_comparison_MAE_LAB)
+
+DB_comparison_MAE_FIELD <- DB_comparison_MAE %>%
+  filter(field___lab == "Feld Test")
+n_DB_comparison_MAE_FIELD <- nrow(DB_comparison_MAE_FIELD)
+
+
+# total number of comparison tests reporting the Mean Normalised root mean squared error (nRMSE) 
+DB_comparison_nRMSE <- DB[!(is.na(DB$nrmse__)), ]
+n_DB_comparison_nRMSE <- nrow(DB_comparison_nRMSE)
+
+DB_comparison_nRMSE_LAB <- DB_comparison_nRMSE %>%
+  filter(field___lab == "Laboratory Test")
+n_DB_comparison_nRMSE_LAB <- nrow(DB_comparison_nRMSE_LAB)
+
+DB_comparison_nRMSE_FIELD <- DB_comparison_nRMSE %>%
+  filter(field___lab == "Feld Test")
+n_DB_comparison_nRMSE_FIELD <- nrow(DB_comparison_nRMSE_FIELD)
+
+
+# total number of comparison tests reporting the BIAS 
+DB_comparison_BIAS <- DB[!(is.na(DB$bias)), ]
+n_DB_comparison_BIAS <- nrow(DB_comparison_BIAS)
+
+DB_comparison_BIAS_LAB <- DB_comparison_BIAS %>%
+  filter(field___lab == "Laboratory Test")
+n_DB_comparison_BIAS_LAB <- nrow(DB_comparison_BIAS_LAB)
+
+DB_comparison_BIAS_FIELD <- DB_comparison_BIAS %>%
+  filter(field___lab == "Feld Test")
+n_DB_comparison_BIAS_FIELD <- nrow(DB_comparison_BIAS_FIELD)
+
 n_FIELD_tests <- c(as.numeric(field_tests),
                    as.numeric(n_DB_calibration_FIELD),
                    as.numeric(n_DB_comparison_FIELD),
                    as.numeric(n_DB_comparison_slope_FIELD),
                    as.numeric(n_DB_comparison_intercept_FIELD),
                    as.numeric(n_DB_comparison_RMSE_FIELD),
-                   as.numeric(n_DB_comparison_U_FIELD))
+                   as.numeric(n_DB_comparison_U_FIELD),
+                   as.numeric(n_DB_comparison_MAE_FIELD),
+                   as.numeric(n_DB_comparison_nRMSE_FIELD),
+                   as.numeric(n_DB_comparison_BIAS_FIELD))
 
 n_LAB_tests <- c(as.numeric(lab_tests),
                    as.numeric(n_DB_calibration_LAB),
@@ -1048,7 +1096,10 @@ n_LAB_tests <- c(as.numeric(lab_tests),
                    as.numeric(n_DB_comparison_slope_LAB),
                    as.numeric(n_DB_comparison_intercept_LAB),
                    as.numeric(n_DB_comparison_RMSE_LAB),
-                   as.numeric(n_DB_comparison_U_LAB))
+                   as.numeric(n_DB_comparison_U_LAB),
+                   as.numeric(n_DB_comparison_MAE_LAB),
+                   as.numeric(n_DB_comparison_nRMSE_LAB),
+                   as.numeric(n_DB_comparison_BIAS_LAB))
 
 
 # remove NA values
@@ -1067,7 +1118,7 @@ df_metrics <- as.data.frame(df_metrics)
 
 rownames(df_metrics) <- c("", "$R^{2}$ from calibrations", "$R^{2}$ from comparisons", 
                           "slope of reg. line", "intercept", 
-                          "RMSE", "Uncertainity (U)")
+                          "RMSE", "Uncertainity (U)", "MAE", "nRMSE", "BIAS")
 
 df_metrics <- data.frame(names = row.names(df_metrics), df_metrics)
 
@@ -1285,7 +1336,9 @@ Figure A9 and Figure A11 show the same selection as Figure A8 but for OEMs. This
 For the evaluation of the price of LCSs, we considered all SSys manufactured by commercial companies. Operating costs such as calibration, maintenance, deployment and data treatment are not included in the estimated price of SSys.  
 Figure 5 shows the commercial price of LCSs by model and number of measured pollutants and Figure A13 shows the prices for OEMs. There is a large number of SSys measuring one pollutant and only a few ones measuring multiple pollutants. Most OEMs are open source devices (Figure A13). On the other hand, most of the SSys are “black boxes” (Figure 5). Therefore, most of the SSys cannot be easily re-calibrated by users. In fact, most SSys are intended to be ready-to-use air quality monitors. 
 In Figure 6 we have shortlisted the best SSys according to their level of agreement with reference systems. Figure 6 includes SSys with hourly and daily data showing $R^{2}$ higher than 0.85 and slopes ranging between 0.8 and 1.2. The Figure shows the price, the number of pollutants being measured, the averaging time and the data openness of the selected SSys. Table 4 reports the SSys shortlisted in Figure 6 with the R² and slope mean values, the list of pollutants being measured, the openness of data, their commercial availability and price.
-Among “open source” SSys, we could identify the AirSensEUR by LiberaIntentio and the AIRQuino by the CNR. The remaining shortlisted SSys were identified as “black box”. The **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of 0.90 and a slope  of 0.94 while the AIRQuino resulted in a mean $R^{2}$ value of 0.91 and a slope of 0.97. We need to point out that, to date, the AIRQuino can be used for the detection of up to five pollutants ($NO_{2}$, ${NO}$, $CO$, $O_{3}$ and $PM$). However, only data for PM were available at the time of this review. 
+Among “open source” SSys, we could identify the AirSensEUR by LiberaIntentio and the **AIRQuino** by the CNR. The remaining shortlisted SSys were identified as “black box”. The **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of 0.90 and a slope  of 0.94 while the AIRQuino resulted in a mean $R^{2}$ value of 0.91 and a slope of 0.97. We need to point out that, to date, the AIRQuino can be used for the detection of up to five pollutants ($NO_{2}$, ${NO}$, $CO$, $O_{3}$ and $PM$). However, only data for PM were available at the time of this review. 
+
+
 
 \newline
 
@@ -1612,6 +1665,7 @@ plot
 ```
 
 \newline
+
 
 ```{r Figure 6, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 10, fig.height = 6, fig.cap = "**Figure 6.** Price of low-cost sensor systems associated to measuremnts performed at different averaging times. Numbers in bold indicate the number of pollutant measured by open source (blue) and black box (black) sensors. Only records with $R^2$ > 0.85 and 0.8 < $slope$ < 1.2 are shown. Names of 'living' & 'updated' and 'non-living' sensors are indicated in black and red color, respectively. $NC$ indicates non commercially available sensor."}
 
@@ -2105,11 +2159,15 @@ model_OEM <- lm(log10(DB_prices_r2_fit[DB_prices_r2_fit$OEM_system == "OEM", ]$m
 
 ## 6. Conclusions
 
+
+According to the European Air Quality Directive2, a sensor system can be considered “Equivalent” when it meets the Data Quality Objectives (DQOs) set for data capture and uncertainty3,4 .In order for sensor system measurement to be incorporated into the legal framework set by the Air Quality Directive in Europe, they shall satisfy one of the data quality objectives (DQOs) of the Directive. DQOs, defined as the maximum allowed relative uncertainty, are defined either for reference and indicative measurements or for objective estimations. For inorganic gaseous pollutants, they correspond to 15, 25 to 30 and 75 %, respectively. Although, the objective of sensor systems is to provide the most accurate air pollution measurements, it is most likely that the DQO for reference measurements is out reach while it is believed that by improving the sensor calibration procedures the DQO of “Indicative Measurements” could be met at fixed monitoring sites.
+
 There is little information available in the literature regarding calibration of LCSs. Nevertheless, it was anyhow possible to list the calibration methods giving the highest $R^{2}$ when applied to the results of field tests. For ${CO}$ and ${NO}$ reviewed works showed that the MLR models were the most suitable for calibration. ANN gave the same level of performance than MLR only for NO. For ${NO}_2$ and ${O}_3$, supervised learning models such as, SVR, SVM, (not for ${O}_3$), ANN, and RF followed by MLR models showed to be the most suitable method of calibration. Regarding Particulate Matter, the best results were obtained with linear models when calibrating ${PM}_2.5$. However, these models were applied only to ${PM}_2.5$ with high relative humidity data (> 75-80%) that were discarded. For higher relative humidity, models accounting for the growing of the particulates must be further developed. So far, the calibration using the Khöler theory seems to be the promising method.
 
 A list of SSys with $R^{2}$ and slope close to 1.0 were drawn from the whole database of Records of comparison tests of LCSs data versus reference measurements that indicates the best performance of SSys as shown in Figure 8. In fact, Figure 8 evidences a best selection region for SSys with blue background. The best SSys would be the one which reaches the point with coordinates $R^{2}$ = 1 and slope = 1. Within the blue background region, the following SSys can be found: the **2B Tech. (POM)**, the **PA-II**, the **AirSensEUR (v.1)**, the **PA-I**, the **S-500**, the **AirSensEUR (v.1)**, the **SNAQ**, the **Vaisala AQT410 v.15**, the **MetOne (NM)**, the **Egg (v.2)**, the **AQY v0.5**, the **CairClip O3/NO2**, the **AQMesh v3.0**, the **AQT410 v.11** and the **AirVeraCity**. Additionally, Figure 8 shows that there are more SSys underestimating reference measurements with slopes lower than 1 than SSys overestimating reference measurements.
 Analysing the price of SSys and their price, it was found that $R^{2}$ increases of 14 % for a 10-fold increase of the prices of SSys, a limited improvement for a large price increase.
- 
+
+
 \newline
 
 
@@ -2219,6 +2277,11 @@ plot <- ggplot(data = DB_taylor_SS, aes(x = mean_slope, y = mean_r2)) +
 \newline
 
 Although this paper gives an exhaustive survey of the independent LCS evaluations, the concept of comparing LCS field tests from different studies can be difficult or results in misleading conclusions. It is difficult because of the lack of uniformity of the metrics representing LCS data quality that are different between studies and difficult to compare. Comparing field tests of LCS may also be misleading since in order to take into consideration the highest number of studies it was necessary to mainly rely on the coefficient of determination $R^{2}$. However,$R^{2}$ is too much dependent on the range of reference measurements, on the duration of test field and on the season and location of the tests making change of $R^{2}$ not completely dependent on LCS data quality or of calibration methods. This shortcoming makes the standardisation of a protocol of evaluation of LCSs at international level of great importance and the results of intercomparison exercise where gathering LCSs are gathered at the same test sites and at the same time greatly desired.
+
+Finally, among open source sensor systems we could identify the **AirSensEUR (v.2)** by **LiberaIntentio** and the **AIRQuino** by the **CNR** for the detection of $NO_{2}$, $CO$, $O_{3}$, $NO$ and $PM$, respectively. As we can see, the **AirSensEUR (v.2)** resulted in a mean $R^{2}$ value of 0.90 and a slope of 0.94 while the **AIRQuino** resulted in a mean $R^{2}$ value of 0.91 and a $slope$ of 0.97. We need to point out that, at the date, the **AIRQuino** can measures up to five pollutants ($PM_{2.5}$, $PM_{10}$, $NO_{2}$, $O_{3}$, $CO$ and $NO$, $CO_{2}$ and $VOCs$), however, only data fror $PM$ were available a the time of this review. On the other hand, the **AirSensEUR (v2)** is a complete sensor system that can also measure particulate matter beside gaseous pollutants including "$CO_{2}$ and $Rn$ (radon)". This sensor system is already operative and has undergone multiple calibrations and field tests where measurements of gaseous pollutants showing good agreement with reference measurements.
+
+
+In conclusion to this market analysis, the only sensor system satisfying the requirements of multipollutant, availability of raw data, transparency of all applied data treatment, availability of evaluation of the performance of sensor system in literature with high coefficient of determination (>0.85) has been found to be the AirSensEUR v.2.
 
 
 ## Appendix A
@@ -3515,6 +3578,109 @@ pander(SS_price_pollutants, emphasize.strong.cols = 1, missing = "")
 
 ```
 
+
+\newline
+
+```{r, Figure X, echo = FALSE, warning = FALSE, cache = FALSE, results = 'asis', message = FALSE, comment=FALSE, fig.width = 7, fig.height = 5, fig.cap = "**Figure X.** R2 versus PM reference system"}
+
+
+# select only Pollutant PM with their reference system measurement
+# AAA <- DB[grep(pattern = "PM", x = DB[DB$y %in% c("BAM"), ]$pollutant),    c("pollutant", "r2", "r2_calib", "y")]
+r2_PM_ref <- DB[which(DB$y %in% c("BAM", "GRIMM", "DustTrack", "TEOM", "TEOM-FDMS", "TSI OPS", "GRAVIMETRIC", "PARTISOL", "APS") | DB$x %in% c("BAM", "GRIMM", "DustTrack", "TEOM", "TEOM-FDMS", "TSI OPS", "GRAVIMETRIC","PARTISOL", "APS")), 
+                c("pollutant", "r2", "r2_calib", "x", "y")]
+
+
+r2_PM_ref$Refnames <- sapply(1:nrow(r2_PM_ref), function(i) ifelse(r2_PM_ref[i,"x"] == "Sensor",
+                            as.character(r2_PM_ref[i,"y"]), as.character(r2_PM_ref[i,"x"])))
+
+r2_PM_ref[which(r2_PM_ref$Refnames == "TEOM-FDMS")  , "Refnames"] <- "TEOM"
+# quantile(r2_PM_ref[which(r2_PM_ref$Refnames == "TEOM")  , "r2"], probs = c(0.25,0.5,0.75), na.rm = T)
+# quantile(r2_PM_ref[which(r2_PM_ref$Refnames == "BAM")  , "r2"], probs = c(0.25,0.5,0.75), na.rm = T)
+# quantile(r2_PM_ref[which(r2_PM_ref$Refnames == "GRIMM")  , "r2"], probs = c(0.25,0.5,0.75), na.rm = T)
+### COMPARISON #####
+       
+# compute frequency of records for each model of sensor
+r2_PM_ref_COMPARISON <- r2_PM_ref[!is.na(r2_PM_ref$r2)  ,c("r2","Refnames") ]
+counts_r2_PM_ref <- r2_PM_ref_COMPARISON %>%
+  dplyr::group_by(Refnames) %>%
+  summarise(counts = length(Refnames))
+
+q <- ggplot(data = r2_PM_ref_COMPARISON, 
+            aes(Refnames, r2, fill = Refnames)) +
+  theme_bw() +
+  geom_boxplot(aes(fill = Refnames), position = position_dodge2(preserve = "single")) +
+  geom_text(data = counts_r2_PM_ref, aes(x = Refnames, y = 0.85, label = counts, fontface="bold"), size = 5, show.legend = FALSE) +
+  theme(legend.text = element_text(colour="black", size = 10, face = "bold")) +
+  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1, size=10)) +
+  theme(axis.text.x=element_text(size=13,face="bold", colour = "black")) +
+  theme(axis.title.x = element_blank()) +                                     
+   ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=14),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=14, colour="black")) +
+  ggtitle(expression(paste(R^2,  " for PM sensors by reference system (COMPARISON)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 13, hjust=0.5)) 
+q
+
+### CALIBRATION ####
+
+r2_PM_ref_CALIBRATION <- r2_PM_ref[!is.na(r2_PM_ref$r2_calib)  ,c("r2_calib","Refnames") ]
+counts_r2_PM_ref <- r2_PM_ref_CALIBRATION %>%
+  dplyr::group_by(Refnames) %>%
+  summarise(counts = length(Refnames))
+
+q <- ggplot(data = r2_PM_ref_CALIBRATION, 
+            aes(Refnames, r2_calib, fill = Refnames)) +
+  theme_bw() +
+  geom_boxplot(aes(fill = Refnames), position = position_dodge2(preserve = "single")) +
+  geom_text(data = counts_r2_PM_ref, aes(x = Refnames, y = 0.85, label = counts, fontface="bold"), size = 5, show.legend = FALSE) +
+  theme(legend.text = element_text(colour="black", size = 10, face = "bold")) +
+  theme(axis.text.x=element_text(angle=45,hjust=1,vjust=1, size=10)) +
+  theme(axis.text.x=element_text(size=13,face="bold", colour = "black")) +
+  theme(axis.title.x = element_blank()) +                                     
+   ylab(expression(paste(R^2),size=40)) + 
+  theme(axis.title.y = element_text(face="bold", colour="black", size=14),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=14, colour="black")) +
+  ggtitle(expression(paste(R^2, " for PM sensors by reference system (CALIBRATION)"))) + 
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 13, hjust=0.5)) 
+q
+
+
+
+#======== select all R2 from comparison with referecne instruments (only FIELD tests)
+
+DB_r2_max_conc <- DB[!(is.na(DB$r2 & DB$max_concentration)), c("r2", "max_concentration", "pollutant", "season", "field___lab")]
+DB_r2_max_conc <- DB_r2_max_conc %>%
+  dplyr::filter(field___lab == "FIELD") 
+  #dplyr::filter(max_concentration < 100) 
+
+#  dplyr::filter(pollutant == "PM10")
+
+## this function includes the intercept~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# my.formula <- y ~ -1 + x (through the origin)
+my.formula <- y ~ x
+
+plot <- ggplot(DB_r2_max_conc, aes(y = r2, x = max_concentration)) +
+  theme_bw() +
+  geom_point(size = 2) +
+  geom_smooth(data = DB_r2_max_conc, method="lm", formula = my.formula) +  # Add linear regression line
+  # facet_grid(season ~ .) + 
+  xlab("max PM reference concentration") +
+  ylab(expression(paste(R^2),size=40)) + 
+  theme(strip.text = element_text(size = 15, face="bold")) +
+  theme(strip.text.y = element_text(angle = 0)) +
+  theme(axis.title.x = element_text(colour="black", size=15),
+        axis.text.x  = element_text(angle=0, vjust=0.5, hjust = 0.5, size=15, colour = "black")) +
+  theme(axis.title.y = element_text(colour="black", size=15),
+        axis.text.y  = element_text(angle=0, vjust=0.5, size=15, colour = "black")) +
+  ggtitle(expression(paste("Relation between ",  R^2 , " and max concentratio of PM from reference instrument"))) +
+  theme(plot.title = element_text(lineheight=.8, face="bold", size = 10, hjust = 0.5)) 
+  plot
+
+
+AAA <- r2_PM_ref %>%
+  dplyr::group_by(Refnames) %>%
+  mutate(percentiles = ntile(r2, 4))
+```
 
 \newline
 
